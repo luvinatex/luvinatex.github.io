@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="لوفينا - التل السويسري الفاخر والفرنش ليس. الأسعار، خصومات التجار، والطلب على واتساب.">
+<meta property="og:title" content="LUVINA - التل السويسري الفاخر">
+<meta property="og:description" content="100 لون، ضمان، مبيتأثرش بالمكوة. الأسعار وخصومات التجار والطلب على واتساب.">
+<title>LUVINA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Noto+Kufi+Arabic:wght@200;300;400;600&display=swap">
+<style>
+html,body{margin:0}img{max-width:100%}
+/* Layout: one dark shop-window column — spotlight hero on tulle mesh, then products, tiers, offer, contact. Single dark theme by choice. */
+:root{
+  --ink:#140A14; --plum:#22101F; --deep:#0D060D; --wine:#3B1E47; --wine-2:#8C1D5A; --rose:#C04A86; --cream:#F3DCEB; --muted:#B394A8; --gold:#D96AA6; --leaf:#7FA36A; --line:rgba(243,220,235,.12); --on-dark:#F3DCEB;
+  --f-latin:"Bodoni Moda","Didot",Georgia,serif;
+  --f-display:"Noto Kufi Arabic","Geeza Pro",Tahoma,sans-serif;
+  --f-body:"Noto Kufi Arabic","Geeza Pro",Tahoma,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-body);font-weight:300;font-size:15px;line-height:1.9;direction:rtl;text-align:right}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:200;letter-spacing:.01em;margin:0;text-wrap:balance;line-height:1.3}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(ellipse 70% 55% at 75% 8%,rgba(140,29,90,.75),transparent 70%),
+  radial-gradient(ellipse 60% 50% at 10% 90%,rgba(59,30,71,.9),transparent 70%),
+  var(--deep);color:var(--on-dark)}
+.hero::before{content:none;position:absolute;inset:0;opacity:.22;
+  background-image:radial-gradient(circle at 50% 50%,transparent 2.2px,var(--on-dark) 2.6px,transparent 3.1px);
+  background-size:9px 15.6px;
+  -webkit-mask-image:linear-gradient(200deg,#000 0%,transparent 75%);mask-image:linear-gradient(200deg,#000 0%,transparent 75%)}
+.hero .wrap{position:relative;padding-block:56px 44px;display:grid;gap:18px}
+.mark{font-family:var(--f-latin);font-weight:400;font-size:clamp(52px,16vw,84px);letter-spacing:.14em;direction:ltr;text-align:center;line-height:1}
+.tag{font-family:var(--f-latin);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--leaf);direction:ltr;text-align:center}
+.hero h1{font-size:clamp(28px,8vw,40px);text-align:center;margin-top:18px}
+.hero .sub{text-align:center;color:var(--muted);font-size:15px}
+.hero .cta{background:var(--wine-2);color:var(--on-dark)}
+.offer .cta{background:var(--on-dark);color:var(--wine-2)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--deep);color:var(--on-dark);text-decoration:none;font-family:var(--f-display);font-weight:400;font-size:16px;letter-spacing:.04em;padding:15px 20px;border-radius:2px;margin-top:8px}
+.cta:focus-visible,.copy:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* sections */
+section .wrap{padding-block:40px;display:grid;gap:20px}
+.eyebrow{font-family:var(--f-latin);font-size:11px;letter-spacing:.38em;color:var(--gold);direction:ltr;text-align:right;text-transform:uppercase}
+h2{font-size:28px}
+.rule{border-top:1px solid var(--line)}
+
+/* products */
+.prod{display:grid;gap:12px;padding-block:22px;border-bottom:1px solid var(--line)}
+.prod:last-child{border-bottom:0}
+.prod-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prod h3{font-size:22px;font-weight:300}
+.badge{font-size:12px;color:var(--gold);border:1px solid rgba(217,106,166,.5);padding:2px 10px;border-radius:20px;white-space:nowrap}
+.prod .desc{color:var(--muted);font-size:15px}
+.prices{display:grid;gap:8px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;background:var(--plum);padding:12px 14px;border-right:3px solid var(--rose)}
+.price-row .label{font-size:15px}
+.price-row .val{font-family:var(--f-latin);font-size:22px;font-weight:600;color:var(--cream);white-space:nowrap}
+.price-row .val small{font-family:var(--f-body);font-size:13px;color:var(--muted);font-weight:400;margin-inline-start:4px}
+.note{font-size:13px;color:var(--muted)}
+
+/* features */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.feat{background:var(--plum);padding:16px 14px;display:grid;gap:4px}
+.feat b{font-family:var(--f-display);font-weight:400;font-size:16px}
+.feat span{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* tiers */
+.tiers{width:100%;border-collapse:collapse;font-size:15px}
+.tiers th{font-weight:600;color:var(--muted);font-size:13px;text-align:right;padding:8px 6px;border-bottom:1px solid var(--line)}
+.tiers td{padding:11px 6px;border-bottom:1px solid var(--line)}
+.tiers td:last-child{font-family:var(--f-latin);font-size:20px;font-weight:600;text-align:left;color:var(--gold)}
+.tiers th:last-child{text-align:left}
+.tiers tr:last-child td{border-bottom:0}
+
+/* offer */
+.offer{background:linear-gradient(150deg,var(--wine-2),var(--wine));color:var(--on-dark);position:relative;overflow:hidden}
+.offer::after{content:"350";position:absolute;left:-10px;bottom:-40px;font-family:var(--f-latin);font-size:170px;line-height:1;color:rgba(243,220,235,.08);pointer-events:none}
+.offer .wrap{position:relative}
+.offer .eyebrow{color:rgba(243,220,235,.7)}
+.offer h2{font-size:30px}
+
+/* contact */
+.contact-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);padding:12px 14px;flex-wrap:wrap}
+.contact-row .k{font-size:13px;color:var(--muted)}
+.contact-row .v{font-family:var(--f-latin);font-size:20px}
+.copy{background:transparent;color:var(--cream);border:1px solid var(--line);font-family:var(--f-body);font-size:13px;padding:6px 14px;border-radius:2px;cursor:pointer}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{color:var(--cream);text-decoration:none;border-bottom:1px solid var(--gold);font-size:15px}
+.map{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cream);background:var(--plum);border:1px solid var(--line);padding:14px}
+.map b{display:block;font-weight:400;font-size:16px}
+.map small{display:block;font-size:13px;color:var(--muted);line-height:1.6}
+.pin{flex:none;width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--wine-2);box-shadow:inset 0 0 0 5px var(--wine-2),inset 0 0 0 9px var(--on-dark)}
+footer .wrap{padding-block:28px 40px;text-align:center;color:var(--muted);font-size:12px;display:grid;gap:6px}
+footer .mark{font-size:28px;color:var(--cream)}
+/* tulle fan + swatches */
+.fan{display:flex;justify-content:center;align-items:flex-end;height:150px;margin-top:10px;direction:ltr}
+.fan i{display:block;width:34px;height:140px;margin:0 -9px;border-radius:2px 2px 0 0;opacity:.82;transform-origin:50% 100%;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.2),transparent 35%,rgba(0,0,0,.25)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.22) 4px,rgba(255,255,255,0) 9px,rgba(0,0,0,.2) 13px,rgba(255,255,255,0) 17px)}
+.sw-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px 6px;padding-top:6px}
+.sw{aspect-ratio:3/5;max-width:100%;position:relative;opacity:.86;transform-origin:50% 0;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.22),transparent 30%,transparent 70%,rgba(0,0,0,.28)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.2) 5px,rgba(255,255,255,0) 11px,rgba(0,0,0,.2) 17px,rgba(255,255,255,0) 23px);
+  -webkit-mask:radial-gradient(7px at 50% 100%,#0000 96%,#000) 50% / 13px 100%;mask:radial-gradient(7px at 50% 100%,#0000 96%,#000) 50% / 13px 100%;
+  filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+.sw::before{content:"";position:absolute;top:-4px;left:-2px;right:-2px;height:7px;background:var(--muted);opacity:.55;border-radius:2px}
+.sw-count{font-family:var(--f-latin);font-size:64px;line-height:1;color:var(--gold);direction:ltr;text-align:right}
+@media (prefers-reduced-motion:no-preference){.cta{transition:transform .2s}.cta:hover{transform:translateY(-2px)}
+  .fan i{animation:sway 6s ease-in-out infinite alternate}}
+@keyframes sway{to{transform:rotate(var(--r2))}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mark">LUVINA</div>
+    <div class="tag">Swiss Luxury Tulle</div>
+    <h1>تل سويسري.. المكوة متقدرش عليه.</h1>
+    <p class="sub">التل السويسري الفاخر بالتوب، والفرنش ليس بالكوب. والشحن لكل المحافظات.</p>
+    <div class="fan" id="fan" aria-hidden="true"></div>
+    <a class="cta" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8" target="_blank" rel="noopener">اطلب على واتساب</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The Colors</div>
+    <div class="sw-count">100</div>
+    <h2>لون لكل فستان.</h2>
+    <div class="sw-grid" id="sw" aria-hidden="true"></div>
+    <p class="note">دي عينة بس. الـ100 لون الحقيقيين موجودين في الكتالوج.</p>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The Collection</div>
+    <h2>المنتجات والأسعار</h2>
+
+    <div>
+      <article class="prod">
+        <div class="prod-head"><h3>لوفينا · التل السويسري</h3><span class="badge">100 لون</span></div>
+        <p class="desc">ثابت تحت المكوة، ومبينكمشش، ومسامه ناعمة جداً. وعليه ضمان من الشركة.</p>
+        <div class="prices">
+          <div class="price-row"><span class="label">توب 25 متر · عرض 160 سم</span><span class="val"><span class="num">2,750</span><small>ج.م</small></span></div>
+          <div class="price-row"><span class="label">توب 25 متر · عرض 3 متر</span><span class="val"><span class="num">5,500</span><small>ج.م</small></span></div>
+        </div>
+        <p class="note">عرض الـ3 متر متاح في ألوان مختارة، اسأل عليها على واتساب.</p>
+      </article>
+
+      <article class="prod">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">أوف وايت</span></div>
+        <p class="desc">دانتيل فرنساوي بخيط الكوردونيه البارز، لفساتين الزفاف والهوت كوتور.</p>
+        <div class="prices">
+          <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">1,600</span><small>ج.م</small></span></div>
+        </div>
+      </article>
+
+      <article class="prod">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · مطرز</h3><span class="badge">أوف وايت</span></div>
+        <p class="desc">فرنش ليس بتطريز كامل، لقطع الزفاف والسواريه اللي محتاجة فخامة من غير مجهود.</p>
+        <div class="prices">
+          <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">2,600</span><small>ج.م</small></span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Why Luvina</div>
+    <h2>ليه لوفينا؟</h2>
+    <div class="feats">
+      <div class="feat"><b>مبيتأثرش بالمكوة</b><span>اكوي براحتك من غير ما التل يسيح أو يلمع.</span></div>
+      <div class="feat"><b>مبينكمشش</b><span>المقاس اللي بتقصه هو اللي بيفضل.</span></div>
+      <div class="feat"><b>ضمان من الشركة</b><span>جودة مضمونة وخدمة بعد البيع.</span></div>
+      <div class="feat"><b>100 لون</b><span>من النيود للألوان الغامقة، كله متوفر.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Trade Tiers</div>
+    <h2>خصومات التجار على التل</h2>
+    <p class="note">بنبيع من توب واحد بالسعر العادي، والخصم بيبدأ من 10 توب.</p>
+    <table class="tiers">
+      <thead><tr><th>عدد التوب</th><th>الخصم</th></tr></thead>
+      <tbody>
+        <tr><td>من <span class="num">10</span> توب</td><td class="num">10%</td></tr>
+        <tr><td>من <span class="num">20</span> توب</td><td class="num">15%</td></tr>
+        <tr><td>من <span class="num">50</span> توب</td><td class="num">20%</td></tr>
+        <tr><td>من <span class="num">100</span> توب</td><td class="num">25%</td></tr>
+        <tr><td>من <span class="num">200</span> توب</td><td class="num">30%</td></tr>
+        <tr><td>من <span class="num">350</span> توب</td><td class="num">35%</td></tr>
+        <tr><td>من <span class="num">500</span> توب</td><td class="num">40%</td></tr>
+        <tr><td>من <span class="num">1,000</span> توب</td><td class="num">50%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap">
+    <div class="eyebrow">The Offer</div>
+    <h2>كتالوج الـ100 لون.. ببلاش في الآخر.</h2>
+    <p>عينات حقيقية من كل الألوان بـ<span class="num">350</span> ج.م، والمبلغ بيتخصم من أول أوردر. مصاريف الشحن على العميل.</p>
+    <a class="cta" href="https://wa.me/201270455444?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%83%D8%AA%D8%A7%D9%84%D9%88%D8%AC%20%D8%A7%D9%84%D8%A3%D9%84%D9%88%D8%A7%D9%86" target="_blank" rel="noopener">اطلب الكتالوج</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Delivery</div>
+    <h2>الشحن</h2>
+    <div class="feats">
+      <div class="feat"><b>جوه القاهرة</b><span>بيوصلك في نفس اليوم.</span></div>
+      <div class="feat"><b>المحافظات</b><span>من 48 لـ72 ساعة.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>كلمنا</h2>
+    <div class="contact-row">
+      <div><div class="k">واتساب</div><div class="v num" id="phone">01270455444</div></div>
+      <button class="copy" id="copyBtn" type="button">انسخ الرقم</button>
+    </div>
+    <div class="links">
+      <a href="https://wa.me/201270455444" target="_blank" rel="noopener">واتساب</a>
+      <a href="https://instagram.com/luvinatex" target="_blank" rel="noopener">إنستجرام @luvinatex</a>
+    </div>
+    <a class="map" href="https://www.google.com/maps/search/?api=1&query=%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D8%A8%D9%86%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B8%D8%A7%D9%87%D8%B1%20%D9%85%D9%86%D8%B4%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A8%D9%83%D8%B1%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9" target="_blank" rel="noopener">
+      <span class="pin" aria-hidden="true"></span>
+      <span><b>افتح اللوكيشن على جوجل مابس</b><small>4 شارع ابن عبد الظاهر، أمام مستشفى منشية البكري، القاهرة</small></span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mark">LUVINA</div>
+    <div>الأسعار بالجنيه المصري</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var fan=['#F3EDE2','#EAD3C3','#E8B9B4','#D98FA3','#BA71A2','#8E3B5E','#7E2A53','#4A1530','#1B1418','#24324F','#2F5D50','#C9A46A','#B7A6C9'];
+  var f=document.getElementById('fan'),n=fan.length;
+  fan.forEach(function(c,i){var e=document.createElement('i');var r=(i-(n-1)/2)*7;e.style.backgroundColor=c;e.style.transform='rotate('+r+'deg)';e.style.setProperty('--r2',(r*0.82)+'deg');e.style.animationDelay=(i*-0.4)+'s';f.appendChild(e)});
+  var sw=['#FBF7F0','#F3EDE2','#EFE0CF','#EAD3C3','#E2C2A8','#D8AE95','#C9967C','#F2D4D7','#E8B9B4','#E3A1AE','#D98FA3','#C46E88','#BA71A2','#8E3B5E','#7E2A53','#5E1A3A','#9B1B30','#C9A46A','#B7A6C9','#8C7BB0','#A9C4D6','#24324F','#2F5D50','#6B7C5E','#1B1418'];
+  var g=document.getElementById('sw');if(g)sw.forEach(function(c,i){var e=document.createElement('span');e.className='sw';e.style.backgroundColor=c;e.style.transform='rotate('+(((i*37)%7)-3)*0.5+'deg)';g.appendChild(e)});
+})();
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var b=this,t=document.getElementById('phone').textContent;
+  function done(){b.textContent='اتنسخ';setTimeout(function(){b.textContent='انسخ الرقم'},1800)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('phone'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+});
+</script>
+
+</body>
+</html>
