@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LUVINA Colors</title>
+<meta name="description" content="كتالوج ألوان لوفينا — 100 لون تل سويسري فاخر. اختار الكود واطلب على واتساب.">
+<meta property="og:title" content="LUVINA — 100 Colors">
+<meta property="og:description" content="كتالوج ألوان التل السويسري الفاخر. اختار الكود واطلب على واتساب.">
+<meta property="og:image" content="luvina-044.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Noto+Kufi+Arabic:wght@200;300;400&display=swap">
+<style>
+:root{
+  --ink:#140A14;--deep:#0D060D;--wine:#3B1E47;--wine-2:#8C1D5A;--rose:#C04A86;--cream:#F3DCEB;--muted:#B394A8;--line:rgba(243,220,235,.12);
+  --f-latin:"Bodoni Moda","Didot",Georgia,serif;--f-ar:"Noto Kufi Arabic","Geeza Pro",Tahoma,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="light"]){color-scheme:dark}}
+:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-ar);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.latin{font-family:var(--f-latin);direction:ltr;unicode-bidi:isolate}
+
+/* ---------- the opening cover ---------- */
+.cover{position:fixed;inset:0;z-index:50;display:flex;perspective:2200px;pointer-events:auto}
+.leaf{flex:1;position:relative;background:
+  radial-gradient(ellipse 120% 80% at 50% 0%,rgba(140,29,90,.55),transparent 70%),var(--deep);
+  transition:transform 1.5s cubic-bezier(.7,0,.2,1);overflow:hidden}
+.leaf::after{content:"";position:absolute;inset:0;opacity:.13;
+  background-image:radial-gradient(circle,transparent 2.1px,var(--cream) 2.5px,transparent 3px);background-size:9px 15.6px}
+.leaf.l{transform-origin:left center;border-right:1px solid rgba(243,220,235,.18)}
+.leaf.r{transform-origin:right center}
+.cover.open .leaf.l{transform:rotateY(-104deg)}
+.cover.open .leaf.r{transform:rotateY(104deg)}
+.cover.gone{display:none}
+.cover-title{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px;padding:24px;transition:opacity .6s}
+.cover.open .cover-title{opacity:0}
+.cover-title .mark{font-family:var(--f-latin);font-size:clamp(46px,13vw,120px);letter-spacing:.18em;line-height:1;margin-right:-.18em;direction:ltr}
+.cover-title .sub{font-family:var(--f-latin);font-style:italic;font-size:clamp(18px,4.4vw,28px);color:var(--muted);direction:ltr}
+.cover-title .rule{width:64px;height:1px;background:var(--rose)}
+.cover-title button{margin-top:22px;font:inherit;font-size:14px;color:var(--cream);background:transparent;border:1px solid rgba(243,220,235,.45);padding:12px 34px;letter-spacing:.06em;cursor:pointer;transition:background .3s,border-color .3s}
+.cover-title button:hover{background:rgba(192,74,134,.18);border-color:var(--rose)}
+.cover-title .tiny{font-size:11px;letter-spacing:.35em;color:var(--muted);font-family:var(--f-latin);direction:ltr}
+
+/* ---------- page ---------- */
+header.top{position:sticky;top:0;z-index:10;background:rgba(20,10,20,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:0 auto;padding:12px max(16px,env(safe-area-inset-left));display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar .logo{font-family:var(--f-latin);letter-spacing:.32em;font-size:18px;text-decoration:none;direction:ltr}
+.bar .back{font-size:13px;color:var(--muted);text-decoration:none}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:6px 12px;min-width:0}
+.search input{all:unset;width:92px;font-family:var(--f-latin);font-size:15px;direction:ltr;text-align:left}
+.search input::placeholder{color:var(--muted);font-style:italic}
+
+.intro{max-width:1240px;margin:0 auto;padding:64px 16px 36px;text-align:center}
+.intro .eyebrow{font-family:var(--f-latin);font-size:12px;letter-spacing:.42em;color:var(--rose);direction:ltr}
+.intro h1{font-weight:200;font-size:clamp(28px,6vw,48px);margin:14px 0 8px;line-height:1.35}
+.intro h1 em{font-family:var(--f-latin);font-style:italic;font-weight:400}
+.intro p{color:var(--muted);font-size:14px;margin:0}
+
+.grid{max-width:1240px;margin:0 auto;padding:0 16px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.sw{position:relative;display:block;padding:0;border:0;background:#1d0f1c;cursor:zoom-in;aspect-ratio:47/28;overflow:hidden;opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.sw.in{opacity:1;transform:none}
+.sw img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
+.sw:hover img{transform:scale(1.06)}
+.sw::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(243,220,235,.07);pointer-events:none}
+.sw.hide{display:none}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;display:none}
+
+.cta{border-top:1px solid var(--line);text-align:center;padding:56px 16px 72px}
+.cta h2{font-weight:200;font-size:clamp(22px,5vw,32px);margin:0 0 10px}
+.cta p{color:var(--muted);font-size:14px;margin:0 0 26px}
+.btn{display:inline-block;text-decoration:none;background:var(--cream);color:var(--ink);padding:14px 36px;font-size:15px;font-weight:400;transition:background .3s}
+.btn:hover{background:#fff}
+footer{text-align:center;font-family:var(--f-latin);letter-spacing:.3em;font-size:11px;color:var(--muted);padding:0 0 40px;direction:ltr}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:40;background:rgba(10,4,10,.96);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px}
+.lb.on{display:flex;animation:fade .35s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.lb figure{margin:0;width:min(1100px,100%);display:flex;flex-direction:column;gap:18px}
+.lb img{width:100%;aspect-ratio:47/28;object-fit:cover;display:block;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .meta{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.lb .code{font-family:var(--f-latin);font-style:italic;font-size:clamp(30px,6vw,46px);line-height:1;direction:ltr}
+.lb .code small{font-style:normal;font-size:11px;letter-spacing:.4em;color:var(--muted);display:block;margin-bottom:8px}
+.lb .order{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--cream);color:var(--ink);padding:12px 26px;font-size:14px;font-weight:400}
+.lb .x{position:absolute;top:14px;left:16px;background:none;border:0;color:var(--cream);font-size:32px;line-height:1;cursor:pointer;padding:6px 10px;font-family:var(--f-latin)}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--cream);font-size:44px;cursor:pointer;padding:10px 14px;font-family:var(--f-latin);opacity:.7}
+.lb .nav:hover{opacity:1}
+.lb .prev{right:4px}.lb .next{left:4px}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.lb .nav{display:none}.search input{width:64px}.bar .back{display:none}}
+@media (prefers-reduced-motion:reduce){.leaf,.sw,.sw img{transition:none}.sw{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="cover" id="cover" aria-hidden="false">
+  <div class="leaf l"></div><div class="leaf r"></div>
+  <div class="cover-title">
+    <div class="tiny">SWISS LUXURY TULLE</div>
+    <div class="mark">LUVINA</div>
+    <div class="rule"></div>
+    <div class="sub">The Colour Book — 100 shades</div>
+    <button id="openBtn" type="button">افتح الكتالوج</button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="./">LUVINA</a>
+    <label class="search" title="ابحث بالكود">
+      <span class="latin" style="color:var(--muted);font-size:13px">N°</span>
+      <input id="q" inputmode="numeric" placeholder="code" aria-label="ابحث برقم اللون">
+    </label>
+    <a class="back" href="./">← الصفحة الرئيسية</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="eyebrow">THE COLOUR BOOK</div>
+  <h1>١٠٠ لون… <em class="latin">one</em> تل</h1>
+  <p>دوس على أي لون تشوفه كبير، واطلبه بالكود على واتساب — بالتوب، جملة.</p>
+</section>
+
+<main class="grid" id="grid"><div class="empty" id="empty">مفيش لون بالكود ده — الكودات من 1 لـ 100</div></main>
+
+<section class="cta">
+  <h2>عايز العينات في إيدك؟</h2>
+  <p>كتالوج العينات الحقيقي بالـ100 لون — الـ350 جنيه بتتخصم من أول أوردر.</p>
+  <a class="btn" id="catBtn" href="#">اطلب الكتالوج على واتساب</a>
+</section>
+<footer>LUVINA · SWISS TULLE</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="عرض اللون">
+  <button class="x" id="lbX" aria-label="إغلاق">×</button>
+  <button class="nav prev" id="lbPrev" aria-label="السابق">‹</button>
+  <button class="nav next" id="lbNext" aria-label="التالي">›</button>
+  <figure>
+    <img id="lbImg" alt="">
+    <div class="meta">
+      <div class="code"><small>LUVINA COLOR</small><span id="lbCode"></span></div>
+      <a class="order" id="lbOrder" target="_blank" rel="noopener">اطلب اللون ده على واتساب</a>
+    </div>
+  </figure>
+</div>
+
+<script>
+const WA='201270455444', N=100, pad=n=>String(n).padStart(3,'0');
+const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+document.getElementById('catBtn').href=wa('أهلاً لوفينا، عايز أطلب كتالوج الـ100 لون');
+
+/* cover */
+const cover=document.getElementById('cover');
+function openCover(){cover.classList.add('open');setTimeout(()=>{cover.classList.add('gone');cover.setAttribute('aria-hidden','true')},1500)}
+document.getElementById('openBtn').onclick=openCover;
+cover.addEventListener('wheel',openCover,{once:true,passive:true});
+cover.addEventListener('touchmove',openCover,{once:true,passive:true});
+let seen=false;try{seen=sessionStorage.getItem('lv_open')==='1';sessionStorage.setItem('lv_open','1')}catch(e){}
+if(seen||location.hash){cover.classList.add('gone')}
+
+/* grid */
+const grid=document.getElementById('grid'), items=[];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
+for(let i=1;i<=N;i++){
+  const b=document.createElement('button');b.className='sw';b.type='button';b.dataset.n=i;b.setAttribute('aria-label','لون رقم '+i);
+  b.innerHTML=`<img loading="lazy" decoding="async" src="luvina-${pad(i)}.jpg" alt="Luvina color ${pad(i)}" width="940" height="560">`;
+  b.style.transitionDelay=((i-1)%4)*70+'ms';
+  b.onclick=()=>show(i);grid.appendChild(b);items.push(b);io.observe(b);
+}
+
+/* search */
+const q=document.getElementById('q'),empty=document.getElementById('empty');
+q.addEventListener('input',()=>{
+  const v=q.value.replace(/[^0-9٠-٩]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  let shown=0;
+  items.forEach(b=>{const ok=!v||String(+b.dataset.n).startsWith(String(+v))||pad(b.dataset.n).startsWith(v);b.classList.toggle('hide',!ok);if(ok){shown++;b.classList.add('in')}});
+  empty.style.display=shown?'none':'block';
+});
+q.addEventListener('keydown',e=>{if(e.key==='Enter'){const n=+q.value;if(n>=1&&n<=N)show(n)}});
+
+/* lightbox */
+const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),code=document.getElementById('lbCode'),order=document.getElementById('lbOrder');
+let cur=1;
+function show(n){cur=(n-1+N)%N+1;img.src=`luvina-${pad(cur)}.jpg`;img.alt='Luvina color '+pad(cur);
+  code.textContent='N° '+pad(cur);order.href=wa(`أهلاً لوفينا، عايز أطلب تل لون رقم ${cur}`);
+  lb.classList.add('on');history.replaceState(null,'','#'+cur);}
+function hide(){lb.classList.remove('on');history.replaceState(null,'',location.pathname)}
+document.getElementById('lbX').onclick=hide;
+document.getElementById('lbPrev').onclick=()=>show(cur-1);
+document.getElementById('lbNext').onclick=()=>show(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)hide()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')hide();if(e.key==='ArrowLeft')show(cur+1);if(e.key==='ArrowRight')show(cur-1)});
+let sx=null;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(d<0?cur+1:cur-1);sx=null});
+const h=+location.hash.slice(1);if(h>=1&&h<=N)show(h);
+</script>
+</body>
+</html>
