@@ -154,44 +154,58 @@ footer .mark{font-size:28px;color:var(--cream)}
     <div class="sw-count">100</div>
     <h2>لون لكل فستان.</h2>
     <style>
-    .cbook{position:relative;margin:26px auto 8px;width:min(330px,82%);aspect-ratio:3/4;perspective:1800px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .cbook .tabs{position:absolute;inset:4% auto 4% 0;width:100%;z-index:0}
-    .cbook .tabs i{position:absolute;left:0;width:100%;height:9%;background-size:cover;background-position:center;border-radius:2px;box-shadow:0 2px 6px rgba(0,0,0,.45);transform:translateX(calc(-1 * var(--o)));transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-    .cbook:hover .tabs i{transform:translateX(calc(-1 * var(--o) - 6px))}
-    .cbook .pages{position:absolute;inset:1.5% 0 1.5% 3%;background:repeating-linear-gradient(90deg,#efe3ea 0 2px,#d9c6d1 2px 3px);border-radius:2px 6px 6px 2px;z-index:1;box-shadow:0 30px 60px rgba(0,0,0,.55)}
-    .cbook .cover{position:absolute;inset:0;z-index:3;transform-origin:right center;transition:transform 1.4s cubic-bezier(.7,0,.2,1);transform-style:preserve-3d;border-radius:4px 2px 2px 4px;
-      background:radial-gradient(ellipse 90% 60% at 30% 10%,rgba(192,74,134,.45),transparent 70%),linear-gradient(160deg,#4a1838,#1c0a18 70%);
-      box-shadow:inset 10px 0 18px -10px rgba(0,0,0,.6),inset -14px 0 0 -6px rgba(0,0,0,.35),0 30px 60px rgba(0,0,0,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;color:var(--on-dark);overflow:hidden}
-    .cbook .cover::before{content:"";position:absolute;inset:0;opacity:.12;background-image:radial-gradient(circle,transparent 2.1px,var(--on-dark) 2.5px,transparent 3px);background-size:9px 15.6px}
-    .cbook .cover::after{content:"";position:absolute;inset:10px;border:1px solid rgba(243,220,235,.22)}
-    .cbook .cover b{font-family:var(--f-latin);font-weight:400;font-size:clamp(30px,9vw,42px);letter-spacing:.2em;margin-right:-.2em;direction:ltr;position:relative}
-    .cbook .cover em{font-family:var(--f-latin);font-size:13px;letter-spacing:.3em;direction:ltr;opacity:.75;font-style:normal;position:relative}
-    .cbook .cover span{font-family:var(--f-latin);font-style:italic;font-size:64px;line-height:1;direction:ltr;position:relative}
-    .cbook .cover small{font-size:12px;opacity:.8;position:relative;border-top:1px solid rgba(243,220,235,.3);padding-top:10px}
-    .cbook.open .cover{transform:rotateY(155deg);opacity:0;transition:transform 1.4s cubic-bezier(.7,0,.2,1),opacity .5s ease 1s}
-    .cbook .pages p{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;margin:0;color:#2b1a25;font-family:var(--f-latin);font-style:italic;font-size:22px;direction:ltr}
-    .cbook .hint{position:absolute;bottom:-34px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted)}
-    .cbook.open .hint{opacity:0}
-    .call{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-height:0;overflow:hidden;transition:max-height 1.6s ease .6s;margin-top:44px}
-    .call.on{max-height:9000px}
-    .call a{position:relative;display:block;aspect-ratio:47/28;overflow:hidden;background:#1d0f1c}
-    .call img{width:100%;height:100%;object-fit:cover;display:block;max-width:100%}
-    @media (min-width:640px){.call{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .deck-stage{position:relative;overflow:hidden;margin:18px -16px 0;padding:30px 0 40px;background:radial-gradient(ellipse 60% 55% at 50% 38%,rgba(192,74,134,.28),transparent 70%)}
+    .deck{position:relative;width:96px;height:330px;margin:0 auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .deck i{position:absolute;inset:0;border-radius:3px;background-size:cover;background-position:center;transform-origin:50% calc(100% - 22px);
+      box-shadow:0 1px 0 rgba(255,255,255,.08) inset,-6px 10px 24px rgba(0,0,0,.55);transition:transform 1.3s cubic-bezier(.2,.8,.2,1);transform:rotate(var(--c))}
+    .deck i::after{content:attr(data-n);position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:var(--f-latin);font-style:italic;font-size:15px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);direction:ltr}
+    .deck .lid{position:absolute;inset:0;z-index:40;border-radius:3px;background:linear-gradient(170deg,#f3e6ee,#d9c3cf);color:#2b1a25;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+      box-shadow:-8px 14px 30px rgba(0,0,0,.6);transform-origin:50% calc(100% - 22px);transition:transform 1.3s cubic-bezier(.2,.8,.2,1)}
+    .deck .lid b{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-latin);font-weight:400;font-size:30px;letter-spacing:.32em}
+    .deck .lid span{font-family:var(--f-latin);font-size:10px;letter-spacing:.3em;direction:ltr}
+    .deck .pin{position:absolute;left:50%;bottom:12px;width:20px;height:20px;margin-left:-10px;border-radius:50%;z-index:60;background:radial-gradient(circle at 35% 35%,#fff3d6,#c9a35a 45%,#6e5326);box-shadow:0 2px 6px rgba(0,0,0,.6)}
+    .deck.open i{transform:rotate(var(--f))}
+    .deck.open .lid{transform:rotate(-58deg)}
+    .deck-cap{text-align:center;margin-top:26px;font-size:13px;color:var(--muted);transition:opacity .5s}
+    .deck-cap b{display:block;font-family:var(--f-latin);font-style:italic;font-weight:400;font-size:20px;color:var(--on-dark);direction:ltr}
+    .reel-wrap{max-height:0;overflow:hidden;opacity:0;transition:max-height 1.2s ease .5s,opacity .8s ease .7s}
+    .reel-wrap.on{max-height:900px;opacity:1}
+    .reel-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:6px 0 14px}
+    .reel-bar .cnt{font-family:var(--f-latin);font-size:13px;letter-spacing:.2em;color:var(--muted);direction:ltr}
+    .reel-bar label{display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(243,220,235,.3);padding:4px 2px}
+    .reel-bar input{all:unset;width:70px;font-family:var(--f-latin);font-size:16px;direction:ltr;text-align:left;color:var(--on-dark)}
+    .reel-bar input::placeholder{color:var(--muted);font-style:italic}
+    .reel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 8px;scrollbar-width:none}
+    .reel::-webkit-scrollbar{display:none}
+    .reel a{position:relative;flex:0 0 76%;max-width:340px;aspect-ratio:3/4;scroll-snap-align:center;overflow:hidden;text-decoration:none;color:#fff;background:#1d0f1c}
+    .reel img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:80% 30%;display:block}
+    .reel a::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.45))}
+    .reel .tag{position:absolute;z-index:2;left:18px;bottom:16px;direction:ltr;text-align:left}
+    .reel .tag small{display:block;font-family:var(--f-latin);font-size:10px;letter-spacing:.38em;opacity:.85}
+    .reel .tag em{color:#fff;font-style:italic;font-family:var(--f-latin);font-size:54px;line-height:1.05}
+    .reel .ord{position:absolute;z-index:2;right:14px;bottom:20px;font-size:12px;border:1px solid rgba(255,255,255,.55);padding:6px 12px}
     </style>
-    <div style="overflow:hidden;padding:4px 0 30px">
-    <div class="cbook" id="cbook" role="button" tabindex="0" aria-label="افتح كتالوج الألوان">
-      <div class="tabs" id="cbTabs"></div>
-      <div class="pages"><p>choose your colour ↓</p></div>
-      <div class="cover"><em>THE COLOUR BOOK</em><b>LUVINA</b><span>100</span><small>دوس وافتح الكتالوج</small></div>
+    <div class="deck-stage">
+      <div class="deck" id="deck" role="button" tabindex="0" aria-label="افتح كتالوج الألوان">
+        <div class="lid"><b>LUVINA</b><span>100 COLOURS</span></div>
+        <span class="pin"></span>
+      </div>
+      <div class="deck-cap" id="deckCap"><b>The Colour Book</b>دوس على الكتالوج يتفتح</div>
     </div>
+    <div class="reel-wrap" id="reelWrap">
+      <div class="reel-bar"><span class="cnt" id="reelCnt">001 / 100</span><label><span style="color:var(--muted);font-size:13px">رقم اللون</span><input id="reelQ" inputmode="numeric" placeholder="44"></label></div>
+      <div class="reel" id="reel"></div>
     </div>
-    <div class="call" id="cbAll"></div>
-    <a class="cta" href="colors.html" style="border:1px solid rgba(243,220,235,.35);margin-top:18px">افتح الكتالوج في صفحة لوحده ←</a>
     <script>(function(){
-      var p=function(n){return String(n).padStart(3,'0')},t=document.getElementById('cbTabs'),bk=document.getElementById('cbook'),all=document.getElementById('cbAll');
-      [44,23,1,95,12,57,9,100,26,40,72,5].forEach(function(n,k){var i=document.createElement('i');i.style.top=(k*7.9)+'%';i.style.setProperty('--o',(10+(k%3)*5)+'%');i.style.backgroundImage='url(luvina-'+p(n)+'.jpg)';t.appendChild(i)});
-      function open(){if(bk.classList.contains('open'))return;bk.classList.add('open');var h='';for(var n=1;n<=100;n++)h+='<a href="colors.html#'+n+'"><img loading="lazy" src="luvina-'+p(n)+'.jpg" alt="Luvina color '+p(n)+'"></a>';all.innerHTML=h;setTimeout(function(){all.classList.add('on')},50)}
-      bk.addEventListener('click',open);bk.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open()});
+      var p=function(n){return String(n).padStart(3,'0')},dk=document.getElementById('deck'),pick=[44,23,95,12,57,9,100,26,40,72,5,1,63,88];
+      pick.forEach(function(n,k){var i=document.createElement('i'),m=pick.length-1;i.dataset.n=p(n);i.style.backgroundImage='url(luvina-'+p(n)+'.jpg)';
+        i.style.setProperty('--c',((k-m)*1.6)+'deg');i.style.setProperty('--f',(-48+k*(96/m))+'deg');i.style.zIndex=k+1;dk.insertBefore(i,dk.firstChild)});
+      var rw=document.getElementById('reelWrap'),rl=document.getElementById('reel'),cnt=document.getElementById('reelCnt'),built=false;
+      function build(){if(built)return;built=true;var h='';for(var n=1;n<=100;n++)h+='<a href="colors.html#'+n+'" data-n="'+n+'"><img loading="lazy" src="luvina-'+p(n)+'.jpg" alt="Luvina color '+p(n)+'"><span class="tag"><small>LUVINA</small><em>'+p(n)+'</em></span><span class="ord">اطلبه</span></a>';rl.innerHTML=h;
+        rl.addEventListener('scroll',function(){var r=rl.getBoundingClientRect(),c=r.left+r.width/2,best=1,bd=1e9;[].forEach.call(rl.children,function(a){var b=a.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-c);if(d<bd){bd=d;best=a.dataset.n}});cnt.textContent=p(best)+' / 100'},{passive:true})}
+      function open(){if(dk.classList.contains('open'))return;dk.classList.add('open');document.getElementById('deckCap').innerHTML='<b>100 لون</b>اسحب يمين وشمال ↓';build();rw.classList.add('on')}
+      dk.addEventListener('click',open);dk.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open()});
+      document.getElementById('reelQ').addEventListener('input',function(e){var n=parseInt(e.target.value,10);if(n>=1&&n<=100){var a=rl.children[n-1],r=rl.getBoundingClientRect(),b=a.getBoundingClientRect();rl.scrollBy({left:(b.left+b.width/2)-(r.left+r.width/2),behavior:'smooth'})}});
     })();</script>
   </div>
 </section>
