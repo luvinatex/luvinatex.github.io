@@ -145,6 +145,7 @@ footer .mark{font-size:28px;color:var(--cream)}
 .lx-tabs{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);margin-top:10px}
 .lx-tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:inherit;font-size:13px;padding:10px 4px;cursor:pointer;margin-bottom:-1px}
 .lx-tabs button.on{color:var(--cream);border-bottom-color:var(--rose)}
+.lx-wa{display:flex;align-items:center;justify-content:center;margin-top:12px;background:#25D366;color:#0b2414;text-decoration:none;font-size:15px;font-weight:400;padding:13px 16px;border-radius:2px}
 .lzb2{position:fixed;inset:0;z-index:300;background:rgba(10,4,10,.97);display:none;align-items:center;justify-content:center;padding:12px}
 .lzb2.on{display:flex}.lzb2 img{max-width:100%;max-height:100%;object-fit:contain}
 .lzb2 button{position:absolute;top:10px;left:12px;background:none;border:0;color:#F3DCEB;font-size:34px;cursor:pointer;font-family:var(--f-latin)}
@@ -437,11 +438,11 @@ var z=document.getElementById("lzb2"),zi=z.querySelector("img");z.onclick=functi
 document.querySelectorAll(".lx").forEach(function(el){var sets=el.dataset.sets.split(","),s=sets[0],v="detail";
 var h=(sets.length>1?'<div class="lx-sets">'+sets.map(function(x,i){return '<button data-s="'+x+'"'+(i?'':' class="on"')+'>No.'+(i+1)+'</button>'}).join("")+'</div>':"")+'<div class="lx-stage">';
 sets.forEach(function(x){V.forEach(function(p){h+='<img loading="lazy" data-s="'+x+'" data-v="'+p[0]+'" src="'+u(I[x][p[0]],900)+'" alt="لوفينا فرنش ليس '+p[1]+'">'})});
-h+='<div class="lx-cap"><small>LUVINA FRENCH LACE</small><b></b></div></div><div class="lx-tabs">'+V.map(function(p,i){return '<button data-v="'+p[0]+'"'+(i?'':' class="on"')+'>'+p[1]+'</button>'}).join("")+'</div>';
-el.innerHTML=h;var cap=el.querySelector(".lx-cap b");
+h+='<div class="lx-cap"><small>LUVINA FRENCH LACE</small><b></b></div></div><div class="lx-tabs">'+V.map(function(p,i){return '<button data-v="'+p[0]+'"'+(i?'':' class="on"')+'>'+p[1]+'</button>'}).join("")+'</div><a class="lx-wa" target="_blank" rel="noopener"></a>';
+el.innerHTML=h;var cap=el.querySelector(".lx-cap b"),wa=el.querySelector(".lx-wa");
 function paint(){el.querySelectorAll(".lx-stage img").forEach(function(im){im.classList.toggle("on",im.dataset.s===s&&im.dataset.v===v)});
 el.querySelectorAll(".lx-sets button").forEach(function(b){b.classList.toggle("on",b.dataset.s===s)});el.querySelectorAll(".lx-tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});
-cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"")}
+cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"");var nm=(el.dataset.k==="c"?"فرنش ليس كوردونيه":"فرنش ليس مطرز")+(sets.length>1?" تصميم رقم "+(sets.indexOf(s)+1):"");wa.textContent="اطلب "+(sets.length>1?"تصميم No."+(sets.indexOf(s)+1):"التصميم ده")+" على واتساب";wa.href="https://wa.me/201270455444?text="+encodeURIComponent("أهلاً لوفينا، عايز أطلب "+nm+" (الكوب 3 متر × 1.5 متر)")}
 el.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.s){s=b.dataset.s;paint()}else if(b&&b.dataset.v){v=b.dataset.v;paint()}else if(e.target.closest(".lx-stage")){zi.src=u(I[s][v],1600);z.classList.add("on")}});paint()})})();</script>
 </body>
 </html>
