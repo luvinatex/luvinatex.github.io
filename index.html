@@ -130,6 +130,25 @@ footer .mark{font-size:28px;color:var(--cream)}
 .sw-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}@media (min-width:640px){.sw-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}.sw-card{position:relative;margin:0;overflow:hidden;background:#fff}.sw-card img{display:block;width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover}.sw-card figcaption{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#2b1a25;text-align:center;pointer-events:none}.sw-card span{font-family:var(--f-latin);font-size:9px;letter-spacing:.38em;direction:ltr;opacity:.75}.sw-card b{font-family:var(--f-latin);font-weight:400;font-style:italic;font-size:clamp(17px,4.8vw,22px);direction:ltr;line-height:1.2}.sw-card i{font-style:normal;font-family:var(--f-body);font-size:12px;opacity:.8}
 .sw-card b{font-style:normal!important;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(13px,3.8vw,17px)!important;font-weight:600!important}
 </style>
+<style>
+.lx{margin:6px 0 4px}
+.lx-sets{display:flex;gap:8px;margin-bottom:10px}
+.lx-sets button{font-family:var(--f-latin);font-style:italic;font-size:15px;background:none;border:1px solid rgba(243,220,235,.25);color:var(--muted);padding:5px 14px;border-radius:20px;cursor:pointer;direction:ltr}
+.lx-sets button.on{border-color:var(--cream);color:var(--cream)}
+.lx-stage{position:relative;aspect-ratio:4/5;overflow:hidden;background:#2a1a1f;cursor:zoom-in}
+.lx-stage img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform 1.4s ease}
+.lx-stage img.on{opacity:1;transform:none}
+.lx-stage::after{content:"";position:absolute;inset:10px;border:1px solid rgba(243,220,235,.35);pointer-events:none}
+.lx-cap{position:absolute;z-index:2;left:22px;bottom:20px;direction:ltr;text-align:left;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.lx-cap small{display:block;font-family:var(--f-latin);font-size:10px;letter-spacing:.38em;opacity:.9}
+.lx-cap b{font-family:var(--f-latin);font-weight:400;font-style:italic;font-size:26px}
+.lx-tabs{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);margin-top:10px}
+.lx-tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:inherit;font-size:13px;padding:10px 4px;cursor:pointer;margin-bottom:-1px}
+.lx-tabs button.on{color:var(--cream);border-bottom-color:var(--rose)}
+.lzb2{position:fixed;inset:0;z-index:300;background:rgba(10,4,10,.97);display:none;align-items:center;justify-content:center;padding:12px}
+.lzb2.on{display:flex}.lzb2 img{max-width:100%;max-height:100%;object-fit:contain}
+.lzb2 button{position:absolute;top:10px;left:12px;background:none;border:0;color:#F3DCEB;font-size:34px;cursor:pointer;font-family:var(--f-latin)}
+</style>
 </head>
 <body>
 
@@ -275,6 +294,7 @@ footer .mark{font-size:28px;color:var(--cream)}
       <article class="prod">
         <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">أوف وايت</span></div>
         <p class="desc">دانتيل فرنساوي بخيط الكوردونيه البارز، لفساتين الزفاف والهوت كوتور.</p>
+        <div class="lx" data-k="c" data-t="Cordonnet" data-sets="c1,c2"></div>
         <div class="prices">
           <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">1,600</span><small>ج.م</small></span></div>
         </div>
@@ -283,6 +303,7 @@ footer .mark{font-size:28px;color:var(--cream)}
       <article class="prod">
         <div class="prod-head"><h3>لوفينا فرنش ليس · مطرز</h3><span class="badge">أوف وايت</span></div>
         <p class="desc">فرنش ليس بتطريز كامل، لقطع الزفاف والسواريه اللي محتاجة فخامة من غير مجهود.</p>
+        <div class="lx" data-k="e" data-t="Embroidered" data-sets="e"></div>
         <div class="prices">
           <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">2,600</span><small>ج.م</small></span></div>
         </div>
@@ -409,5 +430,18 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 </script>
 
 <script>(function(){var s=document.querySelectorAll(".hero-slides img"),i=0;if(s.length<2)return;setInterval(function(){s[i].classList.remove("on");i=(i+1)%s.length;s[i].classList.add("on")},4200)})();</script>
+<div class="lzb2" id="lzb2"><button aria-label="قفل">×</button><img alt=""></div><script>(function(){
+var P="https://wsrv.nl/?url="+encodeURIComponent("d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_"),I={"c1": {"form": "112339_be869293-78a0-44d0-aad0-2738c59966ec", "flat": "112549_050e7322-417b-4275-acab-a917be6048af", "detail": "112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173"}, "c2": {"form": "112339_cb4c1acb-79c9-4af6-8223-5ce076cf46d3", "flat": "112550_fb459d3d-1963-4946-87a1-27454fc8e762", "detail": "112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472"}, "e": {"form": "112337_a53a8cb1-2415-4da2-9f53-d0e2b5079718", "flat": "112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2", "detail": "112552_30b9002c-33f9-4712-8202-8726d6fe71e4"}},V=[["form","على المانيكان"],["flat","مفرودة"],["detail","التفاصيل"]];
+function u(id,w){return P+encodeURIComponent(id)+".png&w="+w+"&output=webp&q=78"}
+var z=document.getElementById("lzb2"),zi=z.querySelector("img");z.onclick=function(){z.classList.remove("on")};
+document.querySelectorAll(".lx").forEach(function(el){var sets=el.dataset.sets.split(","),s=sets[0],v="form";
+var h=(sets.length>1?'<div class="lx-sets">'+sets.map(function(x,i){return '<button data-s="'+x+'"'+(i?'':' class="on"')+'>No.'+(i+1)+'</button>'}).join("")+'</div>':"")+'<div class="lx-stage">';
+sets.forEach(function(x){V.forEach(function(p){h+='<img loading="lazy" data-s="'+x+'" data-v="'+p[0]+'" src="'+u(I[x][p[0]],900)+'" alt="لوفينا فرنش ليس '+p[1]+'">'})});
+h+='<div class="lx-cap"><small>LUVINA FRENCH LACE</small><b></b></div></div><div class="lx-tabs">'+V.map(function(p,i){return '<button data-v="'+p[0]+'"'+(i?'':' class="on"')+'>'+p[1]+'</button>'}).join("")+'</div>';
+el.innerHTML=h;var cap=el.querySelector(".lx-cap b");
+function paint(){el.querySelectorAll(".lx-stage img").forEach(function(im){im.classList.toggle("on",im.dataset.s===s&&im.dataset.v===v)});
+el.querySelectorAll(".lx-sets button").forEach(function(b){b.classList.toggle("on",b.dataset.s===s)});el.querySelectorAll(".lx-tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});
+cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"")}
+el.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.s){s=b.dataset.s;paint()}else if(b&&b.dataset.v){v=b.dataset.v;paint()}else if(e.target.closest(".lx-stage")){zi.src=u(I[s][v],1600);z.classList.add("on")}});paint()})})();</script>
 </body>
 </html>
