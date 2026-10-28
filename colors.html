@@ -51,6 +51,24 @@ body{background:#120812;color:var(--on-dark);font-family:var(--f-ar);font-weight
     .cb-lb .nv button,.cb-lb .bx{background:none;border:0;color:var(--on-dark);cursor:pointer;font:inherit;padding:4px 10px}
     .cb-lb .bx{position:absolute;top:12px;left:12px;font-family:var(--f-latin);font-size:30px}
     </style>
+<!-- Meta Pixel (Luvina Website) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1497584932184983');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'Colour Book'});
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a');if(!a||!a.href)return;
+  if(a.href.indexOf('wa.me')>-1){
+    var t=(a.textContent||'').trim().slice(0,60);
+    fbq('track','Contact',{content_name:t,content_category:'colour_book'});
+  }else if(/colors\.html/.test(a.href)){
+    fbq('track','ViewContent',{content_name:'Colour Book'});
+  }
+},true);
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1497584932184983&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
     <div class="cb on" id="cb" role="dialog" aria-modal="true" aria-label="كتالوج الألوان">
