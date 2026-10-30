@@ -408,14 +408,15 @@ document.addEventListener('click',function(e){
     <div>
       <h3 style="font-size:18px;margin-bottom:10px">طريقة الدفع</h3>
       <div class="pay" id="oPay">
-        <label><input type="radio" name="pay" value="wallet"><span>محفظة إلكترونية<small>فودافون كاش / اتصالات كاش / أورنج كاش. هنبعتلك رقم المحفظة على واتساب.</small></span></label>
-        <label><input type="radio" name="pay" value="instapay"><span>InstaPay<small>هنبعتلك حساب InstaPay على واتساب، وابعت صورة التحويل.</small></span></label>
+        <label><input type="radio" name="pay" value="wallet"><span>محفظة إلكترونية<small>حوّل على رقم المحفظة <b dir="ltr">01270455444</b> (فودافون كاش / اتصالات كاش / أورنج كاش)، وابعت صورة التحويل على واتساب.</small></span></label>
+        <label><input type="radio" name="pay" value="instapay"><span>InstaPay<small>حوّل الإجمالي على InstaPay من الزرار اللي هيظهر تحت الفاتورة، وابعت صورة التحويل على واتساب.</small></span></label>
         <label><input type="radio" name="pay" value="cash"><span>كاش في مقر الشركة<small>4 شارع ابن عبد الظاهر، أمام مستشفى منشية البكري، القاهرة.</small></span></label>
       </div>
     </div>
 
     <div class="inv" id="inv" aria-live="polite"></div>
     <div class="ord-err" id="ordErr"></div>
+    <a class="ord-send" id="ipPay" href="https://ipn.eg/S/wegzzzz/instapay/1Zi2jL" target="_blank" rel="noopener" style="display:none;background:#5B2D90;color:#fff">ادفع على InstaPay</a>
     <a class="ord-send" id="ordSend" target="_blank" rel="noopener" aria-disabled="true">ابعت الفاتورة على واتساب</a>
     <p class="note">الأسعار بالجنيه المصري. مصاريف الشحن على العميل، وخدمة العملاء بتأكدها معاك على واتساب.</p>
   </div>
@@ -455,7 +456,7 @@ document.addEventListener('click',function(e){
     if(it.some(function(x){return x.p.id==="ls"}))h+='<div class="meta">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
     if(tr&&next)h+='<div class="meta">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
     h+='<div class="meta">'+(nm?"العميل: "+nm+"<br>":"")+(pay?"الدفع: "+PAY[pay]:"اختار طريقة الدفع")+"</div>";
-    $("inv").innerHTML=h;
+    $("inv").innerHTML=h;$("ipPay").style.display=pay==="instapay"&&it.length?"":"none";$("ipPay").textContent="ادفع "+f(tot)+" ج.م على InstaPay";
     var err=!it.length?"ضيف منتج واحد على الأقل.":!nm?"اكتب اسمك.":!/^01[0125]\d{8}$/.test(ph)?"اكتب رقم موبايل صحيح (11 رقم).":!gv?"اختار المحافظة.":(pay!=="cash"&&!ad)?"اكتب العنوان عشان الشحن.":!pay?"اختار طريقة الدفع.":"";
     $("ordErr").textContent=err;var s=$("ordSend");s.setAttribute("aria-disabled",err?"true":"false");
     if(err){s.removeAttribute("href");return}
@@ -464,7 +465,7 @@ document.addEventListener('click',function(e){
     m+="\nالإجمالي قبل الخصم: "+f(sub)+" ج.م\n";if(ds)m+="خصم تجار "+pc+"% على التل ("+tr+" توب): − "+f(ds)+" ج.م\n";
     if(it.some(function(x){return x.p.id==="ls"}))m+="(الفرنش ليس بسعره الثابت، مش داخل في الخصم)\n";
     m+="*الإجمالي: "+f(tot)+" ج.م*\n(مصاريف الشحن بتتأكد مع خدمة العملاء)\n\n";
-    m+="💳 طريقة الدفع: "+PAY[pay]+"\n\n👤 الاسم: "+nm+"\n📱 الموبايل: "+ph+"\n📍 "+gv+(ad?" — "+ad:"")+(nt?"\n📝 ملاحظات: "+nt:"")+"\n\nمن فضلكم أكدوا الأوردر.";
+    m+="💳 طريقة الدفع: "+PAY[pay]+(pay==="instapay"?"\n🔗 لينك الدفع: https://ipn.eg/S/wegzzzz/instapay/1Zi2jL":"")+(pay==="wallet"?"\n📲 رقم المحفظة: 01270455444":"")+"\n\n👤 الاسم: "+nm+"\n📱 الموبايل: "+ph+"\n📍 "+gv+(ad?" — "+ad:"")+(nt?"\n📝 ملاحظات: "+nt:"")+"\n\nمن فضلكم أكدوا الأوردر.";
     s.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m)}
   $("ordAdd").addEventListener("click",function(){$("ordLines").appendChild(line("t160"));calc()});
   ["oName","oPhone","oGov","oAddr","oNote"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
