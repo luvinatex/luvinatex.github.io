@@ -452,6 +452,7 @@ document.addEventListener('click',function(e){
     h+="<tr><td>الإجمالي قبل الخصم</td><td>"+f(sub)+"</td></tr>";
     if(ds)h+='<tr class="disc"><td>خصم تجار '+pc+"% على التل ("+tr+" توب)</td><td>− "+f(ds)+"</td></tr>";
     h+='<tr class="tot"><td>الإجمالي</td><td>'+f(tot)+" ج.م</td></tr></table>";
+    if(it.some(function(x){return x.p.id==="ls"}))h+='<div class="meta">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
     if(tr&&next)h+='<div class="meta">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
     h+='<div class="meta">'+(nm?"العميل: "+nm+"<br>":"")+(pay?"الدفع: "+PAY[pay]:"اختار طريقة الدفع")+"</div>";
     $("inv").innerHTML=h;
@@ -461,6 +462,7 @@ document.addEventListener('click',function(e){
     var m="🧾 *فاتورة لوفينا* "+no+"\n\n";
     it.forEach(function(x,i){m+=(i+1)+". "+x.p.n+(x.c?" — لون "+pad(x.c):"")+"\n    "+x.q+" "+x.p.u+" × "+f(x.p.p)+" = "+f(x.p.p*x.q)+" ج.م\n"});
     m+="\nالإجمالي قبل الخصم: "+f(sub)+" ج.م\n";if(ds)m+="خصم تجار "+pc+"% على التل ("+tr+" توب): − "+f(ds)+" ج.م\n";
+    if(it.some(function(x){return x.p.id==="ls"}))m+="(الفرنش ليس بسعره الثابت، مش داخل في الخصم)\n";
     m+="*الإجمالي: "+f(tot)+" ج.م*\n(مصاريف الشحن بتتأكد مع خدمة العملاء)\n\n";
     m+="💳 طريقة الدفع: "+PAY[pay]+"\n\n👤 الاسم: "+nm+"\n📱 الموبايل: "+ph+"\n📍 "+gv+(ad?" — "+ad:"")+(nt?"\n📝 ملاحظات: "+nt:"")+"\n\nمن فضلكم أكدوا الأوردر.";
     s.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m)}
