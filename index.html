@@ -191,6 +191,7 @@ document.addEventListener('click',function(e){
     <p class="sub">التل السويسري الفاخر بالتوب، والفرنش ليس بالكوب. والشحن لكل المحافظات.</p>
     <div class="fan" id="fan" aria-hidden="true"></div>
     <a class="cta" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%D8%8C%20%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8" target="_blank" rel="noopener">اطلب على واتساب</a>
+    <a class="cta" href="#order" style="background:transparent;border:1px solid rgba(243,220,235,.5);margin-top:0">اعمل فاتورتك</a>
   </div>
 </header>
 
@@ -351,6 +352,124 @@ document.addEventListener('click',function(e){
       </article>
     </div>
   </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="order" class="order">
+  <style>
+  .order .wrap{gap:16px}
+  .ord-line{display:grid;grid-template-columns:1fr;gap:8px;background:var(--plum);border:1px solid var(--line);padding:12px;position:relative}
+  .ord-line .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ord-line label,.ord-f label{display:grid;gap:4px;font-size:12px;color:var(--muted)}
+  .order select,.order input,.order textarea{font:inherit;font-size:15px;color:var(--cream);background:var(--deep);border:1px solid rgba(243,220,235,.18);border-radius:2px;padding:10px;width:100%;min-width:0}
+  .order select:focus,.order input:focus,.order textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .ord-line .x{position:absolute;top:6px;left:8px;background:none;border:0;color:var(--muted);font-size:22px;cursor:pointer;font-family:var(--f-latin)}
+  .ord-line .sub{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+  .ord-line .sub b{font-family:var(--f-latin);color:var(--cream);font-size:17px;font-weight:600}
+  .ord-line .warn{font-size:12px;color:#ffb3c8}
+  .ord-add{background:transparent;border:1px dashed rgba(243,220,235,.35);color:var(--cream);font:inherit;padding:12px;cursor:pointer;border-radius:2px}
+  .ord-f{display:grid;gap:10px}
+  .pay{display:grid;gap:8px}
+  .pay label{display:flex;align-items:flex-start;gap:10px;background:var(--plum);border:1px solid var(--line);padding:12px;cursor:pointer;font-size:15px;color:var(--cream)}
+  .pay input{width:auto;margin-top:6px;accent-color:var(--rose)}
+  .pay small{display:block;font-size:12px;color:var(--muted);line-height:1.6}
+  .pay label:has(input:checked){border-color:var(--rose)}
+  .inv{background:var(--cream);color:#2b1a25;padding:18px 16px;display:grid;gap:10px;font-size:14px}
+  .inv-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(43,26,37,.2);padding-bottom:10px}
+  .inv-h b{font-family:var(--f-latin);font-weight:400;font-size:24px;letter-spacing:.18em;direction:ltr}
+  .inv-h span{font-family:var(--f-latin);font-size:12px;direction:ltr}
+  .inv table{width:100%;border-collapse:collapse}
+  .inv td{padding:6px 0;border-bottom:1px dotted rgba(43,26,37,.2);vertical-align:top}
+  .inv td:last-child{text-align:left;white-space:nowrap;font-family:var(--f-latin);font-weight:600}
+  .inv .tot td{border:0;font-size:18px;padding-top:10px}
+  .inv .disc td{color:#8C1D5A}
+  .inv .meta{font-size:12px;opacity:.75;line-height:1.7}
+  .ord-send{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#0b2414;text-decoration:none;font-size:16px;padding:15px;border-radius:2px}
+  .ord-send[aria-disabled="true"]{opacity:.45;pointer-events:none}
+  .ord-err{font-size:13px;color:#ffb3c8;min-height:1em}
+  </style>
+  <div class="wrap">
+    <div class="eyebrow">Your Invoice</div>
+    <h2>اعمل فاتورتك.. وابعتها واتساب.</h2>
+    <p class="note">اختار المنتجات، والخصم بيتحسب لوحده، وابعت الفاتورة جاهزة لخدمة العملاء.</p>
+
+    <div id="ordLines" style="display:grid;gap:10px"></div>
+    <button type="button" class="ord-add" id="ordAdd">+ ضيف منتج</button>
+
+    <div class="ord-f">
+      <label>الاسم<input id="oName" autocomplete="name" placeholder="اسمك أو اسم الأتيليه / المحل"></label>
+      <label>رقم الموبايل<input id="oPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" dir="ltr" style="text-align:right"></label>
+      <label>المحافظة<select id="oGov"></select></label>
+      <label>العنوان بالتفصيل<input id="oAddr" autocomplete="street-address" placeholder="الحي، الشارع، رقم العمارة"></label>
+      <label>ملاحظات (اختياري)<textarea id="oNote" rows="2"></textarea></label>
+    </div>
+
+    <div>
+      <h3 style="font-size:18px;margin-bottom:10px">طريقة الدفع</h3>
+      <div class="pay" id="oPay">
+        <label><input type="radio" name="pay" value="wallet"><span>محفظة إلكترونية<small>فودافون كاش / اتصالات كاش / أورنج كاش. هنبعتلك رقم المحفظة على واتساب.</small></span></label>
+        <label><input type="radio" name="pay" value="instapay"><span>InstaPay<small>هنبعتلك حساب InstaPay على واتساب، وابعت صورة التحويل.</small></span></label>
+        <label><input type="radio" name="pay" value="cash"><span>كاش في مقر الشركة<small>4 شارع ابن عبد الظاهر، أمام مستشفى منشية البكري، القاهرة.</small></span></label>
+      </div>
+    </div>
+
+    <div class="inv" id="inv" aria-live="polite"></div>
+    <div class="ord-err" id="ordErr"></div>
+    <a class="ord-send" id="ordSend" target="_blank" rel="noopener" aria-disabled="true">ابعت الفاتورة على واتساب</a>
+    <p class="note">الأسعار بالجنيه المصري. مصاريف الشحن على العميل، وخدمة العملاء بتأكدها معاك على واتساب.</p>
+  </div>
+  <script>(function(){
+  var WA="201270455444",$=function(i){return document.getElementById(i)},
+  PR=[{id:"t160",s:"تل 160 سم · توب 25 متر",n:"تل لوفينا السويسري · توب 25 متر · عرض 160 سم",p:2750,tulle:1,u:"توب"},
+      {id:"t3",s:"تل 3 متر · توب 25 متر",n:"تل لوفينا السويسري · توب 25 متر · عرض 3 متر",p:5500,tulle:1,u:"توب"},
+      {id:"ls",s:"فرنش ليس سيلفر · كوب",n:"فرنش ليس مطرز سيلفر · كوب 3 × 1.5 متر",p:4750,u:"كوب"},
+      {id:"cat",s:"كتالوج الـ100 لون",n:"كتالوج الـ100 لون (بيتخصم من أول أوردر)",p:350,u:"كتالوج"}],
+  T3=[3,6,7,8,87,94],NO160=[3,6,7],
+  TI=[[1000,50],[500,40],[350,35],[200,30],[100,25],[50,20],[20,15],[10,10]],
+  GOV=["القاهرة","الجيزة","الإسكندرية","القليوبية","الدقهلية","الشرقية","الغربية","المنوفية","كفر الشيخ","البحيرة","دمياط","بورسعيد","الإسماعيلية","السويس","الفيوم","بني سويف","المنيا","أسيوط","سوهاج","قنا","الأقصر","أسوان","البحر الأحمر","مطروح","الوادي الجديد","شمال سيناء","جنوب سيناء"],
+  PAY={wallet:"محفظة إلكترونية",instapay:"InstaPay",cash:"كاش في مقر الشركة"},
+  f=function(n){return n.toLocaleString("en-US")},pad=function(n){return String(n).padStart(3,"0")},
+  no=(function(){var d=new Date(),k="lv_inv";try{var s=sessionStorage.getItem(k);if(s)return s}catch(e){}var v="LV-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+Math.floor(1000+Math.random()*9000);try{sessionStorage.setItem(k,v)}catch(e){}return v})();
+  $("oGov").innerHTML='<option value="">اختار المحافظة</option>'+GOV.map(function(g){return"<option>"+g+"</option>"}).join("");
+  function colors(pid){var a=[];for(var i=1;i<=100;i++){if(pid==="t3"&&T3.indexOf(i)<0)continue;if(pid==="t160"&&NO160.indexOf(i)>-1)continue;a.push(i)}return a}
+  function line(pid){var d=document.createElement("div");d.className="ord-line";
+    d.innerHTML='<button type="button" class="x" aria-label="شيل المنتج">×</button><label>المنتج<select class="p">'+PR.map(function(p){return'<option value="'+p.id+'">'+p.s+" · "+f(p.p)+" ج.م</option>"}).join("")+'</select></label><div class="row"><label class="cw">اللون<select class="c"></select></label><label>العدد<input class="q" type="number" min="1" step="1" value="1" inputmode="numeric"></label></div><div class="sub"><span class="un"></span><b class="lt"></b></div>';
+    var ps=d.querySelector(".p");if(pid)ps.value=pid;
+    function fill(){var p=ps.value,cs=d.querySelector(".c"),cur=cs.value;d.querySelector(".cw").style.display=PR.filter(function(x){return x.id===p})[0].tulle?"":"none";cs.innerHTML=colors(p).map(function(i){return'<option value="'+i+'">لون '+pad(i)+"</option>"}).join("");if(cur&&cs.querySelector('option[value="'+cur+'"]'))cs.value=cur}
+    ps.addEventListener("change",function(){fill();calc()});d.querySelector(".c").addEventListener("change",calc);d.querySelector(".q").addEventListener("input",calc);
+    d.querySelector(".x").addEventListener("click",function(){d.remove();if(!$("ordLines").children.length)$("ordLines").appendChild(line());calc()});
+    fill();return d}
+  function items(){return[].map.call($("ordLines").children,function(d){var p=PR.filter(function(x){return x.id===d.querySelector(".p").value})[0],q=Math.max(0,Math.floor(+d.querySelector(".q").value||0));return{p:p,q:q,c:p.tulle?+d.querySelector(".c").value:null,el:d}}).filter(function(x){return x.q>0})}
+  function calc(){var it=items(),sub=0,tr=0,tt=0;
+    it.forEach(function(x){var v=x.p.p*x.q;sub+=v;if(x.p.tulle){tr+=x.q;tt+=v}x.el.querySelector(".un").textContent=f(x.p.p)+" × "+x.q+" "+x.p.u;x.el.querySelector(".lt").textContent=f(v)+" ج.م"});
+    var pc=0;for(var i=0;i<TI.length;i++)if(tr>=TI[i][0]){pc=TI[i][1];break}
+    var ds=Math.round(tt*pc/100),tot=sub-ds,pay=(document.querySelector('input[name=pay]:checked')||{}).value,
+    nm=$("oName").value.trim(),ph=$("oPhone").value.replace(/\s/g,""),gv=$("oGov").value,ad=$("oAddr").value.trim(),nt=$("oNote").value.trim(),
+    next=TI.slice().reverse().filter(function(t){return t[0]>tr})[0];
+    var h='<div class="inv-h"><b>LUVINA</b><span>INVOICE '+no+"</span></div><table>";
+    it.forEach(function(x){h+="<tr><td>"+x.p.n+(x.c?" · لون "+pad(x.c):"")+"<br><small>"+x.q+" "+x.p.u+" × "+f(x.p.p)+"</small></td><td>"+f(x.p.p*x.q)+"</td></tr>"});
+    h+="<tr><td>الإجمالي قبل الخصم</td><td>"+f(sub)+"</td></tr>";
+    if(ds)h+='<tr class="disc"><td>خصم تجار '+pc+"% على التل ("+tr+" توب)</td><td>− "+f(ds)+"</td></tr>";
+    h+='<tr class="tot"><td>الإجمالي</td><td>'+f(tot)+" ج.م</td></tr></table>";
+    if(tr&&next)h+='<div class="meta">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
+    h+='<div class="meta">'+(nm?"العميل: "+nm+"<br>":"")+(pay?"الدفع: "+PAY[pay]:"اختار طريقة الدفع")+"</div>";
+    $("inv").innerHTML=h;
+    var err=!it.length?"ضيف منتج واحد على الأقل.":!nm?"اكتب اسمك.":!/^01[0125]\d{8}$/.test(ph)?"اكتب رقم موبايل صحيح (11 رقم).":!gv?"اختار المحافظة.":(pay!=="cash"&&!ad)?"اكتب العنوان عشان الشحن.":!pay?"اختار طريقة الدفع.":"";
+    $("ordErr").textContent=err;var s=$("ordSend");s.setAttribute("aria-disabled",err?"true":"false");
+    if(err){s.removeAttribute("href");return}
+    var m="🧾 *فاتورة لوفينا* "+no+"\n\n";
+    it.forEach(function(x,i){m+=(i+1)+". "+x.p.n+(x.c?" — لون "+pad(x.c):"")+"\n    "+x.q+" "+x.p.u+" × "+f(x.p.p)+" = "+f(x.p.p*x.q)+" ج.م\n"});
+    m+="\nالإجمالي قبل الخصم: "+f(sub)+" ج.م\n";if(ds)m+="خصم تجار "+pc+"% على التل ("+tr+" توب): − "+f(ds)+" ج.م\n";
+    m+="*الإجمالي: "+f(tot)+" ج.م*\n(مصاريف الشحن بتتأكد مع خدمة العملاء)\n\n";
+    m+="💳 طريقة الدفع: "+PAY[pay]+"\n\n👤 الاسم: "+nm+"\n📱 الموبايل: "+ph+"\n📍 "+gv+(ad?" — "+ad:"")+(nt?"\n📝 ملاحظات: "+nt:"")+"\n\nمن فضلكم أكدوا الأوردر.";
+    s.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m)}
+  $("ordAdd").addEventListener("click",function(){$("ordLines").appendChild(line("t160"));calc()});
+  ["oName","oPhone","oGov","oAddr","oNote"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
+  $("oPay").addEventListener("change",calc);
+  $("ordLines").appendChild(line());calc();
+  $("ordSend").addEventListener("click",function(){try{fbq("track","InitiateCheckout",{content_name:"Invoice",value:+$("inv").querySelector(".tot td:last-child").textContent.replace(/[^\d]/g,""),currency:"EGP"})}catch(e){}});
+  })();</script>
 </section>
 
 <div class="rule"></div>
