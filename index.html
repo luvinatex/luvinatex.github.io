@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="لوفينا - التل السويسري الفاخر والفرنش ليس. الأسعار، خصومات التجار، والطلب على واتساب.">
+<meta name="description" content="لوفينا - التل السويسري الفاخر والفرنش ليس المطرز السيلفر. الأسعار، خصومات التجار، والطلب على واتساب.">
 <meta property="og:title" content="LUVINA - التل السويسري الفاخر">
 <meta property="og:description" content="100 لون، ضمان، مبيتأثرش بالمكوة. الأسعار وخصومات التجار والطلب على واتساب.">
 <title>LUVINA</title>
@@ -146,6 +146,14 @@ footer .mark{font-size:28px;color:var(--cream)}
 .lx-tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:inherit;font-size:13px;padding:10px 4px;cursor:pointer;margin-bottom:-1px}
 .lx-tabs button.on{color:var(--cream);border-bottom-color:var(--rose)}
 .lx-wa{display:flex;align-items:center;justify-content:center;margin-top:12px;background:#25D366;color:#0b2414;text-decoration:none;font-size:15px;font-weight:400;padding:13px 16px;border-radius:2px}
+.prod.new .badge{color:#0d060d;background:linear-gradient(120deg,#f4f4f6,#b9bcc4 55%,#eef0f3);border:0;font-weight:400;letter-spacing:.04em}
+.prod.new .price-row{border-right-color:#c9ccd3}
+.feat-list{display:flex;flex-wrap:wrap;gap:6px}.feat-list span{font-size:12px;color:var(--cream);border:1px solid var(--line);padding:3px 10px;border-radius:20px}
+.prod.soldout .lx-stage img{filter:grayscale(.55) brightness(.6)}
+.prod.soldout .lx-stage::before{content:"SOLD OUT";position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--f-latin);font-size:clamp(26px,8vw,40px);letter-spacing:.3em;padding:10px 4px 10px 22px;color:#fff;border-top:1px solid rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.7);white-space:nowrap;direction:ltr}
+.prod.soldout .badge{color:var(--muted);border-color:var(--line);font-family:var(--f-latin);letter-spacing:.18em;font-size:11px}
+.prod.soldout .price-row{opacity:.5}.prod.soldout .price-row .num{text-decoration:line-through}
+.prod.soldout .lx-wa{background:transparent;color:var(--muted);border:1px solid var(--line);pointer-events:none}
 .lzb2{position:fixed;inset:0;z-index:300;background:rgba(10,4,10,.97);display:none;align-items:center;justify-content:center;padding:12px}
 .lzb2.on{display:flex}.lzb2 img{max-width:100%;max-height:100%;object-fit:contain}
 .lzb2 button{position:absolute;top:10px;left:12px;background:none;border:0;color:#F3DCEB;font-size:34px;cursor:pointer;font-family:var(--f-latin)}
@@ -314,8 +322,18 @@ document.addEventListener('click',function(e){
         <p class="note">عرض الـ160 سم متاح في كل الألوان ما عدا 003 و006 و007.<br>عرض الـ3 متر متاح في الألوان: 003 · 006 · 007 · 008 · 087 · 094.</p>
       </article>
 
-      <article class="prod">
-        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">أوف وايت</span></div>
+      <article class="prod new">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · مطرز سيلفر</h3><span class="badge">جديد · سيلفر</span></div>
+        <p class="desc">تطريز عالي الجودة بالخرز والكريستال، وورد بارز تحسه بإيدك، وكنار مخرّم من الناحيتين. لفستان الزفاف والسواريه اللي لازم يتشاف.</p>
+        <div class="feat-list"><span>ورد بارز 3D</span><span>خرز وكريستال</span><span>كنار من الناحيتين</span></div>
+        <div class="lx" data-k="s" data-t="Silver Embroidered" data-sets="s"></div>
+        <div class="prices">
+          <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">4,750</span><small>ج.م</small></span></div>
+        </div>
+      </article>
+
+      <article class="prod soldout">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">SOLD OUT</span></div>
         <p class="desc">دانتيل فرنساوي بخيط الكوردونيه البارز، لفساتين الزفاف والهوت كوتور.</p>
         <div class="lx" data-k="c" data-t="Cordonnet" data-sets="c1,c2"></div>
         <div class="prices">
@@ -323,8 +341,8 @@ document.addEventListener('click',function(e){
         </div>
       </article>
 
-      <article class="prod">
-        <div class="prod-head"><h3>لوفينا فرنش ليس · مطرز</h3><span class="badge">أوف وايت</span></div>
+      <article class="prod soldout">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · مطرز أوف وايت</h3><span class="badge">SOLD OUT</span></div>
         <p class="desc">فرنش ليس بتطريز كامل، لقطع الزفاف والسواريه اللي محتاجة فخامة من غير مجهود.</p>
         <div class="lx" data-k="e" data-t="Embroidered" data-sets="e"></div>
         <div class="prices">
@@ -454,8 +472,8 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
 <script>(function(){var s=document.querySelectorAll(".hero-slides img"),i=0;if(s.length<2)return;setInterval(function(){s[i].classList.remove("on");i=(i+1)%s.length;s[i].classList.add("on")},4200)})();</script>
 <div class="lzb2" id="lzb2"><button aria-label="قفل">×</button><img alt=""></div><script>(function(){
-var P="https://wsrv.nl/?url="+encodeURIComponent("d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_"),I={"c1": {"form": "112339_be869293-78a0-44d0-aad0-2738c59966ec", "flat": "112549_050e7322-417b-4275-acab-a917be6048af", "detail": "112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173"}, "c2": {"form": "112339_cb4c1acb-79c9-4af6-8223-5ce076cf46d3", "flat": "112550_fb459d3d-1963-4946-87a1-27454fc8e762", "detail": "112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472"}, "e": {"form": "112337_a53a8cb1-2415-4da2-9f53-d0e2b5079718", "flat": "112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2", "detail": "112552_30b9002c-33f9-4712-8202-8726d6fe71e4"}},V=[["detail","مفرودة"],["flat","التفاصيل"]];
-function u(id,w){return P+encodeURIComponent(id)+".png&w="+w+"&output=webp&q=78"}
+var P="https://wsrv.nl/?url="+encodeURIComponent("d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_"),I={"c1": {"form": "112339_be869293-78a0-44d0-aad0-2738c59966ec", "flat": "112549_050e7322-417b-4275-acab-a917be6048af", "detail": "112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173"}, "c2": {"form": "112339_cb4c1acb-79c9-4af6-8223-5ce076cf46d3", "flat": "112550_fb459d3d-1963-4946-87a1-27454fc8e762", "detail": "112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472"}, "s": {"detail": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124625_3aedbfdf-2222-4d39-84c0-92efe3d94143.png", "flat": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124624_540e23e5-8309-4aa6-aae1-b7da8b105661.png"}, "e": {"form": "112337_a53a8cb1-2415-4da2-9f53-d0e2b5079718", "flat": "112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2", "detail": "112552_30b9002c-33f9-4712-8202-8726d6fe71e4"}},V=[["detail","مفرودة"],["flat","التفاصيل"]];
+function u(id,w){if(/^https:/.test(id))return "https://wsrv.nl/?url="+encodeURIComponent(id.slice(8))+"&w="+w+"&output=webp&q=80";return P+encodeURIComponent(id)+".png&w="+w+"&output=webp&q=78"}
 var z=document.getElementById("lzb2"),zi=z.querySelector("img");z.onclick=function(){z.classList.remove("on")};
 document.querySelectorAll(".lx").forEach(function(el){var sets=el.dataset.sets.split(","),s=sets[0],v="detail";
 var h=(sets.length>1?'<div class="lx-sets">'+sets.map(function(x,i){return '<button data-s="'+x+'"'+(i?'':' class="on"')+'>No.'+(i+1)+'</button>'}).join("")+'</div>':"")+'<div class="lx-stage">';
@@ -464,7 +482,7 @@ h+='<div class="lx-cap"><small>LUVINA FRENCH LACE</small><b></b></div></div><div
 el.innerHTML=h;var cap=el.querySelector(".lx-cap b"),wa=el.querySelector(".lx-wa");
 function paint(){el.querySelectorAll(".lx-stage img").forEach(function(im){im.classList.toggle("on",im.dataset.s===s&&im.dataset.v===v)});
 el.querySelectorAll(".lx-sets button").forEach(function(b){b.classList.toggle("on",b.dataset.s===s)});el.querySelectorAll(".lx-tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});
-cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"");var nm=(el.dataset.k==="c"?"فرنش ليس كوردونيه":"فرنش ليس مطرز")+(sets.length>1?" تصميم رقم "+(sets.indexOf(s)+1):"");wa.textContent="اطلب "+(sets.length>1?"تصميم No."+(sets.indexOf(s)+1):"التصميم ده")+" على واتساب";wa.href="https://wa.me/201270455444?text="+encodeURIComponent("أهلاً لوفينا، عايز أطلب "+nm+" (الكوب 3 متر × 1.5 متر)")}
+cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"");var so=!!el.closest(".soldout"),nm=(el.dataset.k==="c"?"فرنش ليس كوردونيه":el.dataset.k==="s"?"فرنش ليس مطرز سيلفر":"فرنش ليس مطرز")+(sets.length>1?" تصميم رقم "+(sets.indexOf(s)+1):"");if(so){wa.textContent="Sold Out · الكمية خلصت";wa.removeAttribute("href");wa.setAttribute("aria-disabled","true");return}wa.textContent="اطلب "+(sets.length>1?"تصميم No."+(sets.indexOf(s)+1):"التصميم ده")+" على واتساب";wa.href="https://wa.me/201270455444?text="+encodeURIComponent("أهلاً لوفينا، عايز أطلب "+nm+" (الكوب 3 متر × 1.5 متر)")}
 el.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.s){s=b.dataset.s;paint()}else if(b&&b.dataset.v){v=b.dataset.v;paint()}else if(e.target.closest(".lx-stage")){zi.src=u(I[s][v],1600);z.classList.add("on")}});paint()})})();</script>
 </body>
 </html>
