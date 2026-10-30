@@ -467,7 +467,7 @@ document.addEventListener('click',function(e){
     next=TI.slice().reverse().filter(function(t){return t[0]>tr})[0];
     var h='<div class="sheet"><div class="wm">LUVINA<span>SWISS TULLE</span></div><div class="co">LUVINA<br>4 Ibn Abdel Zaher St., Heliopolis<br>Opposite Manshiet El Bakry Hospital, Cairo<br>Tel. 01270455444</div>'+
       '<div class="bill"><div><div class="ey">BILL TO</div><h4>'+e(nm||"Customer name")+'</h4><div>'+e(ph)+'</div><div dir="rtl" style="text-align:left">'+e([gv,ad].filter(Boolean).join(" — "))+'</div></div>'+
-      '<div class="meta2"><div><span>Invoice</span><b>'+no+'</b></div><div><span>Issue date</span><b>'+idate+'</b></div><div><span>Payment method</span><b>'+(pay?PE[pay]:"—")+'</b></div><div><span>Currency</span><b>EGP</b></div></div></div>'+
+      '<div class="meta2"><div><span>Issue date</span><b>'+idate+'</b></div><div><span>Payment method</span><b>'+(pay?PE[pay]:"—")+'</b></div><div><span>Currency</span><b>EGP</b></div></div></div>'+
       '<table><colgroup><col style="width:44%"><col style="width:14%"><col style="width:20%"><col style="width:22%"></colgroup><thead><tr><th>DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>AMOUNT</th></tr></thead><tbody>';
     it.forEach(function(x){var E=EN[x.p.id];h+='<tr><td><b>'+E[0]+'</b><small>'+(x.c?"Color: "+pad(x.c)+" · ":"")+E[1]+'</small></td><td>'+x.q+'<small>'+E[2]+'</small></td><td>'+m2(x.p.p)+'</td><td>'+m2(x.p.p*x.q)+'</td></tr>'});
     if(!it.length)h+='<tr><td colspan="4">Add a product to start your invoice.</td></tr>';
@@ -480,7 +480,7 @@ document.addEventListener('click',function(e){
     var err=!it.length?"ضيف منتج واحد على الأقل.":!nm?"اكتب اسمك.":!/^01[0125]\d{8}$/.test(ph)?"اكتب رقم موبايل صحيح (11 رقم).":!gv?"اختار المحافظة.":(pay!=="cash"&&!ad)?"اكتب العنوان عشان الشحن.":!pay?"اختار طريقة الدفع.":"";
     $("ordErr").textContent=err;var s=$("ordSend");s.setAttribute("aria-disabled",err?"true":"false");
     if(err){s.removeAttribute("href");return}
-    var m="🧾 *فاتورة لوفينا* "+no+"\n\n";
+    var m="🧾 *فاتورة لوفينا*\n\n";
     it.forEach(function(x,i){m+=(i+1)+". "+x.p.n+(x.c?" — لون "+pad(x.c):"")+"\n    "+x.q+" "+x.p.u+" × "+f(x.p.p)+" = "+f(x.p.p*x.q)+" ج.م\n"});
     m+="\nالإجمالي قبل الخصم: "+f(sub)+" ج.م\n";if(ds)m+="خصم تجار "+pc+"% على التل ("+tr+" توب): − "+f(ds)+" ج.م\n";
     if(it.some(function(x){return x.p.id==="ls"}))m+="(الفرنش ليس بسعره الثابت، مش داخل في الخصم)\n";
