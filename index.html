@@ -375,16 +375,28 @@ document.addEventListener('click',function(e){
   .pay input{width:auto;margin-top:6px;accent-color:var(--rose)}
   .pay small{display:block;font-size:12px;color:var(--muted);line-height:1.6}
   .pay label:has(input:checked){border-color:var(--rose)}
-  .inv{background:var(--cream);color:#2b1a25;padding:18px 16px;display:grid;gap:10px;font-size:14px}
-  .inv-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(43,26,37,.2);padding-bottom:10px}
-  .inv-h b{font-family:var(--f-latin);font-weight:400;font-size:24px;letter-spacing:.18em;direction:ltr}
-  .inv-h span{font-family:var(--f-latin);font-size:12px;direction:ltr}
-  .inv table{width:100%;border-collapse:collapse}
-  .inv td{padding:6px 0;border-bottom:1px dotted rgba(43,26,37,.2);vertical-align:top}
-  .inv td:last-child{text-align:left;white-space:nowrap;font-family:var(--f-latin);font-weight:600}
-  .inv .tot td{border:0;font-size:18px;padding-top:10px}
-  .inv .disc td{color:#8C1D5A}
-  .inv .meta{font-size:12px;opacity:.75;line-height:1.7}
+  .inv{display:grid;gap:8px}
+  .inv .sheet{background:#fff;color:#202b2b;direction:ltr;text-align:left;padding:22px 16px;font:12px/1.6 "Segoe UI",Tahoma,sans-serif;border-radius:2px}
+  .inv .wm{font:500 29px Georgia,serif;letter-spacing:6px;border-bottom:2px solid #202b2b;padding-bottom:16px}
+  .inv .wm span{display:block;font:9px "Segoe UI",sans-serif;letter-spacing:4.7px;margin-top:5px}
+  .inv .co{font-size:11px;line-height:1.8;color:#666;margin:14px 0 20px}
+  .inv .ey{font-size:10px;font-weight:700;letter-spacing:2px;color:#a48550;margin-bottom:6px}
+  .inv .bill{display:grid;gap:16px;margin-bottom:20px}
+  .inv .bill h4{font-size:17px;margin:2px 0 4px;font-weight:600;overflow-wrap:anywhere}
+  .inv .meta2>div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #e5e2db}
+  .inv table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11px}
+  .inv th{background:#202b2b;color:#fff;font-size:9px;letter-spacing:.6px;padding:10px 5px;text-align:left;font-weight:600}
+  .inv td{padding:10px 5px;border-bottom:1px solid #e5e2db;vertical-align:top;overflow-wrap:anywhere}
+  .inv th:nth-child(n+2),.inv td:nth-child(n+2){text-align:right}
+  .inv td small{display:block;font-size:10px;color:#7c817e;line-height:1.5}
+  .inv .sum{border-top:2px solid #202b2b;margin-top:16px;padding-top:10px}
+  .inv .sum>div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px}
+  .inv .sum b,.inv .sum span:last-child{white-space:nowrap}
+  .inv .sum .total{border-top:1px solid #b8b8a9;margin-top:8px;padding-top:10px;font-size:18px;font-weight:600}
+  .inv .pn{font-size:11px;color:#777;margin-top:14px}
+  .inv .ft{border-top:1px solid #e5e2db;margin-top:22px;padding-top:14px;text-align:center;font-size:10px;color:#aaa}
+  .inv .ft b{display:block;font:14px Georgia,serif;color:#202b2b;margin-bottom:4px}
+  .inv .tip{font-size:12px;color:var(--muted)}
   .ord-send{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#0b2414;text-decoration:none;font-size:16px;padding:15px;border-radius:2px}
   .ord-send[aria-disabled="true"]{opacity:.45;pointer-events:none}
   .ord-err{font-size:13px;color:#ffb3c8;min-height:1em}
@@ -431,7 +443,12 @@ document.addEventListener('click',function(e){
   GOV=["القاهرة","الجيزة","الإسكندرية","القليوبية","الدقهلية","الشرقية","الغربية","المنوفية","كفر الشيخ","البحيرة","دمياط","بورسعيد","الإسماعيلية","السويس","الفيوم","بني سويف","المنيا","أسيوط","سوهاج","قنا","الأقصر","أسوان","البحر الأحمر","مطروح","الوادي الجديد","شمال سيناء","جنوب سيناء"],
   PAY={wallet:"محفظة إلكترونية",instapay:"InstaPay",cash:"كاش في مقر الشركة"},
   f=function(n){return n.toLocaleString("en-US")},pad=function(n){return String(n).padStart(3,"0")},
-  no=(function(){var d=new Date(),k="lv_inv";try{var s=sessionStorage.getItem(k);if(s)return s}catch(e){}var v="LV-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+Math.floor(1000+Math.random()*9000);try{sessionStorage.setItem(k,v)}catch(e){}return v})();
+  no=(function(){var k="lv_inv2";try{var s=sessionStorage.getItem(k);if(s)return s}catch(e){}var v="LUV-WEB-"+String(Date.now()%100000).padStart(5,"0");try{sessionStorage.setItem(k,v)}catch(e){}return v})(),
+  EN={t160:["Swiss Tulle LUVINA","Width: 160 cm · 25 m / roll","Roll"],t3:["Swiss Tulle LUVINA","Width: 3 m · 25 m / roll","Roll"],ls:["French Lace LUVINA · Silver Embroidered","Piece 3 m × 1.5 m · no trader discount","Piece"],cat:["LUVINA Colour Book · 100 colours","Deducted from your first order","Book"]},
+  PE={wallet:"E-wallet",instapay:"InstaPay",cash:"Cash at LUVINA HQ"},
+  m2=function(n){return Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})},
+  e=function(t){return String(t||"").replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})},
+  idate=(function(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")})();
   $("oGov").innerHTML='<option value="">اختار المحافظة</option>'+GOV.map(function(g){return"<option>"+g+"</option>"}).join("");
   function colors(pid){var a=[];for(var i=1;i<=100;i++){if(pid==="t3"&&T3.indexOf(i)<0)continue;if(pid==="t160"&&NO160.indexOf(i)>-1)continue;a.push(i)}return a}
   function line(pid){var d=document.createElement("div");d.className="ord-line";
@@ -448,14 +465,17 @@ document.addEventListener('click',function(e){
     var ds=Math.round(tt*pc/100),tot=sub-ds,pay=(document.querySelector('input[name=pay]:checked')||{}).value,
     nm=$("oName").value.trim(),ph=$("oPhone").value.replace(/\s/g,""),gv=$("oGov").value,ad=$("oAddr").value.trim(),nt=$("oNote").value.trim(),
     next=TI.slice().reverse().filter(function(t){return t[0]>tr})[0];
-    var h='<div class="inv-h"><b>LUVINA</b><span>INVOICE '+no+"</span></div><table>";
-    it.forEach(function(x){h+="<tr><td>"+x.p.n+(x.c?" · لون "+pad(x.c):"")+"<br><small>"+x.q+" "+x.p.u+" × "+f(x.p.p)+"</small></td><td>"+f(x.p.p*x.q)+"</td></tr>"});
-    h+="<tr><td>الإجمالي قبل الخصم</td><td>"+f(sub)+"</td></tr>";
-    if(ds)h+='<tr class="disc"><td>خصم تجار '+pc+"% على التل ("+tr+" توب)</td><td>− "+f(ds)+"</td></tr>";
-    h+='<tr class="tot"><td>الإجمالي</td><td>'+f(tot)+" ج.م</td></tr></table>";
-    if(it.some(function(x){return x.p.id==="ls"}))h+='<div class="meta">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
-    if(tr&&next)h+='<div class="meta">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
-    h+='<div class="meta">'+(nm?"العميل: "+nm+"<br>":"")+(pay?"الدفع: "+PAY[pay]:"اختار طريقة الدفع")+"</div>";
+    var h='<div class="sheet"><div class="wm">LUVINA<span>SWISS TULLE</span></div><div class="co">LUVINA<br>4 Ibn Abdel Zaher St., Heliopolis<br>Opposite Manshiet El Bakry Hospital, Cairo<br>Tel. 01270455444</div>'+
+      '<div class="bill"><div><div class="ey">BILL TO</div><h4>'+e(nm||"Customer name")+'</h4><div>'+e(ph)+'</div><div dir="rtl" style="text-align:left">'+e([gv,ad].filter(Boolean).join(" — "))+'</div></div>'+
+      '<div class="meta2"><div><span>Invoice</span><b>'+no+'</b></div><div><span>Issue date</span><b>'+idate+'</b></div><div><span>Payment method</span><b>'+(pay?PE[pay]:"—")+'</b></div><div><span>Currency</span><b>EGP</b></div></div></div>'+
+      '<table><colgroup><col style="width:44%"><col style="width:14%"><col style="width:20%"><col style="width:22%"></colgroup><thead><tr><th>DESCRIPTION</th><th>QTY</th><th>UNIT PRICE</th><th>AMOUNT</th></tr></thead><tbody>';
+    it.forEach(function(x){var E=EN[x.p.id];h+='<tr><td><b>'+E[0]+'</b><small>'+(x.c?"Color: "+pad(x.c)+" · ":"")+E[1]+'</small></td><td>'+x.q+'<small>'+E[2]+'</small></td><td>'+m2(x.p.p)+'</td><td>'+m2(x.p.p*x.q)+'</td></tr>'});
+    if(!it.length)h+='<tr><td colspan="4">Add a product to start your invoice.</td></tr>';
+    h+='</tbody></table><div class="sum"><div><span>Subtotal</span><b>'+m2(sub)+'</b></div><div><span>Trader discount ('+pc+'%) · tulle</span><b>'+m2(ds)+'</b></div><div class="total"><span>Total</span><span class="tot-v">'+m2(tot)+' EGP</span></div></div>'+
+      '<div class="pn"><div class="ey">PAYMENT SUMMARY</div>All amounts in Egyptian pounds. Shipping is confirmed on WhatsApp.<br>Trader discount applies to Swiss tulle rolls only.</div>'+
+      '<div class="ft"><b>Thank you for choosing LUVINA.</b>We appreciate your trust and look forward to serving you again.</div></div>';
+    if(it.some(function(x){return x.p.id==="ls"}))h+='<div class="tip">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
+    if(tr&&next)h+='<div class="tip">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
     $("inv").innerHTML=h;$("ipPay").style.display=pay==="instapay"&&it.length?"":"none";$("ipPay").textContent="ادفع "+f(tot)+" ج.م على InstaPay";
     var err=!it.length?"ضيف منتج واحد على الأقل.":!nm?"اكتب اسمك.":!/^01[0125]\d{8}$/.test(ph)?"اكتب رقم موبايل صحيح (11 رقم).":!gv?"اختار المحافظة.":(pay!=="cash"&&!ad)?"اكتب العنوان عشان الشحن.":!pay?"اختار طريقة الدفع.":"";
     $("ordErr").textContent=err;var s=$("ordSend");s.setAttribute("aria-disabled",err?"true":"false");
@@ -471,7 +491,7 @@ document.addEventListener('click',function(e){
   ["oName","oPhone","oGov","oAddr","oNote"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
   $("oPay").addEventListener("change",calc);
   $("ordLines").appendChild(line());calc();
-  $("ordSend").addEventListener("click",function(){try{fbq("track","InitiateCheckout",{content_name:"Invoice",value:+$("inv").querySelector(".tot td:last-child").textContent.replace(/[^\d]/g,""),currency:"EGP"})}catch(e){}});
+  $("ordSend").addEventListener("click",function(){try{fbq("track","InitiateCheckout",{content_name:"Invoice",value:+$("inv").querySelector(".tot-v").textContent.replace(/[^\d]/g,""),currency:"EGP"})}catch(e){}});
   })();</script>
 </section>
 
