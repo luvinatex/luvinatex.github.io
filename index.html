@@ -335,10 +335,10 @@ document.addEventListener('click',function(e){
       </article>
 
       <article class="prod new">
-        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">جديد · No.1 و No.2</span></div>
+        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">متاح · No.1 · No.2 · No.3</span></div>
         <p class="desc">شانتيه فرنساوي بخيط الكوردونيه البارز، مسام ناعمة جداً، وكنار مخرّم بالرموش من الناحيتين. لفستان الزفاف والسواريه والهوت كوتور.</p>
         <div class="feat-list"><span>كوردونيه بارز</span><span>كنار رموش من الناحيتين</span><span>4 تصاميم</span></div>
-        <div class="lx" data-k="n" data-t="Cordonnet" data-sets="n1,n2,c1,c2" data-so="c1,c2"></div>
+        <div class="lx" data-k="n" data-t="Cordonnet" data-sets="n1,n2,c1,c2" data-so="c2"></div>
         <div class="prices">
           <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">1,600</span><small>ج.م</small></span></div>
         </div>
@@ -441,6 +441,7 @@ document.addEventListener('click',function(e){
       {id:"ls",s:"فرنش ليس سيلفر · كوب",n:"فرنش ليس مطرز سيلفر · كوب 3 × 1.5 متر",p:4750,u:"كوب"},
       {id:"lc1",s:"فرنش ليس كوردونيه No.1 · كوب",n:"فرنش ليس كوردونيه · تصميم No.1 · كوب 3 × 1.5 متر",p:1600,u:"كوب"},
       {id:"lc2",s:"فرنش ليس كوردونيه No.2 · كوب",n:"فرنش ليس كوردونيه · تصميم No.2 · كوب 3 × 1.5 متر",p:1600,u:"كوب"},
+      {id:"lc3",s:"فرنش ليس كوردونيه No.3 · كوب",n:"فرنش ليس كوردونيه · تصميم No.3 · كوب 3 × 1.5 متر",p:1600,u:"كوب"},
       {id:"cat",s:"كتالوج الـ100 لون",n:"كتالوج الـ100 لون (بيتخصم من أول أوردر)",p:350,u:"كتالوج"}],
   T3=[3,6,7,8,87,94],NO160=[3,6,7],
   TI=[[1000,50],[500,40],[350,35],[200,30],[100,25],[50,20],[20,15],[10,10]],
@@ -448,7 +449,7 @@ document.addEventListener('click',function(e){
   PAY={wallet:"محفظة إلكترونية",instapay:"InstaPay",cash:"كاش في مقر الشركة"},
   f=function(n){return n.toLocaleString("en-US")},pad=function(n){return String(n).padStart(3,"0")},
   no=(function(){var k="lv_inv2";try{var s=sessionStorage.getItem(k);if(s)return s}catch(e){}var v="LUV-WEB-"+String(Date.now()%100000).padStart(5,"0");try{sessionStorage.setItem(k,v)}catch(e){}return v})(),
-  EN={t160:["Swiss Tulle LUVINA","Width: 160 cm · 25 m / roll","Roll"],t3:["Swiss Tulle LUVINA","Width: 3 m · 25 m / roll","Roll"],ls:["French Lace LUVINA · Silver Embroidered","Piece 3 m × 1.5 m · no trader discount","Piece"],lc1:["French Lace LUVINA · Cordonnet No.1","Piece 3 m × 1.5 m · no trader discount","Piece"],lc2:["French Lace LUVINA · Cordonnet No.2","Piece 3 m × 1.5 m · no trader discount","Piece"],cat:["LUVINA Colour Book · 100 colours","Deducted from your first order","Book"]},
+  EN={t160:["Swiss Tulle LUVINA","Width: 160 cm · 25 m / roll","Roll"],t3:["Swiss Tulle LUVINA","Width: 3 m · 25 m / roll","Roll"],ls:["French Lace LUVINA · Silver Embroidered","Piece 3 m × 1.5 m · no trader discount","Piece"],lc1:["French Lace LUVINA · Cordonnet No.1","Piece 3 m × 1.5 m · no trader discount","Piece"],lc2:["French Lace LUVINA · Cordonnet No.2","Piece 3 m × 1.5 m · no trader discount","Piece"],lc3:["French Lace LUVINA · Cordonnet No.3","Piece 3 m × 1.5 m · no trader discount","Piece"],cat:["LUVINA Colour Book · 100 colours","Deducted from your first order","Book"]},
   PE={wallet:"E-wallet",instapay:"InstaPay",cash:"Cash at LUVINA HQ"},
   m2=function(n){return Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})},
   e=function(t){return String(t||"").replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})},
