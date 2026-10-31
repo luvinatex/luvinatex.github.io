@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="لوفينا - التل السويسري الفاخر والفرنش ليس المطرز السيلفر. الأسعار، خصومات التجار، والطلب على واتساب.">
+<meta name="description" content="لوفينا - التل السويسري الفاخر والفرنش ليس المطرز السيلفر والكوردونيه. الأسعار، خصومات التجار، والطلب على واتساب.">
 <meta property="og:title" content="LUVINA - التل السويسري الفاخر">
 <meta property="og:description" content="100 لون، ضمان، مبيتأثرش بالمكوة. الأسعار وخصومات التجار والطلب على واتساب.">
 <title>LUVINA</title>
@@ -333,6 +333,16 @@ document.addEventListener('click',function(e){
         </div>
       </article>
 
+      <article class="prod new">
+        <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه أوف وايت</h3><span class="badge">جديد · تصميمين</span></div>
+        <p class="desc">شانتيه فرنساوي بخيط الكوردونيه البارز، مسام ناعمة جداً، وكنار مخرّم بالرموش من الناحيتين. لفستان الزفاف والسواريه والهوت كوتور.</p>
+        <div class="feat-list"><span>كوردونيه بارز</span><span>كنار رموش من الناحيتين</span><span>تصميمين</span></div>
+        <div class="lx" data-k="n" data-t="Cordonnet Ivory" data-sets="n1,n2"></div>
+        <div class="prices">
+          <div class="price-row"><span class="label">الكوب · 3 متر × 1.5 متر</span><span class="val"><span class="num">1,600</span><small>ج.م</small></span></div>
+        </div>
+      </article>
+
       <article class="prod soldout">
         <div class="prod-head"><h3>لوفينا فرنش ليس · كوردونيه</h3><span class="badge">SOLD OUT</span></div>
         <p class="desc">دانتيل فرنساوي بخيط الكوردونيه البارز، لفساتين الزفاف والهوت كوتور.</p>
@@ -437,6 +447,8 @@ document.addEventListener('click',function(e){
   PR=[{id:"t160",s:"تل 160 سم · توب 25 متر",n:"تل لوفينا السويسري · توب 25 متر · عرض 160 سم",p:2750,tulle:1,u:"توب"},
       {id:"t3",s:"تل 3 متر · توب 25 متر",n:"تل لوفينا السويسري · توب 25 متر · عرض 3 متر",p:5500,tulle:1,u:"توب"},
       {id:"ls",s:"فرنش ليس سيلفر · كوب",n:"فرنش ليس مطرز سيلفر · كوب 3 × 1.5 متر",p:4750,u:"كوب"},
+      {id:"lc1",s:"فرنش ليس كوردونيه No.1 · كوب",n:"فرنش ليس كوردونيه أوف وايت · تصميم No.1 · كوب 3 × 1.5 متر",p:1600,u:"كوب"},
+      {id:"lc2",s:"فرنش ليس كوردونيه No.2 · كوب",n:"فرنش ليس كوردونيه أوف وايت · تصميم No.2 · كوب 3 × 1.5 متر",p:1600,u:"كوب"},
       {id:"cat",s:"كتالوج الـ100 لون",n:"كتالوج الـ100 لون (بيتخصم من أول أوردر)",p:350,u:"كتالوج"}],
   T3=[3,6,7,8,87,94],NO160=[3,6,7],
   TI=[[1000,50],[500,40],[350,35],[200,30],[100,25],[50,20],[20,15],[10,10]],
@@ -444,7 +456,7 @@ document.addEventListener('click',function(e){
   PAY={wallet:"محفظة إلكترونية",instapay:"InstaPay",cash:"كاش في مقر الشركة"},
   f=function(n){return n.toLocaleString("en-US")},pad=function(n){return String(n).padStart(3,"0")},
   no=(function(){var k="lv_inv2";try{var s=sessionStorage.getItem(k);if(s)return s}catch(e){}var v="LUV-WEB-"+String(Date.now()%100000).padStart(5,"0");try{sessionStorage.setItem(k,v)}catch(e){}return v})(),
-  EN={t160:["Swiss Tulle LUVINA","Width: 160 cm · 25 m / roll","Roll"],t3:["Swiss Tulle LUVINA","Width: 3 m · 25 m / roll","Roll"],ls:["French Lace LUVINA · Silver Embroidered","Piece 3 m × 1.5 m · no trader discount","Piece"],cat:["LUVINA Colour Book · 100 colours","Deducted from your first order","Book"]},
+  EN={t160:["Swiss Tulle LUVINA","Width: 160 cm · 25 m / roll","Roll"],t3:["Swiss Tulle LUVINA","Width: 3 m · 25 m / roll","Roll"],ls:["French Lace LUVINA · Silver Embroidered","Piece 3 m × 1.5 m · no trader discount","Piece"],lc1:["French Lace LUVINA · Cordonnet Ivory No.1","Piece 3 m × 1.5 m · no trader discount","Piece"],lc2:["French Lace LUVINA · Cordonnet Ivory No.2","Piece 3 m × 1.5 m · no trader discount","Piece"],cat:["LUVINA Colour Book · 100 colours","Deducted from your first order","Book"]},
   PE={wallet:"E-wallet",instapay:"InstaPay",cash:"Cash at LUVINA HQ"},
   m2=function(n){return Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})},
   e=function(t){return String(t||"").replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})},
@@ -474,7 +486,7 @@ document.addEventListener('click',function(e){
     h+='</tbody></table><div class="sum"><div><span>Subtotal</span><b>'+m2(sub)+'</b></div><div><span>Trader discount ('+pc+'%) · tulle</span><b>'+m2(ds)+'</b></div><div class="total"><span>Total</span><span class="tot-v">'+m2(tot)+' EGP</span></div></div>'+
       '<div class="pn"><div class="ey">PAYMENT SUMMARY</div>All amounts in Egyptian pounds. Shipping is confirmed on WhatsApp.<br>Trader discount applies to Swiss tulle rolls only.</div>'+
       '<div class="ft"><b>Thank you for choosing LUVINA.</b>We appreciate your trust and look forward to serving you again.</div></div>';
-    if(it.some(function(x){return x.p.id==="ls"}))h+='<div class="tip">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
+    if(it.some(function(x){return /^l/.test(x.p.id)}))h+='<div class="tip">الفرنش ليس بسعره الثابت، ومش داخل في خصم التجار.</div>';
     if(tr&&next)h+='<div class="tip">ضيف '+(next[0]-tr)+" توب كمان وخد خصم "+next[1]+"% على التل كله.</div>";
     $("inv").innerHTML=h;$("ipPay").style.display=pay==="instapay"&&it.length?"":"none";$("ipPay").textContent="ادفع "+f(tot)+" ج.م على InstaPay";
     var err=!it.length?"ضيف منتج واحد على الأقل.":!nm?"اكتب اسمك.":!/^01[0125]\d{8}$/.test(ph)?"اكتب رقم موبايل صحيح (11 رقم).":!gv?"اختار المحافظة.":(pay!=="cash"&&!ad)?"اكتب العنوان عشان الشحن.":!pay?"اختار طريقة الدفع.":"";
@@ -483,7 +495,7 @@ document.addEventListener('click',function(e){
     var m="🧾 *فاتورة لوفينا*\n\n";
     it.forEach(function(x,i){m+=(i+1)+". "+x.p.n+(x.c?" — لون "+pad(x.c):"")+"\n    "+x.q+" "+x.p.u+" × "+f(x.p.p)+" = "+f(x.p.p*x.q)+" ج.م\n"});
     m+="\nالإجمالي قبل الخصم: "+f(sub)+" ج.م\n";if(ds)m+="خصم تجار "+pc+"% على التل ("+tr+" توب): − "+f(ds)+" ج.م\n";
-    if(it.some(function(x){return x.p.id==="ls"}))m+="(الفرنش ليس بسعره الثابت، مش داخل في الخصم)\n";
+    if(it.some(function(x){return /^l/.test(x.p.id)}))m+="(الفرنش ليس بسعره الثابت، مش داخل في الخصم)\n";
     m+="*الإجمالي: "+f(tot)+" ج.م*\n(مصاريف الشحن بتتأكد مع خدمة العملاء)\n\n";
     m+="💳 طريقة الدفع: "+PAY[pay]+(pay==="instapay"?"\n🔗 لينك الدفع: https://ipn.eg/S/wegzzzz/instapay/1Zi2jL":"")+(pay==="wallet"?"\n📲 رقم المحفظة: 01270455444":"")+"\n\n👤 الاسم: "+nm+"\n📱 الموبايل: "+ph+"\n📍 "+gv+(ad?" — "+ad:"")+(nt?"\n📝 ملاحظات: "+nt:"")+"\n\nمن فضلكم أكدوا الأوردر.";
     s.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m)}
@@ -614,7 +626,7 @@ document.getElementById('copyBtn').addEventListener('click',function(){
 
 <script>(function(){var s=document.querySelectorAll(".hero-slides img"),i=0;if(s.length<2)return;setInterval(function(){s[i].classList.remove("on");i=(i+1)%s.length;s[i].classList.add("on")},4200)})();</script>
 <div class="lzb2" id="lzb2"><button aria-label="قفل">×</button><img alt=""></div><script>(function(){
-var P="https://wsrv.nl/?url="+encodeURIComponent("d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_"),I={"c1": {"form": "112339_be869293-78a0-44d0-aad0-2738c59966ec", "flat": "112549_050e7322-417b-4275-acab-a917be6048af", "detail": "112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173"}, "c2": {"form": "112339_cb4c1acb-79c9-4af6-8223-5ce076cf46d3", "flat": "112550_fb459d3d-1963-4946-87a1-27454fc8e762", "detail": "112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472"}, "s": {"detail": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124625_3aedbfdf-2222-4d39-84c0-92efe3d94143.png", "flat": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124624_540e23e5-8309-4aa6-aae1-b7da8b105661.png"}, "e": {"form": "112337_a53a8cb1-2415-4da2-9f53-d0e2b5079718", "flat": "112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2", "detail": "112552_30b9002c-33f9-4712-8202-8726d6fe71e4"}},V=[["detail","مفرودة"],["flat","التفاصيل"]];
+var P="https://wsrv.nl/?url="+encodeURIComponent("d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_"),I={"c1": {"form": "112339_be869293-78a0-44d0-aad0-2738c59966ec", "flat": "112549_050e7322-417b-4275-acab-a917be6048af", "detail": "112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173"}, "c2": {"form": "112339_cb4c1acb-79c9-4af6-8223-5ce076cf46d3", "flat": "112550_fb459d3d-1963-4946-87a1-27454fc8e762", "detail": "112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472"}, "n1": {"detail": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/685462f9-6427-4688-b2a4-65119d0dcc15.jpg", "flat": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/a4e18dd1-c212-45f6-845b-c69b290299d9.jpg"}, "n2": {"detail": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/d0dfba4f-1141-4a7e-8a3e-dbe888a69cd4.jpg", "flat": "https://d2ol7oe51mr4n9.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/eb31330b-ebf6-4143-be9a-9240fefec8dc.jpg"}, "s": {"detail": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124625_3aedbfdf-2222-4d39-84c0-92efe3d94143.png", "flat": "https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261030_124624_540e23e5-8309-4aa6-aae1-b7da8b105661.png"}, "e": {"form": "112337_a53a8cb1-2415-4da2-9f53-d0e2b5079718", "flat": "112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2", "detail": "112552_30b9002c-33f9-4712-8202-8726d6fe71e4"}},V=[["detail","مفرودة"],["flat","التفاصيل"]];
 function u(id,w){if(/^https:/.test(id))return "https://wsrv.nl/?url="+encodeURIComponent(id.slice(8))+"&w="+w+"&output=webp&q=80";return P+encodeURIComponent(id)+".png&w="+w+"&output=webp&q=78"}
 var z=document.getElementById("lzb2"),zi=z.querySelector("img");z.onclick=function(){z.classList.remove("on")};
 document.querySelectorAll(".lx").forEach(function(el){var sets=el.dataset.sets.split(","),s=sets[0],v="detail";
@@ -624,7 +636,7 @@ h+='<div class="lx-cap"><small>LUVINA FRENCH LACE</small><b></b></div></div><div
 el.innerHTML=h;var cap=el.querySelector(".lx-cap b"),wa=el.querySelector(".lx-wa");
 function paint(){el.querySelectorAll(".lx-stage img").forEach(function(im){im.classList.toggle("on",im.dataset.s===s&&im.dataset.v===v)});
 el.querySelectorAll(".lx-sets button").forEach(function(b){b.classList.toggle("on",b.dataset.s===s)});el.querySelectorAll(".lx-tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});
-cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"");var so=!!el.closest(".soldout"),nm=(el.dataset.k==="c"?"فرنش ليس كوردونيه":el.dataset.k==="s"?"فرنش ليس مطرز سيلفر":"فرنش ليس مطرز")+(sets.length>1?" تصميم رقم "+(sets.indexOf(s)+1):"");if(so){wa.textContent="Sold Out · الكمية خلصت";wa.removeAttribute("href");wa.setAttribute("aria-disabled","true");return}wa.textContent="اطلب "+(sets.length>1?"تصميم No."+(sets.indexOf(s)+1):"التصميم ده")+" على واتساب";wa.href="https://wa.me/201270455444?text="+encodeURIComponent("أهلاً لوفينا، عايز أطلب "+nm+" (الكوب 3 متر × 1.5 متر)")}
+cap.textContent=el.dataset.t+(sets.length>1?" No."+(sets.indexOf(s)+1):"");var so=!!el.closest(".soldout"),nm=(el.dataset.k==="c"?"فرنش ليس كوردونيه":el.dataset.k==="s"?"فرنش ليس مطرز سيلفر":el.dataset.k==="n"?"فرنش ليس كوردونيه أوف وايت":"فرنش ليس مطرز")+(sets.length>1?" تصميم رقم "+(sets.indexOf(s)+1):"");if(so){wa.textContent="Sold Out · الكمية خلصت";wa.removeAttribute("href");wa.setAttribute("aria-disabled","true");return}wa.textContent="اطلب "+(sets.length>1?"تصميم No."+(sets.indexOf(s)+1):"التصميم ده")+" على واتساب";wa.href="https://wa.me/201270455444?text="+encodeURIComponent("أهلاً لوفينا، عايز أطلب "+nm+" (الكوب 3 متر × 1.5 متر)")}
 el.addEventListener("click",function(e){var b=e.target.closest("button");if(b&&b.dataset.s){s=b.dataset.s;paint()}else if(b&&b.dataset.v){v=b.dataset.v;paint()}else if(e.target.closest(".lx-stage")){zi.src=u(I[s][v],1600);z.classList.add("on")}});paint()})})();</script>
 </body>
 </html>
