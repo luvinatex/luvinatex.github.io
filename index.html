@@ -60,7 +60,7 @@ p{margin:0;color:var(--soft);max-width:60ch}
 
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ivory)}
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(245,239,231,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .4s}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--ivory,#F5EFE7);border-bottom:1px solid transparent;transition:border-color .4s}
 header.top.scrolled{border-bottom-color:var(--line)}
 .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
 .bar .logo{font-family:var(--display-en);font-size:22px;letter-spacing:.42em;padding-inline-start:.42em;color:var(--taupe)}
@@ -104,7 +104,7 @@ html[lang=ar] .btn{font-size:16px;letter-spacing:0}
 .btn:hover{background:var(--ink)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--ivory)}
-.wordmark{font-family:var(--display-en);text-align:center;font-size:clamp(84px,17.5vw,260px);line-height:.78;letter-spacing:.12em;padding-inline-start:.12em;color:var(--ink);margin-top:-.32em;position:relative;pointer-events:none;mix-blend-mode:multiply;direction:ltr;white-space:nowrap}
+.wordmark{font-family:var(--display-en);text-align:center;font-size:clamp(84px,17.5vw,260px);line-height:.78;letter-spacing:.12em;padding-inline-start:.12em;color:var(--ink);margin-top:56px;padding-bottom:.08em;position:relative;pointer-events:none;direction:ltr;white-space:nowrap}
 
 /* sections */
 section.band{padding-block:clamp(72px,11vw,150px)}
@@ -237,6 +237,7 @@ footer .mk{font-family:var(--display-en);letter-spacing:.42em;color:var(--taupe)
   .info{grid-template-columns:1fr}
   .summary{position:static}
   .tools .order-link{display:none}
+  .wordmark{margin-top:36px;letter-spacing:.08em;padding-inline-start:.08em;font-size:clamp(64px,19vw,180px)}
 }
 @media (max-width:560px){
   .bar{height:64px}
@@ -244,9 +245,8 @@ footer .mk{font-family:var(--display-en);letter-spacing:.42em;color:var(--taupe)
   .menu-btn .lbl{display:none}
   .craft{grid-template-columns:1fr}
   .pillars{grid-template-columns:1fr}
-  .line{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .line{grid-template-columns:minmax(0,1fr) 84px 44px;}
   .line .f.prod{grid-column:1/-1}
-  .line .rm{grid-column:2}
   .cust{grid-template-columns:1fr}
   .hero-side .btn{width:100%}
 }
@@ -596,9 +596,9 @@ footer .mk{font-family:var(--display-en);letter-spacing:.42em;color:var(--taupe)
 
   $('orderForm').addEventListener('submit',function(e){
     e.preventDefault();
-    var name=$('cName').value.trim(),phone=$('cPhone').value.trim(),gov=$('cGov').value;
+    var name=$('cName').value.trim(),phone=$('cPhone').value.replace(/[٠-٩]/g,function(d){return d.charCodeAt(0)-1632;}).replace(/[۰-۹]/g,function(d){return d.charCodeAt(0)-1776;}).replace(/[\s\-()]/g,'').trim(),gov=$('cGov').value;
     if(!name){$('err').textContent=T('من فضلك اكتب الاسم.','Please enter your name.');$('cName').focus();return;}
-    if(!/^[0-9+\s]{10,15}$/.test(phone)){$('err').textContent=T('من فضلك اكتب رقم موبايل صحيح.','Please enter a valid mobile number.');$('cPhone').focus();return;}
+    if(!/^\+?[0-9]{10,15}$/.test(phone)){$('err').textContent=T('من فضلك اكتب رقم موبايل صحيح.','Please enter a valid mobile number.');$('cPhone').focus();return;}
     if(gov===''){$('err').textContent=T('من فضلك اختر المحافظة.','Please select your governorate.');$('cGov').focus();return;}
     $('err').textContent='';
     var t=totals(),pay=PAY.filter(function(p){return p.id===(document.querySelector('input[name=pay]:checked')||{}).value;})[0]||PAY[0];
@@ -617,7 +617,7 @@ footer .mk{font-family:var(--display-en);letter-spacing:.42em;color:var(--taupe)
     if($('cNotes').value.trim())L.push(T('ملاحظات: ','Notes: ')+$('cNotes').value.trim());
     L.push(T('طريقة الدفع: ','Payment: ')+T(pay.ar,pay.en));
     var url='https://wa.me/'+WA+'?text='+encodeURIComponent(L.join('\n'));
-    var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+    window.location.href=url;
   });
 
   Array.prototype.forEach.call(document.querySelectorAll('[data-preset=catalog]'),function(a){a.addEventListener('click',function(){lines=[{p:'catalog',c:null,q:1}];renderLines();});});
