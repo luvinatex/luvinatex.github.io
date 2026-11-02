@@ -371,12 +371,11 @@ html[lang=en] body{font-weight:400}
 
 <section class="mod dark">
   <div class="copy rv">
-    <div class="eyebrow"><span class="ar">وصل حديثاً</span><span class="en">Just arrived</span></div>
+    <div class="eyebrow"><span class="ar">نفدت الكمية</span><span class="en">Sold out</span></div>
     <h2 class="head"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></h2>
     <p class="sub"><span class="ar">كوردونيه بارز. حواف مخرّمة من الجانبين.</span><span class="en">Raised cordonnet. Scalloped on both edges.</span></p>
     <div class="ctas">
       <a class="pill" href="#lace"><span class="ar">تصفّح التصاميم</span><span class="en">See the designs</span></a>
-      <a class="pill ghost" href="#order"><span class="ar">اطلب الآن</span><span class="en">Order now</span></a>
     </div>
   </div>
   <div class="lace-hero" id="laceHero"></div>
@@ -596,9 +595,9 @@ html[lang=en] body{font-weight:400}
 
   var img=function(id,ext){return 'https://wsrv.nl/?url='+id+'&w=900&output=webp&q=80';};
   var LACE=[
-    {id:'no1',name:'Cordonnet No.1',ar:'كوردونيه No.1',price:1600,a:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fa4e18dd1-c212-45f6-845b-c69b290299d9.jpg'),b:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2F685462f9-6427-4688-b2a4-65119d0dcc15.jpg')},
-    {id:'no2',name:'Cordonnet No.2',ar:'كوردونيه No.2',price:1600,a:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Feb31330b-ebf6-4143-be9a-9240fefec8dc.jpg'),b:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fd0dfba4f-1141-4a7e-8a3e-dbe888a69cd4.jpg')},
-    {id:'no3',name:'Cordonnet No.3',ar:'كوردونيه No.3',price:1600,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_050e7322-417b-4275-acab-a917be6048af.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173.png')},
+    {id:'no1',name:'Cordonnet No.1',ar:'كوردونيه No.1',price:1600,out:true,a:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fa4e18dd1-c212-45f6-845b-c69b290299d9.jpg'),b:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2F685462f9-6427-4688-b2a4-65119d0dcc15.jpg')},
+    {id:'no2',name:'Cordonnet No.2',ar:'كوردونيه No.2',price:1600,out:true,a:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Feb31330b-ebf6-4143-be9a-9240fefec8dc.jpg'),b:img('d2ol7oe51mr4n9.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fd0dfba4f-1141-4a7e-8a3e-dbe888a69cd4.jpg')},
+    {id:'no3',name:'Cordonnet No.3',ar:'كوردونيه No.3',price:1600,out:true,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_050e7322-417b-4275-acab-a917be6048af.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_6894f85e-f3f1-4591-86c2-abbb5bf7e173.png')},
     {id:'no4',name:'Cordonnet No.4',ar:'كوردونيه No.4',price:1600,out:true,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112550_fb459d3d-1963-4946-87a1-27454fc8e762.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112548_5b71d4ce-fc3f-4e65-9348-d51359bd5472.png')},
     {id:'silver',name:'Silver Embroidered',ar:'مطرز سيلفر',price:4750,out:true,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261030_124624_540e23e5-8309-4aa6-aae1-b7da8b105661.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261030_124625_3aedbfdf-2222-4d39-84c0-92efe3d94143.png')},
     {id:'ivory',name:'Ivory Embroidered',ar:'مطرز أوف وايت',price:2600,out:true,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112552_30b9002c-33f9-4712-8202-8726d6fe71e4.png')}
@@ -641,7 +640,7 @@ html[lang=en] body{font-weight:400}
       '</div></article>';
     }).join('');
     Array.prototype.forEach.call(document.querySelectorAll('.piece .ph'),function(ph){ph.addEventListener('click',function(){ph.parentNode.classList.toggle('tap');});});
-    var avail=LACE.filter(function(l){return !l.out;}).slice(0,2);
+    var avail=LACE.slice(0,2);
     $('laceHero').innerHTML=avail.map(function(l){return '<div class="ph rv"><img class="kb" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'"></div>';}).join('');
     Array.prototype.forEach.call(document.querySelectorAll('#laceHero .ph'),function(el){if(window.__io)window.__io.observe(el);else el.classList.add('in');});
   }
