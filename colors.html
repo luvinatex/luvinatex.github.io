@@ -94,6 +94,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
 .card .ph img{width:100%;height:100%;object-fit:cover;display:block}
 .card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .card .code{font-family:var(--f-en);font-weight:600;font-size:30px;letter-spacing:-.02em;direction:ltr}
+.card .nm{font-size:16px;font-weight:600;margin-top:4px}
 .card .wd{font-size:13px;color:var(--soft);margin-top:2px}
 .card .nav{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
 .card .nav button{background:none;border:0;color:var(--link);font-size:14px;cursor:pointer;min-height:44px;padding:0 4px}
@@ -123,7 +124,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     <div class="grab"></div>
     <div class="ph"><img id="pvImg" alt=""></div>
     <div class="row">
-      <div><div class="code" id="pvCode"></div><div class="wd" id="pvWd"></div></div>
+      <div><div class="code" id="pvCode"></div><div class="nm" id="pvNm"></div><div class="wd" id="pvWd"></div></div>
       <button class="pill" id="pvPick" type="button"></button>
     </div>
     <div class="nav"><button type="button" id="pvPrev">‹ السابق</button><button type="button" id="pvClose">إغلاق</button><button type="button" id="pvNext">التالي ›</button></div>
@@ -135,7 +136,8 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
   var $=function(i){return document.getElementById(i);};
   var pad=function(n){return ('00'+n).slice(-3);};
   /* order: whites → skins → nudes → blush → pink → red → wine → lilac → blue → aqua → teal → sage → olive → yellow → orange → brown → grey → black */
-  var ORDER=[93,7,6,78,71,42,22,94,3,66,1,35,51,53,46,29,50,25,32,54,82,69,27,84,72,88,89,4,34,100,30,24,47,39,57,60,64,62,44,38,59,56,98,92,13,11,83,9,10,67,61,63,86,75,18,99,17,20,43,21,15,81,97,85,91,77,36,5,90,55,28,74,23,95,40,33,68,70,45,58,12,79,19,31,26,87,65,49,2,37,52,14,16,96,80,41,76,73,48,8];
+  var ORDER=[7,6,94,42,22,46,29,3,66,69,1,78,27,84,98,72,54,82,88,89,100,4,34,30,24,47,39,60,57,44,38,59,56,64,62,10,13,92,11,83,9,61,63,67,86,18,99,75,17,43,20,21,15,81,77,36,74,95,5,90,55,33,91,85,68,28,23,40,70,45,58,50,12,79,31,19,32,25,65,26,87,49,35,2,53,37,51,71,93,97,14,16,96,80,41,73,76,48,52,8];
+  var NM={"1":["Tan","تان"],"2":["Toffee","توفي"],"3":["Camel","جملي"],"4":["Deep Mauve","موف غامق"],"5":["Emerald","زمردي"],"6":["Off-White","أوف وايت"],"7":["Pure White","أبيض صريح"],"8":["Black","أسود"],"9":["Royal Purple","بنفسجي ملكي"],"10":["Aubergine","باذنجاني"],"11":["Lavender Grey","رمادي لافندر"],"12":["Sunflower","أصفر عباد الشمس"],"13":["Lavender","لافندر"],"14":["Light Grey","رمادي فاتح"],"15":["Dark Navy","كحلي غامق"],"16":["Silver","فضي"],"17":["Royal Blue","أزرق ملكي"],"18":["Steel Blue","أزرق ستيل"],"19":["Mustard","مستردة"],"20":["Navy Blue","كحلي"],"21":["Midnight Blue","كحلي مسود"],"22":["Light Nude","نود فاتح"],"23":["Moss Grey","رمادي طحلبي"],"24":["Ruby","روبي"],"25":["Salmon","سيمون"],"26":["Burnt Orange","برتقالي محروق"],"27":["Baby Pink","بيبي بينك"],"28":["Sage","سيج"],"29":["Sand Beige","بيج رملي"],"30":["Fuchsia","فوشيا"],"31":["Honey","عسلي"],"32":["Peach","خوخي"],"33":["Black Green","أخضر مسود"],"34":["Mulberry Rose","توتي مطفي"],"35":["Hazel","بندقي"],"36":["Jade","يشمي"],"37":["Bronze","برونزي"],"38":["Deep Maroon","ماروني غامق"],"39":["True Red","أحمر كلاسيك"],"40":["Bottle Green","أخضر زجاجي"],"41":["Rose Grey","رمادي وردي"],"42":["Light Beige","بيج فاتح"],"43":["Petrol","بترولي"],"44":["Maroon","ماروني"],"45":["Olive Green","زيتوني"],"46":["Rose Nude","نود روز"],"47":["Scarlet","أحمر صريح"],"48":["Taupe","توب"],"49":["Mocha","موكا"],"50":["Pineapple","أناناس"],"51":["Coffee","قهوة"],"52":["Dark Grey","رمادي غامق"],"53":["Chestnut","كستنائي"],"54":["Antique Rose","روز أنتيك"],"55":["Deep Petrol","بترولي غامق"],"56":["Black Wine","نبيتي مسود"],"57":["Oxblood","أحمر غامق"],"58":["Dark Olive","زيتي غامق"],"59":["Black Cherry","كريزي غامق"],"60":["Crimson","قرمزي"],"61":["Midnight Purple","بنفسجي مسود"],"62":["Burgundy","عنابي"],"63":["Ink","حبري"],"64":["Berry","توتي غامق"],"65":["Caramel","كراميل"],"66":["Honey Beige","بيج عسلي"],"67":["Deep Indigo","نيلي غامق"],"68":["Stone","حجري"],"69":["Khaki","كاكي"],"70":["Olive","زيتي"],"71":["Dark Brown","بني غامق"],"72":["Rosy Taupe","توب وردي"],"73":["Stone Grey","رمادي حجري"],"74":["Dark Sage","سيج غامق"],"75":["Slate","أردوازي"],"76":["Medium Grey","رمادي متوسط"],"77":["Teal","تيل"],"78":["Rose Powder","روز بودرة"],"79":["Golden Yellow","أصفر ذهبي"],"80":["Steel Grey","رمادي ستيل"],"81":["Mint Aqua","أكوا منت"],"82":["Blush Clay","وردي طيني"],"83":["Periwinkle","بيريونكل"],"84":["Dusty Rose","روز مطفي"],"85":["Mint","منت"],"86":["Dusty Blue","أزرق مطفي"],"87":["Cinnamon","بني قرفة"],"88":["Old Rose","أولد روز"],"89":["Rosewood","خشب الورد"],"90":["Forest Teal","زمردي غامق"],"91":["Pale Sage","سيج فاتح"],"92":["Lilac","ليلكي"],"93":["White Grey","أبيض رمادي"],"94":["Ivory","عاجي"],"95":["Slate Teal","تيل رمادي"],"96":["Cool Grey","رمادي بارد"],"97":["Pearl Grey","رمادي لؤلؤي"],"98":["Mauve","موف"],"99":["Cornflower","أزرق كورن فلاور"],"100":["Raspberry Pink","بينك توتي"]};
   var FIX={6:[241,234,219,0],7:[247,247,246,0],22:[236,212,192,0],42:[232,218,196,0],50:[243,224,150,0],52:[60,60,62,2],71:[62,42,30,1],78:[228,192,188,0],93:[224,224,222,0]};
   var SWC={};
   function sw(n){return SWC[n]||('luvina-'+pad(n)+'.jpg');}
@@ -149,7 +151,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
   var wall=$('wall');
   wall.innerHTML=ORDER.map(function(n){
     var w3=ONLY3.indexOf(n)>-1||ALSO3.indexOf(n)>-1;
-    return '<button class="sw'+(LIGHT[n-1]==='1'?' lt':'')+'" type="button" role="listitem" data-n="'+n+'" aria-label="لون '+pad(n)+'"><img src="luvina-'+pad(n)+'.jpg"'+(FIX[n]?' style="opacity:0"':'')+' alt="" loading="eager" decoding="async"><span class="c">'+pad(n)+'</span>'+(w3?'<span class="w3"></span>':'')+'</button>';
+    return '<button class="sw'+(LIGHT[n-1]==='1'?' lt':'')+'" type="button" role="listitem" data-n="'+n+'" aria-label="لون '+pad(n)+' '+NM[n][1]+'" title="'+pad(n)+' · '+NM[n][1]+' · '+NM[n][0]+'"><img src="luvina-'+pad(n)+'.jpg"'+(FIX[n]?' style="opacity:0"':'')+' alt="" loading="eager" decoding="async"><span class="c">'+pad(n)+'</span>'+(w3?'<span class="w3"></span>':'')+'</button>';
   }).join('');
   wall.addEventListener('click',function(e){var b=e.target.closest('.sw');if(b)open(+b.dataset.n);});
 
@@ -165,7 +167,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     if(cur){var on=sel.indexOf(cur)>-1;$('pvPick').textContent=on?'✓ مُضاف':'أضف للاختيار';$('pvPick').className=on?'pill ghost':'pill';}
   }
   var cur=0;
-  function open(n){cur=n;$('pvImg').src=sw(n);$('pvCode').textContent='N° '+pad(n);$('pvWd').textContent=wd(n);$('sheet').classList.add('on');$('sheet').setAttribute('aria-hidden','false');paint();}
+  function open(n){cur=n;$('pvImg').src=sw(n);$('pvCode').textContent='N° '+pad(n);$('pvNm').textContent=NM[n][1]+' · '+NM[n][0];$('pvWd').textContent=wd(n);$('sheet').classList.add('on');$('sheet').setAttribute('aria-hidden','false');paint();}
   function close(){$('sheet').classList.remove('on');$('sheet').setAttribute('aria-hidden','true');cur=0;}
   function step(d){var i=ORDER.indexOf(cur);open(ORDER[(i+d+100)%100]);}
   $('pvPick').onclick=function(){toggle(cur);};
