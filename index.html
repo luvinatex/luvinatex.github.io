@@ -610,6 +610,88 @@ html[lang=en] body{font-weight:400}
   </div>
 </section>
 
+<section class="sec alt" id="intl">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2><span class="ar">الشحن الدولي.</span><span class="en">International shipping.</span></h2>
+      <p class="sub"><span class="ar">نشحن جواً عبر البريد المصري. السعر بالدولار، ويتحدّث دايماً.</span><span class="en">Air parcel via Egypt Post. Priced in US dollars, always up to date.</span></p>
+    </div>
+    <div class="ix">
+      <div class="panel">
+        <div class="f"><label for="ixC"><span class="ar">الدولة</span><span class="en">Country</span></label><select id="ixC"></select></div>
+        <div class="ix-row">
+          <div class="f"><label for="ixA"><span class="ar">أتواب عرض ١٦٠ سم</span><span class="en">160 cm rolls</span></label><input id="ixA" type="number" min="0" inputmode="numeric" value="5" dir="ltr"></div>
+          <div class="f"><label for="ixB"><span class="ar">أتواب عرض ٣ متر</span><span class="en">3 m rolls</span></label><input id="ixB" type="number" min="0" inputmode="numeric" value="0" dir="ltr"></div>
+        </div>
+        <p class="ix-note"><span class="ar">أقل طلبية للشحن الدولي ٥ أتواب.</span><span class="en">Minimum international order: 5 rolls.</span></p>
+      </div>
+      <div class="panel ix-sum">
+        <div class="ix-l"><span><span class="ar">قيمة الأتواب</span><span class="en">Rolls</span></span><b id="ixG" dir="ltr">—</b></div>
+        <div class="ix-l" id="ixDw"><span><span class="ar">خصم الشركاء</span><span class="en">Partner terms</span> <i id="ixDp"></i></span><b id="ixD" dir="ltr">—</b></div>
+        <div class="ix-l"><span><span class="ar">الشحن الجوي</span><span class="en">Air shipping</span> <i id="ixW"></i></span><b id="ixS" dir="ltr">—</b></div>
+        <div class="ix-l ix-t"><span><span class="ar">الإجمالي</span><span class="en">Total</span></span><b id="ixT" dir="ltr">—</b></div>
+        <p class="ix-msg" id="ixM"></p>
+        <a class="pill" id="ixWa" href="#" target="_blank" rel="noopener"><span class="ar">اطلب الشحنة عبر واتساب</span><span class="en">Order on WhatsApp</span></a>
+        <p class="ix-src"><span id="ixU"></span> · <a href="https://egyptpost.gov.eg/ar-eg/home/eservices/%D8%A7%D8%AD%D8%B3%D8%A8-%D8%B4%D8%AD%D9%86%D8%AA%D9%83/" target="_blank" rel="noopener"><span class="ar">حاسبة البريد المصري ›</span><span class="en">Egypt Post calculator ›</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.ix{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;max-width:880px;margin:0 auto}
+@media(max-width:760px){.ix{grid-template-columns:1fr}}
+.ix .f{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.ix .f label{font-size:14px;color:var(--soft)}
+.ix input{background:#FFFEFC;border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:50px;width:100%;color:var(--ink);font:inherit}
+.ix-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ix-note{font-size:14px;color:var(--soft);margin:0}
+.ix-sum{display:flex;flex-direction:column;gap:12px}
+.ix-l{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ix-l i{font-style:normal;font-size:13px;color:var(--soft)}
+.ix-l b{font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ix-t{border:0;font-size:22px}.ix-t b{font-weight:600}
+.ix-msg{margin:0;font-size:14px;color:#A0524F;min-height:1em}
+.ix-src{margin:0;font-size:12px;color:var(--soft)}.ix-src a{color:var(--link)}
+.ix-sum .pill[aria-disabled=true]{opacity:.45;pointer-events:none}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var W160=1.1,W3=2.2,MIN=5,MAXKG=30,WA="201270455444";
+  var $=function(i){return document.getElementById(i)};
+  var en=function(){return document.documentElement.lang==="en"};
+  var txt=(document.body.textContent||"").replace(/\s+/g," ");
+  var P160=2750,P3=5500,m;
+  m=txt.match(/عرض ١٦٠ سم\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)P160=+m[1].replace(/,/g,"");
+  m=txt.match(/عرض ٣ متر\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)P3=+m[1].replace(/,/g,"");
+  var TI=[],re=/(\d+)%\s*من\s*(\d+)\s*توب/g;while((m=re.exec(txt)))TI.push([+m[2],+m[1]]);
+  if(TI.length<3)TI=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35],[500,40]];
+  TI.sort(function(a,b){return b[0]-a[0]});
+  var DATA=null,FX=null;
+  function usd(egp){return FX?"$"+(egp/FX).toLocaleString("en-US",{maximumFractionDigits:0}):"…"}
+  function ship(kg,c){var mx=c.maxKg||MAXKG,t=0,n=0;while(kg>0){var part=Math.min(kg,mx),k=Math.max(1,Math.ceil(part-1e-9));t+=c.base+c.perKg*(k-1);n++;kg-=part}return{egp:t,parcels:n}}
+  function calc(){
+    var a=Math.max(0,parseInt($("ixA").value)||0),b=Math.max(0,parseInt($("ixB").value)||0),n=a+b,c=DATA&&DATA.countries.find(function(x){return x.id===$("ixC").value});
+    var gross=a*P160+b*P3,tier=TI.find(function(t){return n>=t[0]}),pct=tier?tier[1]:0,disc=Math.round(gross*pct/100),net=gross-disc;
+    var kg=Math.round((a*W160+b*W3)*10)/10,s=c&&kg?ship(kg,c):null;
+    $("ixG").textContent=usd(gross);$("ixD").textContent=pct?"− "+usd(disc):"—";$("ixDp").textContent=pct?pct+"%":"";
+    $("ixW").textContent=kg?kg+" kg"+(s&&s.parcels>1?" · "+s.parcels+(en()?" parcels":" طرود"):""):"";
+    $("ixS").textContent=s?usd(s.egp):"—";$("ixT").textContent=s&&n>=MIN?usd(net+s.egp):"—";
+    var msg="";if(n<MIN)msg=en()?"Minimum is 5 rolls.":"أقل طلبية ٥ أتواب.";else if(!DATA)msg=en()?"Loading Egypt Post prices…":"جاري تحميل أسعار البريد المصري…";else if(!s)msg=en()?"Contact us on WhatsApp for this country.":"للدولة دي كلّمنا على واتساب.";
+    $("ixM").textContent=msg;
+    var ok=n>=MIN&&s&&FX;$("ixWa").setAttribute("aria-disabled",ok?"false":"true");
+    var cn=c?c.name:"";
+    $("ixWa").href="https://wa.me/"+WA+"?text="+encodeURIComponent("طلب شحن دولي — لوفينا\nالدولة: "+cn+"\nعرض ١٦٠ سم: "+a+" توب\nعرض ٣ متر: "+b+" توب\nالوزن: "+kg+" كجم\nقيمة الأتواب بعد الخصم: "+usd(net)+"\nالشحن الجوي (البريد المصري): "+(s?usd(s.egp):"—")+"\nالإجمالي: "+(ok?usd(net+s.egp):"—"));
+  }
+  ["ixA","ixB","ixC"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
+  fetch("https://open.er-api.com/v6/latest/USD").then(function(r){return r.json()}).then(function(j){FX=j&&j.rates&&j.rates.EGP;try{localStorage.setItem("lv_fx",FX)}catch(e){}calc()}).catch(function(){try{FX=+localStorage.getItem("lv_fx")||null}catch(e){}calc()});
+  fetch("/shipping/egypt-post.json?t="+Date.now()).then(function(r){return r.json()}).then(function(d){DATA=d;
+    d.countries.sort(function(a,b){return a.name.localeCompare(b.name,"ar")});
+    $("ixC").innerHTML=d.countries.map(function(c){return '<option value="'+c.id+'"'+(/السعودية/.test(c.name)?" selected":"")+'>'+c.name+'</option>'}).join("");
+    var dt=new Date(d.updated);$("ixU").textContent=(en()?"Egypt Post prices updated ":"أسعار البريد المصري محدّثة ")+dt.toLocaleDateString(en()?"en-GB":"ar-EG");calc()}).catch(calc);
+  calc();
+});
+</script>
+
 <section class="sec" id="contact">
   <div class="wrap">
     <div class="sec-head rv">
@@ -651,7 +733,7 @@ html[lang=en] body{font-weight:400}
       <div><b><span class="ar">تسوّق</span><span class="en">Shop</span></b><a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a><a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a><a href="colors.html"><span class="ar">الألوان المئة</span><span class="en">The 100 Colours</span></a></div>
       <div><b><span class="ar">للأعمال</span><span class="en">For Business</span></b><a href="#trade"><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></a><a href="#order"><span class="ar">طلب خاص</span><span class="en">Private Order</span></a></div>
       <div><b><span class="ar">عن لوفينا</span><span class="en">About LUVINA</span></b><a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a><a href="https://instagram.com/luvinatex" target="_blank" rel="noopener">Instagram</a><a href="team/"><span class="ar">فريق لوفينا</span><span class="en">LUVINA Team</span></a></div>
-      <div><b><span class="ar">تواصل</span><span class="en">Contact</span></b><a href="https://wa.me/201270455444" target="_blank" rel="noopener">WhatsApp</a><a href="#contact"><span class="ar">المقر والتوصيل</span><span class="en">Showroom &amp; Delivery</span></a></div>
+      <div><b><span class="ar">تواصل</span><span class="en">Contact</span></b><a href="https://wa.me/201270455444" target="_blank" rel="noopener">WhatsApp</a><a href="#contact"><span class="ar">المقر والتوصيل</span><span class="en">Showroom &amp; Delivery</span></a><a href="#intl"><span class="ar">الشحن الدولي</span><span class="en">International Shipping</span></a></div>
     </div>
     <div class="legal">
       <span>© 2026 <span class="mk">LUVINA</span> · <span class="ar">التل السويسري · الدانتيل الفرنسي</span><span class="en">Swiss Tulle · French Lace</span></span>
