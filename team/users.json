@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "users": [
   {
    "u": "mahmoud",
@@ -8,6 +8,14 @@
    "active": true,
    "salt": "38162ee6e5373ac8",
    "hash": "618cec15a88b89933af16b8b1556e6c335f99301a4ea52a4ccf490b49754f0cd"
+  },
+  {
+   "u": "menna",
+   "name": "menna",
+   "role": "admin",
+   "active": true,
+   "salt": "964844d156e58c2f",
+   "hash": "bb3d082543589b3cd4deca21ae83d482c8afab70a112f91a616da8814a301d07"
   }
  ]
 }
