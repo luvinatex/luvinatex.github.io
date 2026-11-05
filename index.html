@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var DATA=null,FX=null;
   function usd(egp){return FX?"$"+(egp/FX).toLocaleString("en-US",{maximumFractionDigits:0}):"…"}
   function price(c,k){var e=c.exp;if(!e)return c.base+c.perKg*(k-1);var ks=Object.keys(e).map(Number).sort(function(a,b){return a-b});if(e[k]!=null)return e[k];var lo=ks[0],hi=ks[ks.length-1];for(var i=0;i<ks.length-1;i++){if(k>ks[i]&&k<ks[i+1]){lo=ks[i];hi=ks[i+1];break}}if(k<ks[0]){lo=ks[0];hi=ks[1]}if(k>hi){lo=ks[ks.length-2]}return e[lo]+(e[hi]-e[lo])*(k-lo)/(hi-lo)}
-  function ship(kg,c){var mx=(c.maxKg||MAXKG)-BOX,n=Math.ceil(kg/mx-1e-9),each=kg/n,k=Math.ceil(each+BOX-1e-9);return{egp:n*price(c,k),parcels:n,gross:Math.round((kg+n*BOX)*10)/10}}
+  function ship(kg,c){var mx=(c.maxKg||MAXKG)-BOX,n0=Math.ceil(kg/mx-1e-9),best=null;for(var n=n0;n<=n0+40;n++){var each=kg/n,k=Math.ceil(each+BOX-1e-9);if(n>n0&&k<7)break;var cost=n*price(c,k);if(!best||cost<best.egp-0.5)best={egp:cost,parcels:n,gross:Math.round((kg+n*BOX)*10)/10}}return best}
   function calc(){
     var a=Math.max(0,parseInt($("ixA").value)||0),b=Math.max(0,parseInt($("ixB").value)||0),n=a+b,c=DATA&&DATA.countries.find(function(x){return x.id===$("ixC").value});
     var gross=a*P160+b*P3,tier=TI.find(function(t){return n>=t[0]}),pct=tier?tier[1]:0,disc=Math.round(gross*pct/100),net=gross-disc;
