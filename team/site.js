@@ -11,10 +11,10 @@
     var m=t.match(/عرض ١٦٠ سم\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)f.w160=num(m[1]);
     m=t.match(/عرض ٣ متر\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)f.w3=num(m[1]);
     m=t.match(/كتاب الألوان المئة بـ\s*([٠-٩\d,]+)/);if(m)f.catalog=num(m[1]);
-    var tiers=[],re=/(\d+)%\s*من\s*(\d+)\s*توب/g;while((m=re.exec(t)))tiers.push([+m[2],+m[1]]);
-    if(tiers.length>=3)f.tiers=tiers.sort(function(a,b){return b[0]-a[0]});
-    var lace=[],seen={};re=/(متاح الآن|نفدت الكمية)\s*([A-Za-z][A-Za-z .0-9]*?)\s*([\d,]+)\s*EGP/g;
-    while((m=re.exec(t))){var n=m[2].trim();if(seen[n])continue;seen[n]=1;lace.push({n:n,p:num(m[3]),ok:m[1]==="متاح الآن"})}
+    var m2=html.match(/id:'t160'[^}]*?price:(\d+)/);if(m2)f.w160=+m2[1];
+    m2=html.match(/id:'t3m'[^}]*?price:(\d+)/);if(m2)f.w3=+m2[1];
+    m2=html.match(/var TIERS=(\[\[[\d,\[\]]+\]\])/);if(m2){try{f.tiers=JSON.parse(m2[1]).map(function(x){return [x[0],x[1]]}).sort(function(a,b){return b[0]-a[0]})}catch(e){}}
+    var lace=[],re=/name:'([^']+)',ar:'[^']*',price:(\d+),out:(true|false)/g;while((m=re.exec(html)))lace.push({n:m[1],p:+m[2],ok:m[3]==="false"});
     if(lace.length)f.lace=lace;
     return f.w160?f:null;
   }
