@@ -46,7 +46,7 @@
     if(last&&!last.dataset.waDone&&last.textContent.indexOf("مش لاقي إجابة أكيدة")>-1){last.dataset.waDone=1;
       var qs=document.querySelectorAll("#msgs .msg.me .bub"),q=qs.length?qs[qs.length-1].textContent:"";
       var btn=document.createElement("button");btn.className="chip";btn.style.cssText="margin-top:10px;background:#25D366;color:#fff;border-color:#25D366";
-      btn.textContent="ابعت السؤال لمحمود على واتساب";btn.dataset.wa=q;last.appendChild(btn)}});
+      btn.textContent="ابعت السؤال للمدير على واتساب";btn.dataset.wa=q;last.appendChild(btn)}});
   var go=function(){var m=document.getElementById("msgs");if(m)obs.observe(m,{childList:true,subtree:true})};
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
