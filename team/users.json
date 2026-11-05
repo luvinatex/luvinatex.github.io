@@ -1,0 +1,13 @@
+{
+ "version": 2,
+ "users": [
+  {
+   "u": "mahmoud",
+   "name": "محمود",
+   "role": "admin",
+   "active": true,
+   "salt": "38162ee6e5373ac8",
+   "hash": "618cec15a88b89933af16b8b1556e6c335f99301a4ea52a4ccf490b49754f0cd"
+  }
+ ]
+}
