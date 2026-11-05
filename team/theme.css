@@ -1,0 +1,62 @@
+/* Luvina Team — matches luvinatex.com */
+:root{
+  --bg:#FDFBF8;--bg2:#F8F3EE;--card:#FFFEFC;--ink:#3D3330;--soft:#8E7F76;--line:#EAE0D7;
+  --gold:#B89C80;--gold2:#B89C80;--wine:#9E8061;--wine2:#A88B6E;--nude:#F8EEEA;--ok:#8FA383;
+  --sh:0 1px 2px rgba(61,51,48,.04),0 10px 30px -18px rgba(61,51,48,.22);
+  --serif:'Reem Kufi','Alexandria','SF Arabic',sans-serif;
+  --sans:'Alexandria','SF Arabic','Segoe UI',Tahoma,sans-serif;
+  --en:'Inter','SF Pro Display','Helvetica Neue',Arial,sans-serif;
+}
+body{background:var(--bg);font-weight:300;-webkit-font-smoothing:antialiased}
+b,strong,.tile .n,.card .h{font-weight:500}
+
+/* top bar like the site */
+.gn-mini{position:sticky;top:0;z-index:60;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;
+  background:rgba(251,248,244,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(234,224,215,.6)}
+.gn-mini .logo{font-family:var(--en);font-weight:600;font-size:15px;letter-spacing:.32em;padding-inline-start:.32em;direction:ltr;color:var(--ink);opacity:.88;text-decoration:none}
+.gn-mini .back{font-size:13px;color:var(--ink);opacity:.75;text-decoration:none}
+.gn-mini .back:hover{opacity:1}
+#login{min-height:calc(100% - 44px)}
+#app{height:calc(100% - 44px)}
+
+/* login */
+#login:before{background:radial-gradient(45% 40% at 50% 10%,#F8EEEA,transparent 70%),radial-gradient(40% 35% at 15% 90%,#EFF2EA,transparent 70%)}
+.mono{background:none;border:1px solid var(--line);color:var(--ink);font-family:var(--en);font-weight:600;letter-spacing:.12em;box-shadow:none}
+.lbox h1{font-family:var(--en);font-weight:600;font-size:30px;letter-spacing:.32em;padding-inline-start:.32em;direction:ltr;opacity:.9}
+.lbox .sub{font-family:var(--serif);font-size:clamp(30px,7vw,40px);font-weight:600;color:var(--ink);margin:14px 0 6px;line-height:1.2}
+.lbox .sub2{font-size:17px;color:var(--soft);margin:0 0 30px}
+.field input{border-radius:14px;background:#fff;font-weight:400}
+.field input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,156,128,.18)}
+.cta{border-radius:980px;background:var(--gold);color:#fff;font-weight:500;box-shadow:none;min-height:50px}
+.cta:hover{background:#A88B6E}
+.err{color:#A0524F}
+.lfoot{color:var(--soft);font-family:var(--en);letter-spacing:.3em}
+
+/* app */
+header .mono{width:40px;height:40px;font-size:13px}
+.hi .t{font-family:var(--serif);font-weight:600}
+.icon-btn{border-radius:980px}
+.tabs button{border-radius:980px}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:none}
+.tip{color:var(--ink);background:linear-gradient(135deg,#F8EEEA 0%,#F6F0E8 55%,#EFF2EA 100%);border:1px solid var(--line);border-radius:28px;box-shadow:none}
+.tip:after{display:none}
+.tip .k{color:var(--soft);letter-spacing:0;font-size:14px;font-weight:500}
+.tip .h{font-family:var(--serif);font-weight:600;font-size:24px}
+.tip .b{opacity:1;color:var(--ink)}
+.tip button{border:0;background:var(--gold);color:#fff;border-radius:980px;padding:9px 18px}
+.tile,.card,.sec{border-radius:22px}
+.av{background:none;border:1px solid var(--line);color:var(--ink);font-family:var(--en);font-weight:600;font-size:11px;letter-spacing:.06em}
+.bot .bub{border-radius:22px;border-top-right-radius:8px}
+.me .bub{background:var(--ink);border-radius:22px;border-top-left-radius:8px}
+.bub b{color:#8A6A4E}
+.bub .ttl,.cat,.sec h3{font-family:var(--serif);font-weight:600}
+.cat{color:var(--ink)}
+.calc tr.tot td{color:#8A6A4E}
+.chip{background:#fff}
+.chip:hover{border-color:var(--gold)}
+.cats .chip.on{background:var(--ink);border-color:var(--ink)}
+.send{background:var(--gold);border-radius:980px;width:50px}
+.bar{background:rgba(251,248,244,.85)}
+.bar input,.search{border-radius:980px;background:#fff}
+.btn{border-radius:980px}
+.btn.danger{background:#A0524F}
