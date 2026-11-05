@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "users": [
   {
    "u": "mahmoud",
@@ -16,6 +16,22 @@
    "active": true,
    "salt": "964844d156e58c2f",
    "hash": "bb3d082543589b3cd4deca21ae83d482c8afab70a112f91a616da8814a301d07"
+  },
+  {
+   "u": "malak",
+   "name": "Malak",
+   "role": "sales",
+   "active": true,
+   "salt": "87736a8a6a4b8b4d",
+   "hash": "f9f92ae76cabe02b8d6be4e13f39f9cb25e10286c585dbf6f60869e83a5b0dac"
+  },
+  {
+   "u": "rewan",
+   "name": "Rewan",
+   "role": "sales",
+   "active": true,
+   "salt": "d040349515ad42b5",
+   "hash": "b9ba6d819abccf8075fceb71065c9b1578633bb09f8ffeb98a9484900a3da485"
   }
  ]
 }
