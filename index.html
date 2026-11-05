@@ -685,6 +685,7 @@ document.addEventListener('DOMContentLoaded',function(){
   ["ixA","ixB","ixC"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
   fetch("https://open.er-api.com/v6/latest/USD").then(function(r){return r.json()}).then(function(j){FX=j&&j.rates&&j.rates.EGP;try{localStorage.setItem("lv_fx",FX)}catch(e){}calc()}).catch(function(){try{FX=+localStorage.getItem("lv_fx")||null}catch(e){}calc()});
   fetch("/shipping/egypt-post.json?t="+Date.now()).then(function(r){return r.json()}).then(function(d){DATA=d;
+    var FIX={"ألاردن":"الأردن","استراليا":"أستراليا","ايطاليا":"إيطاليا","اسبانيا":"إسبانيا","المانيا":"ألمانيا","الولايات المتحدة الامريكية":"الولايات المتحدة","بريطانيا و ايرلندا الشمالية":"بريطانيا","الإمارات العربية المتحدة":"الإمارات"};d.countries.forEach(function(c){c.name=FIX[c.name]||c.name});
     d.countries.sort(function(a,b){return a.name.localeCompare(b.name,"ar")});
     $("ixC").innerHTML=d.countries.map(function(c){return '<option value="'+c.id+'"'+(/السعودية/.test(c.name)?" selected":"")+'>'+c.name+'</option>'}).join("");
     var dt=new Date(d.updated);$("ixU").textContent=(en()?"Egypt Post prices updated ":"أسعار البريد المصري محدّثة ")+dt.toLocaleDateString(en()?"en-GB":"ar-EG");calc()}).catch(calc);
