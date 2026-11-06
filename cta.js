@@ -5,7 +5,7 @@
   if (document.getElementById('lvc')) return;
 
   var WA = '201270455444';
-  var msgBook = 'أهلاً لوفينا 👋\nعايز أطلب كتاب الألوان المئة (٣٥٠ ج.م بتتخصم من أول طلب).\nالاسم:\nالمحافظة:';
+  var msgBook = 'أهلاً لوفينا 👋\nعايز أطلب كتالوج لوفينا (هدية مع طلبي).\nالاسم:\nالمحافظة:';
   var msgAsk = 'أهلاً لوفينا 👋\nعندي استفسار عن التل السويسري.';
   var u = function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); };
 
@@ -35,8 +35,8 @@
   bar.setAttribute('role', 'complementary');
   bar.innerHTML =
     '<a class="b" href="' + u(msgBook) + '" target="_blank" rel="noopener">' +
-      '<span class="ar">اطلب كتاب الـ ١٠٠ لون <small>· يُخصم من أول طلب</small></span>' +
-      '<span class="en">Get the 100-Colour Book <small>· credited to your order</small></span>' +
+      '<span class="ar">اطلب كتالوج لوفينا <small>· هدية مع طلبك</small></span>' +
+      '<span class="en">Get the Luvina Catalogue <small>· a gift with your order</small></span>' +
     '</a>' +
     '<a class="w" href="' + u(msgAsk) + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + ico + '</a>';
 
