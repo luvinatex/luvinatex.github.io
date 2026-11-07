@@ -1,3 +1,99 @@
+/* Luvina catalogue request form — saves the lead to the Luvina Leads sheet, then opens WhatsApp */
+(function () {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbx0trffk9vSkrEn9FXTmosjB5lr__mEFCwHYHz0PdD73tEfJxscQF8bO4MZrXeTEjJUkA/exec';
+  var WA = '201270455444';
+  var GOV = ['القاهرة','الجيزة','القليوبية','الإسكندرية','الدقهلية','الشرقية','الغربية','المنوفية','كفر الشيخ','البحيرة','دمياط','بورسعيد','الإسماعيلية','السويس','الفيوم','بني سويف','المنيا','أسيوط','سوهاج','قنا','الأقصر','أسوان','البحر الأحمر','مطروح','شمال سيناء','جنوب سيناء','الوادي الجديد','خارج مصر'];
+  var KEY = 'lv_lead';
+  var built = false, box;
+
+  function ar() { return document.documentElement.lang !== 'en'; }
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+
+  function build() {
+    if (built) return; built = true;
+    var css = '' +
+      '#lvf{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-end;justify-content:center;background:rgba(61,51,48,.38);opacity:0;pointer-events:none;transition:opacity .35s;font-family:var(--f-ar,"Alexandria",sans-serif)}' +
+      'html[lang=en] #lvf{font-family:var(--f-en,"Inter",sans-serif)}' +
+      '#lvf.on{opacity:1;pointer-events:auto}' +
+      '#lvf .s{width:100%;max-width:440px;background:#FDFBF8;color:#3D3330;border-radius:22px 22px 0 0;padding:26px 22px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(30px);transition:transform .45s cubic-bezier(.28,.11,.32,1);box-shadow:0 -10px 40px rgba(61,51,48,.18);max-height:92vh;overflow:auto}' +
+      '#lvf.on .s{transform:none}' +
+      '@media(min-width:600px){#lvf{align-items:center}#lvf .s{border-radius:22px}}' +
+      '#lvf .x{position:absolute;margin-top:-14px;inset-inline-end:14px;background:none;border:0;font-size:24px;color:#8E7F76;width:44px;height:44px;cursor:pointer}' +
+      '#lvf h3{margin:0 0 6px;font-weight:500;font-size:21px;letter-spacing:0}' +
+      '#lvf .k{margin:0 0 4px;font-size:14px;color:#3D3330}' +
+      '#lvf .n{margin:0 0 18px;font-size:12.5px;color:#8E7F76;line-height:1.7}' +
+      '#lvf label{display:block;font-size:12.5px;color:#8E7F76;margin:0 0 6px}' +
+      '#lvf input,#lvf select{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:#3D3330;background:#fff;border:1px solid #EAE0D7;border-radius:12px;padding:12px 14px;margin:0 0 14px;outline:none;-webkit-appearance:none;appearance:none}' +
+      '#lvf input:focus,#lvf select:focus{border-color:#B9A79A}' +
+      '#lvf .e{border-color:#C98A7E}' +
+      '#lvf button[type=submit]{width:100%;border:0;border-radius:980px;background:#3D3330;color:#FDFBF8;font:inherit;font-size:15px;font-weight:500;padding:15px;cursor:pointer;margin-top:4px}' +
+      '#lvf .p{margin:12px 0 0;text-align:center;font-size:11.5px;color:#8E7F76}' +
+      'html[lang=ar] #lvf .en,html[lang=en] #lvf .ar{display:none}';
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+    var opts = '<option value="" disabled selected></option>' + GOV.map(function (g) { return '<option>' + g + '</option>'; }).join('');
+    box = document.createElement('div');
+    box.id = 'lvf'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
+    box.innerHTML =
+      '<form class="s" novalidate>' +
+        '<button type="button" class="x" aria-label="close">×</button>' +
+        '<h3><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></h3>' +
+        '<p class="k"><span class="ar">مئة لون من التل السويسري بين يديك — هدية مع أول طلب.</span><span class="en">One hundred shades of Swiss tulle in your hands — a gift with your first order.</span></p>' +
+        '<p class="n"><span class="ar">ولمن يرغب في الكتالوج وحده: ٣٥٠ ج.م تُخصم بالكامل من أول طلب.</span><span class="en">On its own: EGP 350, credited in full against your first order.</span></p>' +
+        '<label><span class="ar">الاسم</span><span class="en">Name</span></label><input name="name" autocomplete="name" maxlength="60" required>' +
+        '<label><span class="ar">اسم الأتيليه أو المصنع</span><span class="en">Atelier or factory name</span></label><input name="atelier" autocomplete="organization" maxlength="80" required>' +
+        '<label><span class="ar">المحافظة</span><span class="en">Governorate</span></label><select name="gov" required>' + opts + '</select>' +
+        '<button type="submit"><span class="ar">تابع عبر واتساب</span><span class="en">Continue on WhatsApp</span></button>' +
+        '<p class="p"><span class="ar">بياناتك لدى لوفينا فقط، لتجهيز الكتالوج لك.</span><span class="en">Your details stay with Luvina, only to prepare your catalogue.</span></p>' +
+      '</form>';
+    document.body.appendChild(box);
+
+    var f = box.querySelector('form');
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    box.querySelector('.x').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+    var saved = store(KEY);
+    if (saved) { f.name.value = saved.name || ''; f.atelier.value = saved.atelier || ''; if (saved.gov) f.gov.value = saved.gov; }
+
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), gov: f.gov.value };
+      var bad = false;
+      ['name', 'atelier', 'gov'].forEach(function (k) { var ok = d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
+      if (bad) return;
+      store(KEY, d);
+
+      var q = new URLSearchParams(location.search);
+      var payload = Object.assign({}, d, {
+        source: q.get('utm_source') || (document.referrer ? new URL(document.referrer).hostname : 'direct'),
+        campaign: q.get('utm_campaign') || '', page: location.pathname, lang: ar() ? 'ar' : 'en'
+      });
+      try {
+        var body = JSON.stringify(payload);
+        if (!(navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'text/plain' }))))
+          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true, body: body });
+      } catch (err) {}
+
+      try { window.fbq && fbq('track', 'Lead', { content_name: 'catalogue_form' }); } catch (err) {}
+      try { window.gtag && gtag('event', 'generate_lead', { method: 'catalogue_form' }); } catch (err) {}
+
+      var msg = 'أهلاً لوفينا 👋\nأرغب في كتالوج لوفينا (هدية مع أول طلب).\n' +
+        'الاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالمحافظة: ' + d.gov;
+      var wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+      var w = window.open(wa, '_blank');
+      if (w) { try { w.opener = null; } catch (err) {} } else { location.href = wa; }
+      close();
+    });
+  }
+
+  function open(e) { if (e) e.preventDefault(); build(); box.classList.add('on'); setTimeout(function () { var i = box.querySelector('input'); if (i && !i.value) i.focus(); }, 300); }
+  function close() { box && box.classList.remove('on'); }
+
+  window.LuvinaForm = { open: open, bind: function (el) { el && el.addEventListener('click', open); } };
+  if (location.hash === '#catalog-form') document.addEventListener('DOMContentLoaded', function () { open(); });
+})();
+
 /* Luvina floating WhatsApp bar — turns visitors into WhatsApp chats */
 (function () {
   var p = location.pathname;
@@ -34,14 +130,15 @@
   bar.id = 'lvc';
   bar.setAttribute('role', 'complementary');
   bar.innerHTML =
-    '<a class="b" href="' + u(msgBook) + '" target="_blank" rel="noopener">' +
-      '<span class="ar">اطلب كتالوج لوفينا <small>· هدية مع طلبك</small></span>' +
-      '<span class="en">Get the Luvina Catalogue <small>· a gift with your order</small></span>' +
+    '<a class="b" href="#catalog-form" data-lvf="1">' +
+      '<span class="ar">اطلب كتالوج لوفينا <small>· هدية مع أول طلب</small></span>' +
+      '<span class="en">Get the Luvina Catalogue <small>· a gift with your first order</small></span>' +
     '</a>' +
     '<a class="w" href="' + u(msgAsk) + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + ico + '</a>';
 
   function mount() {
     document.body.appendChild(bar);
+    window.LuvinaForm && LuvinaForm.bind(bar.querySelector('[data-lvf]'));
     var order = document.getElementById('order');
     var overlay = document.querySelector('.overlay');
     var orderVisible = false, nudged = false;
