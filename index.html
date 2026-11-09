@@ -868,6 +868,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(!name){$('err').textContent=T('من فضلك اكتب الاسم.','Please enter your name.');$('cName').focus();return;}
     if(!/^\+?[0-9]{10,15}$/.test(phone)){$('err').textContent=T('من فضلك اكتب رقم موبايل صحيح.','Please enter a valid mobile number.');$('cPhone').focus();return;}
     if(gov===''){$('err').textContent=T('من فضلك اختر المحافظة.','Please select your governorate.');$('cGov').focus();return;}
+    if(!$('cAddr').value.trim()){$('err').textContent=T('من فضلك اكتب العنوان بالتفصيل.','Please enter your full address.');$('cAddr').focus();return;}
     $('err').textContent='';
     var t=totals(),pay=PAY.filter(function(p){return p.id===(document.querySelector('input[name=pay]:checked')||{}).value;})[0]||PAY[0];
     var L=[];
@@ -885,6 +886,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if($('cNotes').value.trim())L.push(T('ملاحظات: ','Notes: ')+$('cNotes').value.trim());
     L.push(T('طريقة الدفع: ','Payment: ')+T(pay.ar,pay.en));
     var url='https://wa.me/'+WA+'?text='+encodeURIComponent(L.join('\n'));
+    if(window.LuvinaLead)LuvinaLead.send({name:name,atelier:T(BIZ[+$('cBiz').value][0],BIZ[+$('cBiz').value][1]),phone:phone,gov:T(GOV[+gov][0],GOV[+gov][1]),address:$('cAddr').value.trim(),notes:$('cNotes').value.trim(),source_form:'order'});
     window.location.href=url;
   });
 

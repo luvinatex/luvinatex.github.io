@@ -5,6 +5,7 @@
   var GOV = ['القاهرة','الجيزة','القليوبية','الإسكندرية','الدقهلية','الشرقية','الغربية','المنوفية','كفر الشيخ','البحيرة','دمياط','بورسعيد','الإسماعيلية','السويس','الفيوم','بني سويف','المنيا','أسيوط','سوهاج','قنا','الأقصر','أسوان','البحر الأحمر','مطروح','شمال سيناء','جنوب سيناء','الوادي الجديد','خارج مصر'];
   var KEY = 'lv_lead';
   var built = false, box;
+  var pendingUrl = null;
 
   function ar() { return document.documentElement.lang !== 'en'; }
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -44,6 +45,7 @@
         '<label><span class="ar">اسم الأتيليه أو المصنع</span><span class="en">Atelier or factory name</span></label><input name="atelier" autocomplete="organization" maxlength="80" required>' +
         '<label><span class="ar">رقم الواتساب</span><span class="en">WhatsApp number</span></label><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required>' +
         '<label><span class="ar">المحافظة</span><span class="en">Governorate</span></label><select name="gov" required>' + opts + '</select>' +
+        '<label><span class="ar">العنوان بالتفصيل</span><span class="en">Full address</span></label><input name="address" autocomplete="street-address" maxlength="200" required>' +
         '<button type="submit"><span class="ar">تابع عبر واتساب</span><span class="en">Continue on WhatsApp</span></button>' +
         '<p class="p"><span class="ar">بياناتك لدى لوفينا فقط، لتجهيز الكتالوج لك.</span><span class="en">Your details stay with Luvina, only to prepare your catalogue.</span></p>' +
       '</form>';
@@ -59,9 +61,9 @@
 
     f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), phone: f.phone.value.replace(/[^0-9+]/g, ''), gov: f.gov.value };
+      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), phone: f.phone.value.replace(/[^0-9+]/g, ''), gov: f.gov.value, address: f.address.value.trim() };
       var bad = false;
-      ['name', 'atelier', 'phone', 'gov'].forEach(function (k) { var ok = k === 'phone' ? /^\+?\d{10,15}$/.test(d[k]) : d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
+      ['name', 'atelier', 'phone', 'gov', 'address'].forEach(function (k) { var ok = k === 'phone' ? /^\+?\d{10,15}$/.test(d[k]) : k === 'address' ? d[k].length > 4 : d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
       if (bad) return;
       store(KEY, d);
 
@@ -79,9 +81,15 @@
       try { window.fbq && fbq('track', 'Lead', { content_name: 'catalogue_form' }); } catch (err) {}
       try { window.gtag && gtag('event', 'generate_lead', { method: 'catalogue_form' }); } catch (err) {}
 
-      var msg = 'أهلاً لوفينا 👋\nأرغب في كتالوج لوفينا (هدية مع أول طلب).\n' +
-        'الاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالرقم: ' + d.phone + '\nالمحافظة: ' + d.gov;
-      var wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+      var det = '\nالاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالموبايل: ' + d.phone + '\nالمحافظة: ' + d.gov + '\nالعنوان: ' + d.address;
+      var wa;
+      if (pendingUrl) {
+        var pu = new URL(pendingUrl);
+        wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent((pu.searchParams.get('text') || 'أهلاً لوفينا 👋') + det);
+      } else {
+        wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('أهلاً لوفينا 👋\nأرغب في كتالوج لوفينا (هدية مع أول طلب).' + det);
+      }
+      pendingUrl = null;
       var w = window.open(wa, '_blank');
       if (w) { try { w.opener = null; } catch (err) {} } else { location.href = wa; }
       close();
@@ -89,9 +97,29 @@
   }
 
   function open(e) { if (e) e.preventDefault(); build(); box.classList.add('on'); setTimeout(function () { var i = box.querySelector('input'); if (i && !i.value) i.focus(); }, 300); }
-  function close() { box && box.classList.remove('on'); }
+  function close() { pendingUrl = null; box && box.classList.remove('on'); }
 
   window.LuvinaForm = { open: open, bind: function (el) { el && el.addEventListener('click', open); } };
+  window.LuvinaLead = {
+    send: function (d) {
+      try {
+        var q = new URLSearchParams(location.search);
+        var body = JSON.stringify(Object.assign({
+          source: q.get('utm_source') || (document.referrer ? new URL(document.referrer).hostname : 'direct'),
+          campaign: q.get('utm_campaign') || '', page: location.pathname, lang: ar() ? 'ar' : 'en'
+        }, d));
+        if (!(navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'text/plain' }))))
+          fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true, body: body });
+      } catch (err) {}
+    }
+  };
+  // Every WhatsApp link on the site goes through the lead form first
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    pendingUrl = a.href; open();
+  }, true);
   if (location.hash === '#catalog-form') document.addEventListener('DOMContentLoaded', function () { open(); });
 })();
 
