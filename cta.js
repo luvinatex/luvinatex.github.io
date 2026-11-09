@@ -42,6 +42,7 @@
         '<p class="n"><span class="ar">ولمن يرغب في الكتالوج وحده: ٣٥٠ ج.م تُخصم بالكامل من أول طلب.</span><span class="en">On its own: EGP 350, credited in full against your first order.</span></p>' +
         '<label><span class="ar">الاسم</span><span class="en">Name</span></label><input name="name" autocomplete="name" maxlength="60" required>' +
         '<label><span class="ar">اسم الأتيليه أو المصنع</span><span class="en">Atelier or factory name</span></label><input name="atelier" autocomplete="organization" maxlength="80" required>' +
+        '<label><span class="ar">رقم الواتساب</span><span class="en">WhatsApp number</span></label><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required>' +
         '<label><span class="ar">المحافظة</span><span class="en">Governorate</span></label><select name="gov" required>' + opts + '</select>' +
         '<button type="submit"><span class="ar">تابع عبر واتساب</span><span class="en">Continue on WhatsApp</span></button>' +
         '<p class="p"><span class="ar">بياناتك لدى لوفينا فقط، لتجهيز الكتالوج لك.</span><span class="en">Your details stay with Luvina, only to prepare your catalogue.</span></p>' +
@@ -58,9 +59,9 @@
 
     f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), gov: f.gov.value };
+      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), phone: f.phone.value.replace(/[^0-9+]/g, ''), gov: f.gov.value };
       var bad = false;
-      ['name', 'atelier', 'gov'].forEach(function (k) { var ok = d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
+      ['name', 'atelier', 'phone', 'gov'].forEach(function (k) { var ok = k === 'phone' ? /^\+?\d{10,15}$/.test(d[k]) : d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
       if (bad) return;
       store(KEY, d);
 
@@ -79,7 +80,7 @@
       try { window.gtag && gtag('event', 'generate_lead', { method: 'catalogue_form' }); } catch (err) {}
 
       var msg = 'أهلاً لوفينا 👋\nأرغب في كتالوج لوفينا (هدية مع أول طلب).\n' +
-        'الاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالمحافظة: ' + d.gov;
+        'الاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالرقم: ' + d.phone + '\nالمحافظة: ' + d.gov;
       var wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
       var w = window.open(wa, '_blank');
       if (w) { try { w.opener = null; } catch (err) {} } else { location.href = wa; }
