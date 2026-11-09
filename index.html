@@ -358,8 +358,11 @@ footer .mk{font-family:var(--f-en);letter-spacing:.3em;font-weight:600;color:var
 @media (max-width:600px){
   .lace-hero{grid-template-columns:1fr 1fr;gap:8px;padding:0 12px}
   .lace-hero .ph{border-radius:14px}
-  .models,.lace-grid,.why{grid-template-columns:1fr}
-  .tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .models{grid-template-columns:1fr}
+  .lace-grid,.why{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .piece .body{padding:14px 14px 16px}.piece .name{font-size:16px}.piece .p{font-size:12px}.piece .act .pill.sm{padding:9px 14px;font-size:13px}
+  .card{padding:20px 18px;min-height:0;gap:6px}.card h3{font-size:18px}.card p{font-size:14px}
+  .tiers{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.tier{padding:14px 6px}.tier b{font-size:22px}.tier span{font-size:11px}
   .reel{aspect-ratio:4/5}
   .line{grid-template-columns:minmax(0,1fr) 84px 44px}
   .line .f.prod{grid-column:1/-1}
@@ -417,7 +420,7 @@ html[lang=en] body{font-weight:400}
   <nav>
     <a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a>
     <a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a>
-    <a href="#colours"><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></a>
+    <a href="#order" data-preset="catalog"><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></a>
     <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a>
     <a href="#trade"><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></a>
     <a href="#order"><span class="ar">اطلب الآن</span><span class="en">Order Now</span></a>
@@ -446,58 +449,6 @@ html[lang=en] body{font-weight:400}
     </video>
   </div>
 </section>
-
-<section class="mod dark">
-  <div class="copy rv">
-    <div class="eyebrow"><span class="ar">الكوردونيه متاح الآن</span><span class="en">Cordonnet available now</span></div>
-    <h2 class="head"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></h2>
-    <p class="sub"><span class="ar">كوردونيه بارز مع كنار من الجانبين.</span><span class="en">Raised cordonnet. Scalloped on both edges.</span></p>
-    <div class="ctas">
-      <a class="pill" href="#lace"><span class="ar">تصفّح التصاميم</span><span class="en">See the designs</span></a>
-    </div>
-  </div>
-  <div class="lace-hero" id="laceHero"></div>
-</section>
-
-<div class="wide tiles">
-  <article class="tile blush rv" id="colours">
-    <div class="copy">
-      <h2><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></h2>
-      <div class="big100">100</div>
-      <p class="sub"><span class="ar">عينات حقيقية تلمسها قبل أن تختار. هدية مع أول طلب.</span><span class="en">Real swatches to touch before you choose. A gift with your first order.</span></p>
-      <div class="ctas">
-        <a class="pill sm" href="#order" data-preset="catalog"><span class="ar">اطلب الكتالوج</span><span class="en">Request it</span></a>
-        <a class="pill sm ghost" href="colors.html"><span class="ar">تصفّح الألوان</span><span class="en">Browse colours</span></a>
-      </div>
-    </div>
-    <div class="media"><video class="lv" data-v="V3" muted loop playsinline preload="none" aria-label="LUVINA tulle rolls"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video></div>
-  </article>
-  <article class="tile sage rv">
-    <div class="copy">
-      <h2><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></h2>
-      <p class="sub"><span class="ar">مزايا تبدأ من عشرة أتواب، وتصل إلى <span class="num">40%</span>.</span><span class="en">Partner terms from ten rolls, up to 40%.</span></p>
-      <div class="ctas"><a class="more" href="#trade"><span class="ar">شاهد الشرائح</span><span class="en">See the tiers</span></a></div>
-    </div>
-    <div class="media"><video class="lv" data-v="V4" muted loop playsinline preload="none" aria-label="LUVINA mannequin in tulle"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_061096d2-20e1-4ff5-aa05-7a9a892e49db.mp4" type="video/mp4"></video></div>
-    <div class="tier-hero" hidden><small><span class="ar">حتى </span><span class="en">up to </span></small><span class="num" dir="ltr">40%</span></div>
-  </article>
-  <article class="tile powder rv">
-    <div class="copy">
-      <h2><span class="ar">ثابت تحت المكواة.</span><span class="en">Steady under the iron.</span></h2>
-      <p class="sub"><span class="ar">لا يذوب، لا يلمع، ولا ينكمش.</span><span class="en">It never melts, shines or shrinks.</span></p>
-      <div class="ctas"><a class="more" href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a></div>
-    </div>
-    <div class="media"><video class="lv" data-v="V5" muted loop playsinline preload="none" aria-label="Ironing LUVINA tulle"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_c02e6d0a-9f03-40c2-beae-0cd5d552c191.mp4" type="video/mp4"></video></div>
-  </article>
-  <article class="tile sand rv">
-    <div class="copy">
-      <h2><span class="ar">القاهرة في نفس اليوم.</span><span class="en">Cairo, the same day.</span></h2>
-      <p class="sub"><span class="ar">وكل المحافظات خلال ٤٨ إلى ٧٢ ساعة.</span><span class="en">Every governorate within 48 to 72 hours.</span></p>
-      <div class="ctas"><a class="more" href="#contact"><span class="ar">التوصيل والتواصل</span><span class="en">Delivery &amp; contact</span></a></div>
-    </div>
-    <div class="media"><video class="lv" data-v="V6" muted loop playsinline preload="none" aria-label="LUVINA roll ready to ship"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_00dca88f-7584-4e2b-baba-48345777a4ce.mp4" type="video/mp4"></video></div>
-  </article>
-</div>
 
 <section class="sec alt" id="tulle">
   <div class="wrap">
@@ -546,13 +497,10 @@ html[lang=en] body{font-weight:400}
     </div>
     <div class="why">
       <div class="card rv"><span class="ic">01</span><h3><span class="ar">ثبات تحت الحرارة</span><span class="en">Heat-stable</span></h3><p><span class="ar">يُكوى بحرية دون أن يذوب أو يلمع.</span><span class="en">Press it freely. It never melts or shines.</span></p></div>
-      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_f779c5c8-93a0-4c7d-bacf-944d8caf0a3d.mp4" type="video/mp4"></video><span class="cap"><span class="ar">الأتيليه</span><span class="en">The atelier</span></span></div>
       <div class="card rv"><span class="ic">02</span><h3><span class="ar">لا ينكمش</span><span class="en">Shrink-free</span></h3><p><span class="ar">المقاس الذي تقصّه هو المقاس الذي يبقى.</span><span class="en">The measure you cut is the measure that stays.</span></p></div>
       <div class="card rv"><span class="ic">03</span><h3><span class="ar">متانة تقاوم القطع</span><span class="en">Tear-resistant</span></h3><p><span class="ar">يتحمل القص والشد والتعديل دون أن يتمزق.</span><span class="en">Endures cutting, tension and alterations without tearing.</span></p></div>
       <div class="card rv"><span class="ic">04</span><h3><span class="ar">مسام تتحمل التطريز</span><span class="en">Built for embroidery</span></h3><p><span class="ar">تثبّت التطريز والخرز والكريستال بإتقان.</span><span class="en">Holds embroidery, beading and crystal in place.</span></p></div>
-      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143041_9fd4a337-7df2-47f3-922d-64d7a8989e48.mp4" type="video/mp4"></video><span class="cap"><span class="ar">النسيج</span><span class="en">The weave</span></span></div>
       <div class="card rv"><span class="ic">05</span><h3><span class="ar">ضمان من لوفينا</span><span class="en">LUVINA guarantee</span></h3><p><span class="ar">جودة مضمونة وخدمة بعد البيع.</span><span class="en">Guaranteed quality and after-sales care.</span></p></div>
-      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video><span class="cap"><span class="ar">التوب</span><span class="en">The roll</span></span></div>
       <div class="card rv"><span class="ic">06</span><h3><span class="ar">مئة لون</span><span class="en">One hundred colours</span></h3><p><span class="ar">من درجات النيود الهادئة حتى الألوان العميقة.</span><span class="en">From quiet nudes to the deepest tones.</span></p></div>
     </div>
   </div>
@@ -614,7 +562,7 @@ html[lang=en] body{font-weight:400}
   </div>
 </section>
 
-<section class="sec alt" id="intl">
+<section class="sec" id="intl">
   <div class="wrap">
     <div class="sec-head rv">
       <h2><span class="ar">الشحن الدولي.</span><span class="en">International shipping.</span></h2>
@@ -797,7 +745,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
   /* lace */
   function renderLace(){
-    $('laceGrid').innerHTML=LACE.map(function(l){
+    $('laceGrid').innerHTML=LACE.slice().sort(function(a,b){return (a.out?1:0)-(b.out?1:0);}).map(function(l){
       var msg=encodeURIComponent(T('أهلاً لوفينا، أود طلب الدانتيل الفرنسي '+l.ar+' (الكوب ٣ م × ١.٥ م)','Hello LUVINA, I would like to order French Lace '+l.name+' (piece 3 m × 1.5 m)'));
       return '<article class="piece rv in'+(l.out?' out':'')+'">'+
         '<div class="ph"><img class="a" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><img class="b" src="'+l.b+'" alt="" loading="lazy"></div>'+
@@ -809,7 +757,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }).join('');
     Array.prototype.forEach.call(document.querySelectorAll('.piece .ph'),function(ph){ph.addEventListener('click',function(){ph.parentNode.classList.toggle('tap');});});
     var avail=LACE.slice(0,2);
-    $('laceHero').innerHTML=avail.map(function(l){return '<div class="ph rv"><img class="kb" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'"></div>';}).join('');
+    if($('laceHero'))$('laceHero').innerHTML=avail.map(function(l){return '<div class="ph rv"><img class="kb" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'"></div>';}).join('');
     Array.prototype.forEach.call(document.querySelectorAll('#laceHero .ph'),function(el){if(window.__io)window.__io.observe(el);else el.classList.add('in');});
   }
 
