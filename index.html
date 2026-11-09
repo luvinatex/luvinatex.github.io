@@ -319,6 +319,8 @@ html[dir=rtl] .f select{background-position:18px 52%,13px 52%}
 .info .k{font-size:14px;font-weight:600;color:var(--soft)}
 .info .val{font-size:24px;font-weight:600;line-height:1.25}
 .info p{color:var(--soft);font-size:15px}
+.info .wide-blk{grid-column:1/-1}
+.fine a{color:var(--link);white-space:nowrap}
 .info .links{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}
 .lnk{background:none;border:0;color:var(--link);cursor:pointer;padding:0;font-size:15px;min-height:30px}
 .lnk:hover{text-decoration:underline}
@@ -415,7 +417,7 @@ html[lang=en] body{font-weight:400}
   <nav>
     <a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a>
     <a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a>
-    <a href="#colours"><span class="ar">كتاب الألوان</span><span class="en">The Colour Book</span></a>
+    <a href="#colours"><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></a>
     <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a>
     <a href="#trade"><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></a>
     <a href="#order"><span class="ar">اطلب الآن</span><span class="en">Order Now</span></a>
@@ -426,7 +428,7 @@ html[lang=en] body{font-weight:400}
 
 <main>
 <div class="ribbon">
-  <span class="ar">كتاب الألوان المئة بـ ٣٥٠ ج.م، وتُخصم قيمته بالكامل من طلبك الأول. </span><span class="en">The Colour Book is EGP 350, credited in full against your first order. </span><a href="#order" data-preset="catalog"><span class="ar">اطلبه ›</span><span class="en">Request it ›</span></a>
+  <span class="ar">كتالوج لوفينا هدية مع أول طلب. ولمن يرغب فيه وحده ٣٥٠ ج.م، تُخصم بالكامل من طلبه الأول. </span><span class="en">The Luvina Catalogue is a gift with your first order. On its own: EGP 350, credited in full against that order. </span><a href="#order" data-preset="catalog"><span class="ar">اطلبه ›</span><span class="en">Request it ›</span></a>
 </div>
 
 <section class="mod">
@@ -435,7 +437,7 @@ html[lang=en] body{font-weight:400}
     <p class="sub"><span class="ar">مئة لون. متانة صُنعت لتبقى.</span><span class="en">One hundred colours. Made to last.</span></p>
     <div class="ctas">
       <a class="pill" href="#order"><span class="ar">اطلب الآن</span><span class="en">Order now</span></a>
-      <a class="pill ghost" href="#tulle"><span class="ar">اعرف المزيد</span><span class="en">Learn more</span></a>
+      <a class="pill ghost" href="#tulle"><span class="ar">الأسعار</span><span class="en">Prices</span></a>
     </div>
   </div>
   <div class="hero-media">
@@ -460,15 +462,15 @@ html[lang=en] body{font-weight:400}
 <div class="wide tiles">
   <article class="tile blush rv" id="colours">
     <div class="copy">
-      <h2><span class="ar">كتاب الألوان</span><span class="en">The Colour Book</span></h2>
+      <h2><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></h2>
       <div class="big100">100</div>
-      <p class="sub"><span class="ar">عينات حقيقية تلمسها قبل أن تختار.</span><span class="en">Real swatches to touch before you choose.</span></p>
+      <p class="sub"><span class="ar">عينات حقيقية تلمسها قبل أن تختار. هدية مع أول طلب.</span><span class="en">Real swatches to touch before you choose. A gift with your first order.</span></p>
       <div class="ctas">
-        <a class="pill sm" href="#order" data-preset="catalog"><span class="ar">اطلب الكتاب</span><span class="en">Request it</span></a>
+        <a class="pill sm" href="#order" data-preset="catalog"><span class="ar">اطلب الكتالوج</span><span class="en">Request it</span></a>
         <a class="pill sm ghost" href="colors.html"><span class="ar">تصفّح الألوان</span><span class="en">Browse colours</span></a>
       </div>
     </div>
-    <div class="media"><video class="lv" data-v="V3" autoplay muted loop playsinline preload="metadata" aria-label="LUVINA tulle rolls"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video></div>
+    <div class="media"><video class="lv" data-v="V3" muted loop playsinline preload="none" aria-label="LUVINA tulle rolls"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video></div>
   </article>
   <article class="tile sage rv">
     <div class="copy">
@@ -476,7 +478,7 @@ html[lang=en] body{font-weight:400}
       <p class="sub"><span class="ar">مزايا تبدأ من عشرة أتواب، وتصل إلى <span class="num">40%</span>.</span><span class="en">Partner terms from ten rolls, up to 40%.</span></p>
       <div class="ctas"><a class="more" href="#trade"><span class="ar">شاهد الشرائح</span><span class="en">See the tiers</span></a></div>
     </div>
-    <div class="media"><video class="lv" data-v="V4" autoplay muted loop playsinline preload="metadata" aria-label="LUVINA mannequin in tulle"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_061096d2-20e1-4ff5-aa05-7a9a892e49db.mp4" type="video/mp4"></video></div>
+    <div class="media"><video class="lv" data-v="V4" muted loop playsinline preload="none" aria-label="LUVINA mannequin in tulle"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_061096d2-20e1-4ff5-aa05-7a9a892e49db.mp4" type="video/mp4"></video></div>
     <div class="tier-hero" hidden><small><span class="ar">حتى </span><span class="en">up to </span></small><span class="num" dir="ltr">40%</span></div>
   </article>
   <article class="tile powder rv">
@@ -485,7 +487,7 @@ html[lang=en] body{font-weight:400}
       <p class="sub"><span class="ar">لا يذوب، لا يلمع، ولا ينكمش.</span><span class="en">It never melts, shines or shrinks.</span></p>
       <div class="ctas"><a class="more" href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a></div>
     </div>
-    <div class="media"><video class="lv" data-v="V5" autoplay muted loop playsinline preload="metadata" aria-label="Ironing LUVINA tulle"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_c02e6d0a-9f03-40c2-beae-0cd5d552c191.mp4" type="video/mp4"></video></div>
+    <div class="media"><video class="lv" data-v="V5" muted loop playsinline preload="none" aria-label="Ironing LUVINA tulle"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_c02e6d0a-9f03-40c2-beae-0cd5d552c191.mp4" type="video/mp4"></video></div>
   </article>
   <article class="tile sand rv">
     <div class="copy">
@@ -493,7 +495,7 @@ html[lang=en] body{font-weight:400}
       <p class="sub"><span class="ar">وكل المحافظات خلال ٤٨ إلى ٧٢ ساعة.</span><span class="en">Every governorate within 48 to 72 hours.</span></p>
       <div class="ctas"><a class="more" href="#contact"><span class="ar">التوصيل والتواصل</span><span class="en">Delivery &amp; contact</span></a></div>
     </div>
-    <div class="media"><video class="lv" data-v="V6" autoplay muted loop playsinline preload="metadata" aria-label="LUVINA roll ready to ship"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_00dca88f-7584-4e2b-baba-48345777a4ce.mp4" type="video/mp4"></video></div>
+    <div class="media"><video class="lv" data-v="V6" muted loop playsinline preload="none" aria-label="LUVINA roll ready to ship"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_00dca88f-7584-4e2b-baba-48345777a4ce.mp4" type="video/mp4"></video></div>
   </article>
 </div>
 
@@ -504,7 +506,7 @@ html[lang=en] body{font-weight:400}
       <h2><span class="ar">اختر التل المناسب لك.</span><span class="en">Which tulle is right for you?</span></h2>
       <p class="sub"><span class="ar">نسيج يقاوم القطع، بمسام دقيقة تتحمل التطريز والخرز والكريستال.</span><span class="en">A tear-resistant net with a fine mesh that holds embroidery, beading and crystal.</span></p>
     </div>
-    <div class="reel rv"><video class="lv" data-v="V2" autoplay muted loop playsinline preload="metadata" aria-label="LUVINA Swiss tulle mesh"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143041_9fd4a337-7df2-47f3-922d-64d7a8989e48.mp4" type="video/mp4"></video></div>
+    <div class="reel rv"><video class="lv" data-v="V2" muted loop playsinline preload="none" aria-label="LUVINA Swiss tulle mesh"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143041_9fd4a337-7df2-47f3-922d-64d7a8989e48.mp4" type="video/mp4"></video></div>
     <div class="models">
       <div class="model rv">
         <div class="w"><span class="ar">الأكثر طلباً</span><span class="en">Most chosen</span></div>
@@ -521,7 +523,7 @@ html[lang=en] body{font-weight:400}
         <div class="ctas"><a class="pill sm" href="#order" data-pick="t3m"><span class="ar">اطلب</span><span class="en">Order</span></a><a class="more" href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a></div>
       </div>
     </div>
-    <p class="fine"><span class="ar">يباع بالتوب الكامل. الأسعار بالجنيه المصري.</span><span class="en">Sold by the full roll. Prices in Egyptian pounds.</span></p>
+    <p class="fine"><span class="ar">يباع بالتوب الكامل. الأسعار بالجنيه المصري. للشراء بالمتر: <a href="#stockists">موزعونا المعتمدون ›</a></span><span class="en">Sold by the full roll. Prices in Egyptian pounds. By the metre: <a href="#stockists">our authorised stockists ›</a></span></p>
   </div>
 </section>
 
@@ -544,13 +546,13 @@ html[lang=en] body{font-weight:400}
     </div>
     <div class="why">
       <div class="card rv"><span class="ic">01</span><h3><span class="ar">ثبات تحت الحرارة</span><span class="en">Heat-stable</span></h3><p><span class="ar">يُكوى بحرية دون أن يذوب أو يلمع.</span><span class="en">Press it freely. It never melts or shines.</span></p></div>
-      <div class="card ph rv"><video class="lv" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_f779c5c8-93a0-4c7d-bacf-944d8caf0a3d.mp4" type="video/mp4"></video><span class="cap"><span class="ar">الأتيليه</span><span class="en">The atelier</span></span></div>
+      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_f779c5c8-93a0-4c7d-bacf-944d8caf0a3d.mp4" type="video/mp4"></video><span class="cap"><span class="ar">الأتيليه</span><span class="en">The atelier</span></span></div>
       <div class="card rv"><span class="ic">02</span><h3><span class="ar">لا ينكمش</span><span class="en">Shrink-free</span></h3><p><span class="ar">المقاس الذي تقصّه هو المقاس الذي يبقى.</span><span class="en">The measure you cut is the measure that stays.</span></p></div>
       <div class="card rv"><span class="ic">03</span><h3><span class="ar">متانة تقاوم القطع</span><span class="en">Tear-resistant</span></h3><p><span class="ar">يتحمل القص والشد والتعديل دون أن يتمزق.</span><span class="en">Endures cutting, tension and alterations without tearing.</span></p></div>
       <div class="card rv"><span class="ic">04</span><h3><span class="ar">مسام تتحمل التطريز</span><span class="en">Built for embroidery</span></h3><p><span class="ar">تثبّت التطريز والخرز والكريستال بإتقان.</span><span class="en">Holds embroidery, beading and crystal in place.</span></p></div>
-      <div class="card ph rv"><video class="lv" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143041_9fd4a337-7df2-47f3-922d-64d7a8989e48.mp4" type="video/mp4"></video><span class="cap"><span class="ar">النسيج</span><span class="en">The weave</span></span></div>
+      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143041_9fd4a337-7df2-47f3-922d-64d7a8989e48.mp4" type="video/mp4"></video><span class="cap"><span class="ar">النسيج</span><span class="en">The weave</span></span></div>
       <div class="card rv"><span class="ic">05</span><h3><span class="ar">ضمان من لوفينا</span><span class="en">LUVINA guarantee</span></h3><p><span class="ar">جودة مضمونة وخدمة بعد البيع.</span><span class="en">Guaranteed quality and after-sales care.</span></p></div>
-      <div class="card ph rv"><video class="lv" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video><span class="cap"><span class="ar">التوب</span><span class="en">The roll</span></span></div>
+      <div class="card ph rv"><video class="lv" muted loop playsinline preload="none" aria-hidden="true"><source data-src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143025_4d548048-7e5d-441f-8f52-9ac9145560a8.mp4" type="video/mp4"></video><span class="cap"><span class="ar">التوب</span><span class="en">The roll</span></span></div>
       <div class="card rv"><span class="ic">06</span><h3><span class="ar">مئة لون</span><span class="en">One hundred colours</span></h3><p><span class="ar">من درجات النيود الهادئة حتى الألوان العميقة.</span><span class="en">From quiet nudes to the deepest tones.</span></p></div>
     </div>
   </div>
@@ -606,7 +608,7 @@ html[lang=en] body{font-weight:400}
         <div class="err" id="err" role="alert"></div>
         <button type="submit" class="pill"><span class="ar">أرسل الطلب عبر واتساب</span><span class="en">Send via WhatsApp</span></button>
         <a class="pill ghost" id="instapay" href="https://ipn.eg/S/wegzzzz/instapay/1Zi2jL" target="_blank" rel="noopener" hidden><span class="ar">ادفع عبر InstaPay</span><span class="en">Pay with InstaPay</span></a>
-        <p class="note"><span class="ar">الأسعار بالجنيه المصري. مصاريف الشحن على العميل ويؤكدها فريقنا عبر واتساب.</span><span class="en">Prices in Egyptian pounds. Shipping is at the client's expense and confirmed by our team on WhatsApp.</span></p>
+        <p class="note"><span class="ar">كتالوج لوفينا هدية مع أول طلب. الأسعار بالجنيه المصري. مصاريف الشحن على العميل ويؤكدها فريقنا عبر واتساب.</span><span class="en">The Luvina Catalogue is a gift with your first order. Prices in Egyptian pounds. Shipping is at the client's expense and confirmed by our team on WhatsApp.</span></p>
       </aside>
     </form>
   </div>
@@ -722,6 +724,12 @@ document.addEventListener('DOMContentLoaded',function(){
         <p><span class="ar">أمام مستشفى منشية البكري، مصر الجديدة، القاهرة.</span><span class="en">Opposite Manshiet El Bakry Hospital, Heliopolis, Cairo.</span></p>
         <div class="links"><a class="lnk" href="https://www.google.com/maps/place/Luvina+tex/data=!4m2!3m1!1s0x0:0x4afb845868c73b02" target="_blank" rel="noopener"><span class="ar">افتح الخريطة ›</span><span class="en">Open in Maps ›</span></a></div>
       </div>
+      <div class="blk wide-blk rv" id="stockists">
+        <div class="k"><span class="ar">الشراء بالمتر</span><span class="en">By the metre</span></div>
+        <div class="val"><span class="ar">موزعونا المعتمدون</span><span class="en">Authorised stockists</span></div>
+        <p><span class="ar">لوفينا تبيع بالتوب الكامل. ولمن يرغب في الشراء بالمتر: الأنصاري · فادي · المصري · دايموند · Velluer، شارع محمد حسنين هيكل، مدينة نصر، القاهرة.</span><span class="en">LUVINA sells by the full roll. By the metre: El Ansary · Fady · El Masry · Diamond · Velluer, Mohamed Hassanein Heikal St., Nasr City, Cairo.</span></p>
+        <p><span class="ar">المنصورة: لولي للأقمشة، شارع الترعة.</span><span class="en">Mansoura: Lolly Fabrics, El Teraa St.</span></p>
+      </div>
     </div>
   </div>
 </section>
@@ -731,7 +739,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <div class="wrap">
     <div class="notes">
       <span><span class="ar">١. خصومات الشركاء تُطبق على التل السويسري فقط ولا تشمل الدانتيل الفرنسي.</span><span class="en">1. Partner terms apply to Swiss tulle only and exclude French lace.</span></span>
-      <span><span class="ar">٢. تُخصم قيمة كتاب الألوان من أول طلب. الشحن على حساب العميل.</span><span class="en">2. The Colour Book is credited against your first order. Shipping at the client's expense.</span></span>
+      <span><span class="ar">٢. كتالوج لوفينا هدية مع أول طلب، وإن طُلب وحده تُخصم قيمته من أول طلب. الشحن على حساب العميل.</span><span class="en">2. The Luvina Catalogue is a gift with your first order; ordered on its own, it is credited against that order. Shipping at the client's expense.</span></span>
     </div>
     <div class="cols">
       <div><b><span class="ar">تسوّق</span><span class="en">Shop</span></b><a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a><a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a><a href="colors.html"><span class="ar">الألوان المئة</span><span class="en">The 100 Colours</span></a></div>
@@ -770,7 +778,7 @@ document.addEventListener('DOMContentLoaded',function(){
     {id:'t3m',ar:'التل السويسري · عرض ٣ م · توب ٢٥ م',en:'Swiss Tulle · 3 m · 25 m roll',price:5500,tulle:true,unitAr:'توب',unitEn:'roll',colors:three}
   ];
   LACE.filter(function(l){return !l.out;}).forEach(function(l){PRODUCTS.push({id:'lace-'+l.id,ar:'دانتيل فرنسي '+l.ar+' · كوب',en:'French Lace '+l.name+' · piece',price:l.price,unitAr:'كوب',unitEn:'piece'});});
-  PRODUCTS.push({id:'catalog',ar:'كتاب الألوان المئة',en:'The Colour Book',price:350,unitAr:'كتاب',unitEn:'book'});
+  PRODUCTS.push({id:'catalog',ar:'كتالوج لوفينا',en:'The Luvina Catalogue',price:350,unitAr:'كتالوج',unitEn:'catalogue'});
   var byId={};PRODUCTS.forEach(function(p){byId[p.id]=p;});
 
   var TIERS=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35],[500,40]];
@@ -868,7 +876,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(!name){$('err').textContent=T('من فضلك اكتب الاسم.','Please enter your name.');$('cName').focus();return;}
     if(!/^\+?[0-9]{10,15}$/.test(phone)){$('err').textContent=T('من فضلك اكتب رقم موبايل صحيح.','Please enter a valid mobile number.');$('cPhone').focus();return;}
     if(gov===''){$('err').textContent=T('من فضلك اختر المحافظة.','Please select your governorate.');$('cGov').focus();return;}
-    if(!$('cAddr').value.trim()){$('err').textContent=T('من فضلك اكتب العنوان بالتفصيل.','Please enter your full address.');$('cAddr').focus();return;}
+    if(!$('cAddr').value.trim()&&((document.querySelector('input[name=pay]:checked')||{}).value!=='cash')){$('err').textContent=T('من فضلك اكتب العنوان بالتفصيل.','Please enter your full address.');$('cAddr').focus();return;}
     $('err').textContent='';
     var t=totals(),pay=PAY.filter(function(p){return p.id===(document.querySelector('input[name=pay]:checked')||{}).value;})[0]||PAY[0];
     var L=[];
@@ -924,7 +932,13 @@ document.addEventListener('DOMContentLoaded',function(){
   else Array.prototype.forEach.call(rv,function(el){el.classList.add('in');});
   setTimeout(function(){Array.prototype.forEach.call(rv,function(el){el.classList.add('in');});},2500);
 
-  Array.prototype.forEach.call(document.querySelectorAll('video'),function(v){v.muted=true;var pp=v.play&&v.play();if(pp&&pp.catch)pp.catch(function(){});});
+  /* videos: the hero plays at once; the rest load only when they come near the screen, and pause when they leave it */
+  var playV=function(v){v.muted=true;var pp=v.play&&v.play();if(pp&&pp.catch)pp.catch(function(){});};
+  var loadV=function(v){var so=v.querySelector('source[data-src]');if(so){so.src=so.getAttribute('data-src');so.removeAttribute('data-src');v.load();}};
+  var hf=$('heroFilm');if(hf)playV(hf);
+  var lz=document.querySelectorAll('video.lv');
+  if('IntersectionObserver' in window){var vio=new IntersectionObserver(function(es){es.forEach(function(en){var v=en.target;if(en.isIntersecting){loadV(v);playV(v);}else if(!v.paused){v.pause();}});},{rootMargin:'500px 0px'});Array.prototype.forEach.call(lz,function(v){vio.observe(v);});}
+  else Array.prototype.forEach.call(lz,function(v){loadV(v);playV(v);});
 
   setLang(LANG);
 })();

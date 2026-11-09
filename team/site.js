@@ -10,7 +10,7 @@
     var f={at:new Date().toISOString().slice(0,10)};
     var m=t.match(/عرض ١٦٠ سم\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)f.w160=num(m[1]);
     m=t.match(/عرض ٣ متر\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)f.w3=num(m[1]);
-    m=t.match(/كتاب الألوان المئة بـ\s*([٠-٩\d,]+)/);if(m)f.catalog=num(m[1]);
+    m=t.match(/وحده\s*([٠-٩\d,]+)\s*ج\.م/)||t.match(/كتاب الألوان المئة بـ\s*([٠-٩\d,]+)/);if(m)f.catalog=num(m[1]);
     var m2=html.match(/id:'t160'[^}]*?price:(\d+)/);if(m2)f.w160=+m2[1];
     m2=html.match(/id:'t3m'[^}]*?price:(\d+)/);if(m2)f.w3=+m2[1];
     m2=html.match(/var TIERS=(\[\[[\d,\[\]]+\]\])/);if(m2){try{f.tiers=JSON.parse(m2[1]).map(function(x){return [x[0],x[1]]}).sort(function(a,b){return b[0]-a[0]})}catch(e){}}
