@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded',function(){
   m=txt.match(/عرض ١٦٠ سم\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)P160=+m[1].replace(/,/g,"");
   m=txt.match(/عرض ٣ متر\s*التوب [^·]*·\s*([\d,]+)\s*EGP/);if(m)P3=+m[1].replace(/,/g,"");
   var TI=[],re=/(\d+)%\s*من\s*(\d+)\s*توب/g;while((m=re.exec(txt)))TI.push([+m[2],+m[1]]);
-  if(TI.length<3)TI=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35],[500,40]];
+  if(TI.length<3)TI=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35]];
   TI.sort(function(a,b){return b[0]-a[0]});
   var DATA=null,FX=null;
   function usd(egp){return FX?"$"+(egp/FX).toLocaleString("en-US",{maximumFractionDigits:0}):"…"}
@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded',function(){
   PRODUCTS.push({id:'catalog',ar:'كتالوج لوفينا',en:'The Luvina Catalogue',price:350,unitAr:'كتالوج',unitEn:'catalogue'});
   var byId={};PRODUCTS.forEach(function(p){byId[p.id]=p;});
 
-  var TIERS=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35],[500,40]];
+  var TIERS=[[10,10],[20,15],[50,20],[100,25],[200,30],[350,35]];
   var GOV=[['القاهرة','Cairo'],['الجيزة','Giza'],['الإسكندرية','Alexandria'],['القليوبية','Qalyubia'],['الدقهلية','Dakahlia'],['الشرقية','Sharqia'],['الغربية','Gharbia'],['المنوفية','Monufia'],['كفر الشيخ','Kafr El Sheikh'],['البحيرة','Beheira'],['دمياط','Damietta'],['بورسعيد','Port Said'],['الإسماعيلية','Ismailia'],['السويس','Suez'],['الفيوم','Faiyum'],['بني سويف','Beni Suef'],['المنيا','Minya'],['أسيوط','Asyut'],['سوهاج','Sohag'],['قنا','Qena'],['الأقصر','Luxor'],['أسوان','Aswan'],['البحر الأحمر','Red Sea'],['مطروح','Matrouh'],['الوادي الجديد','New Valley'],['شمال سيناء','North Sinai'],['جنوب سيناء','South Sinai']];
   var BIZ=[['أتيليه / مصمم أزياء','Atelier / Fashion designer'],['تاجر أقمشة','Fabric merchant'],['مصنع فساتين','Dress manufacturer'],['أخرى','Other']];
   var PAY=[
