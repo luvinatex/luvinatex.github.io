@@ -38,16 +38,13 @@
     box.innerHTML =
       '<form class="s" novalidate>' +
         '<button type="button" class="x" aria-label="close">×</button>' +
-        '<h3><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></h3>' +
-        '<p class="k"><span class="ar">مئة لون من التل السويسري بين يديك — هدية مع أول طلب.</span><span class="en">One hundred shades of Swiss tulle in your hands — a gift with your first order.</span></p>' +
-        '<p class="n"><span class="ar">ولمن يرغب في الكتالوج وحده: ٣٥٠ ج.م تُخصم بالكامل من أول طلب.</span><span class="en">On its own: EGP 350, credited in full against your first order.</span></p>' +
+        '<h3><span class="ar">عرّفنا بنفسك</span><span class="en">Tell us who you are</span></h3>' +
+        '<p class="n"><span class="ar">يستقبلك مستشارك على واتساب باسمك، وكتالوج لوفينا هدية مع أول طلب.</span><span class="en">Your advisor greets you on WhatsApp by name. The Luvina Catalogue is a gift with your first order.</span></p>' +
         '<label><span class="ar">الاسم</span><span class="en">Name</span></label><input name="name" autocomplete="name" maxlength="60" required>' +
         '<label><span class="ar">اسم الأتيليه أو المصنع</span><span class="en">Atelier or factory name</span></label><input name="atelier" autocomplete="organization" maxlength="80" required>' +
-        '<label><span class="ar">رقم الواتساب</span><span class="en">WhatsApp number</span></label><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required>' +
         '<label><span class="ar">المحافظة</span><span class="en">Governorate</span></label><select name="gov" required>' + opts + '</select>' +
-        '<label><span class="ar">العنوان بالتفصيل</span><span class="en">Full address</span></label><input name="address" autocomplete="street-address" maxlength="200" required>' +
         '<button type="submit"><span class="ar">تابع عبر واتساب</span><span class="en">Continue on WhatsApp</span></button>' +
-        '<p class="p"><span class="ar">بياناتك لدى لوفينا فقط، لتجهيز الكتالوج لك.</span><span class="en">Your details stay with Luvina, only to prepare your catalogue.</span></p>' +
+        '<p class="p"><span class="ar">ثلاث خانات فقط، وتكمل على واتساب.</span><span class="en">Three fields, then you continue on WhatsApp.</span></p>' +
       '</form>';
     document.body.appendChild(box);
 
@@ -61,9 +58,9 @@
 
     f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), phone: f.phone.value.replace(/[^0-9+]/g, ''), gov: f.gov.value, address: f.address.value.trim() };
+      var d = { name: f.name.value.trim(), atelier: f.atelier.value.trim(), gov: f.gov.value };
       var bad = false;
-      ['name', 'atelier', 'phone', 'gov', 'address'].forEach(function (k) { var ok = k === 'phone' ? /^\+?\d{10,15}$/.test(d[k]) : k === 'address' ? d[k].length > 4 : d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
+      ['name', 'atelier', 'gov'].forEach(function (k) { var ok = d[k].length > 1; f[k].classList.toggle('e', !ok); if (!ok) bad = true; });
       if (bad) return;
       store(KEY, d);
 
@@ -81,7 +78,7 @@
       try { window.fbq && fbq('track', 'Lead', { content_name: 'catalogue_form' }); } catch (err) {}
       try { window.gtag && gtag('event', 'generate_lead', { method: 'catalogue_form' }); } catch (err) {}
 
-      var det = '\nالاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالموبايل: ' + d.phone + '\nالمحافظة: ' + d.gov + '\nالعنوان: ' + d.address;
+      var det = '\nالاسم: ' + d.name + '\nالأتيليه / المصنع: ' + d.atelier + '\nالمحافظة: ' + d.gov;
       var wa;
       if (pendingUrl) {
         var pu = new URL(pendingUrl);
@@ -121,12 +118,13 @@
     pendingUrl = a.href; open();
   }, true);
   if (location.hash === '#catalog-form') document.addEventListener('DOMContentLoaded', function () { open(); });
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href="#catalog-form"]'); if (a) { e.preventDefault(); open(); } }, true);
 })();
 
 /* Luvina floating WhatsApp bar — turns visitors into WhatsApp chats */
 (function () {
   var p = location.pathname;
-  if (!(p === '/' || /\/index\.html$/.test(p))) return; // colors page has its own bar
+  if (!(p === '/' || /\/(index|order)\.html$/.test(p))) return; // colors page has its own bar
   if (document.getElementById('lvc')) return;
 
   var WA = '201270455444';
