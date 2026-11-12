@@ -398,6 +398,11 @@ html[lang=en] body{font-weight:400}
 .st-tiers b{font-size:20px;font-weight:600}.st-tiers span{font-size:12px;color:var(--soft)}
 @media(max-width:900px){.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.st-grid{gap:8px}.st-grid .ph{border-radius:14px}.st-info{grid-template-columns:1fr}}
+.type-switch{display:flex;justify-content:center;gap:10px;margin:0 auto 28px;flex-wrap:wrap}
+.type-switch button{border:1px solid var(--line,#d9cfc6);background:transparent;border-radius:999px;padding:12px 26px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:170px}
+.type-switch button[aria-selected="true"]{background:var(--ink,#3D3330);color:var(--bg,#FDFBF8);border-color:var(--ink,#3D3330)}
+.type-switch .en{font-size:12px;opacity:.75}
+[hidden]{display:none!important}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
@@ -467,7 +472,11 @@ html[lang=en] body{font-weight:400}
   </div>
 </section>
 
-<section class="sec alt" id="tulle">
+<div class="type-switch" role="tablist" aria-label="Tulle type">
+  <button type="button" role="tab" data-kind="reg" aria-selected="true"><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></button>
+  <button type="button" role="tab" data-kind="st" aria-selected="false"><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></button>
+</div>
+<section class="sec alt" id="tulle" data-kind="reg">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="kicker">Swiss Made · Since 2001</div>
@@ -494,7 +503,7 @@ html[lang=en] body{font-weight:400}
   </div>
 </section>
 
-<section class="sec" id="stretch">
+<section class="sec" id="stretch" data-kind="st" hidden>
   <div class="wrap">
     <div class="sec-head rv">
       <div class="kicker"><span class="ar">جديد · ١٠٠٪ نايلون</span><span class="en">New · 100% Nylon</span></div>
@@ -683,6 +692,22 @@ html[lang=en] body{font-weight:400}
 
   var hf=$('heroFilm');if(hf){hf.muted=true;var pp=hf.play&&hf.play();if(pp&&pp.catch)pp.catch(function(){});}
   setLang(LANG);
+})();
+(function(){
+  var btns=document.querySelectorAll('.type-switch button');
+  var reg=document.getElementById('tulle'), st=document.getElementById('stretch');
+  if(!reg||!st) return;
+  function show(kind){
+    var isSt = kind==='st';
+    reg.hidden = isSt; st.hidden = !isSt;
+    for(var i=0;i<btns.length;i++){ btns[i].setAttribute('aria-selected', String(btns[i].getAttribute('data-kind')===(isSt?'st':'reg'))); }
+  }
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click', function(){ show(this.getAttribute('data-kind')); });
+  }
+  function fromHash(){ if(location.hash==='#stretch') show('st'); else if(location.hash==='#tulle') show('reg'); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 })();
 </script>
 </body>
