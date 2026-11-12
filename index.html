@@ -398,11 +398,30 @@ html[lang=en] body{font-weight:400}
 .st-tiers b{font-size:20px;font-weight:600}.st-tiers span{font-size:12px;color:var(--soft)}
 @media(max-width:900px){.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.st-grid{gap:8px}.st-grid .ph{border-radius:14px}.st-info{grid-template-columns:1fr}}
-.type-switch{display:flex;justify-content:center;gap:10px;margin:0 auto 28px;flex-wrap:wrap}
-.type-switch button{border:1px solid var(--line,#d9cfc6);background:transparent;border-radius:999px;padding:12px 26px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:170px}
-.type-switch button[aria-selected="true"]{background:var(--ink,#3D3330);color:var(--bg,#FDFBF8);border-color:var(--ink,#3D3330)}
-.type-switch .en{font-size:12px;opacity:.75}
-[hidden]{display:none!important}
+.kinds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:820px;margin:0 auto}
+.kind{-webkit-appearance:none;appearance:none;border:0;padding:0;margin:0;background:#FFFEFC;border-radius:var(--r);overflow:hidden;cursor:pointer;font:inherit;color:inherit;text-align:center;display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line);transition:box-shadow .3s var(--ease)}
+.kind .ph{display:block;aspect-ratio:4/5;position:relative;background:#EFE6DC;overflow:hidden}
+.kind .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.kind:hover .ph img{transform:scale(1.03)}
+.kind .tx{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 12px 22px}
+.kind b{font-size:clamp(20px,3vw,28px);font-weight:600;line-height:1.25}
+html[lang=ar] .kind b{font-family:var(--f-ar-d);font-weight:500}
+.kind .d{font-size:14px;color:var(--soft);line-height:1.5}
+.kind .go{margin-top:8px;font-size:14px;color:var(--link)}
+.kind .go::after{content:" ›"}
+.kind[aria-selected="true"]{box-shadow:0 0 0 2px var(--ink)}
+.kind[aria-selected="true"] .go{color:var(--ink);font-weight:600}
+.kpanel{margin-top:clamp(36px,5vw,56px);scroll-margin-top:16px}
+body:not(.no-js) .kpanel:not(.on){display:none}
+.k-head{text-align:center;max-width:46ch;margin:0 auto 22px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.k-head h3{font-size:clamp(30px,4vw,40px);font-weight:600;line-height:1.2;margin:0}
+html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
+.k-head p{margin:0;font-size:17px;color:var(--soft);line-height:1.6}
+.k-tiers{max-width:980px;margin:20px auto 0;background:#FFFEFC;border-radius:var(--r);padding:26px 22px;text-align:center}
+.k-tiers .w{font-size:14px;font-weight:600;color:#B08A66;margin-bottom:10px}
+.k-tiers .st-tiers{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:0}
+.k-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
+@media(max-width:700px){.kinds{gap:10px}.kind .tx{padding:14px 8px 16px}.kind .d{font-size:12px}.k-tiers{padding:22px 12px}.k-tiers .st-tiers{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
@@ -413,8 +432,7 @@ html[lang=en] body{font-weight:400}
   <div class="wrap">
     <a href="#top" class="logo" aria-label="LUVINA">LUVINA</a>
     <nav aria-label="Main">
-      <a href="#tulle"><span class="ar">الأسعار</span><span class="en">Prices</span></a>
-      <a href="#stretch"><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></a>
+      <a href="#tulle"><span class="ar">التل</span><span class="en">Tulle</span></a>
       <a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a>
       <a href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a>
       <a href="/instructions/"><span class="ar">تعليمات التل</span><span class="en">Instructions</span></a>
@@ -438,8 +456,7 @@ html[lang=en] body{font-weight:400}
 <div class="overlay" id="menu" aria-hidden="true">
   <button class="close" id="menuClose" aria-label="Close">✕</button>
   <nav>
-    <a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a>
-    <a href="#stretch"><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></a>
+    <a href="#tulle"><span class="ar">التل</span><span class="en">Tulle</span></a>
     <a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a>
     <a href="#catalog-form" data-lvf="1"><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></a>
     <a href="/instructions/"><span class="ar">تعليمات التل</span><span class="en">Instructions</span></a>
@@ -472,65 +489,77 @@ html[lang=en] body{font-weight:400}
   </div>
 </section>
 
-<div class="type-switch" role="tablist" aria-label="Tulle type">
-  <button type="button" role="tab" data-kind="reg" aria-selected="true"><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></button>
-  <button type="button" role="tab" data-kind="st" aria-selected="false"><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></button>
-</div>
-<section class="sec alt" id="tulle" data-kind="reg">
+<section class="sec alt" id="tulle">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="kicker">Swiss Made · Since 2001</div>
-      <h2><span class="ar">الأسعار.</span><span class="en">Prices.</span></h2>
-      <p class="sub"><span class="ar">نفس السعر لكل الألوان. يباع بالتوب الكامل.</span><span class="en">Same price for every colour. Sold by the full roll.</span></p>
+      <h2><span class="ar">التل.</span><span class="en">Tulle.</span></h2>
+      <p class="sub"><span class="ar">نوعان. اختر ما يناسب تصميمك.</span><span class="en">Two kinds. Choose the one your design calls for.</span></p>
     </div>
-    <div class="models">
-      <div class="model rv">
-        <div class="w"><span class="ar">الأكثر طلباً</span><span class="en">Most chosen</span></div>
-        <h3><span class="ar">عرض ١٦٠ سم</span><span class="en">160 cm width</span></h3>
-        <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">2,750 EGP</b></div>
-        <p class="avail"><span class="ar">متاح بكل الألوان عدا <span class="num">003 · 006 · 007</span>.</span><span class="en">Every colour except 003, 006 and 007.</span></p>
-        <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%B3%D9%88%D9%8A%D8%B3%D8%B1%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D9%A1%D9%A6%D9%A0%20%D8%B3%D9%85.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a><a class="more" href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a></div>
-      </div>
-      <div class="model rv">
-        <div class="w"><span class="ar">للتنورات الواسعة</span><span class="en">For full skirts</span></div>
-        <h3><span class="ar">عرض ٣ متر</span><span class="en">3 m width</span></h3>
-        <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">5,500 EGP</b></div>
-        <p class="avail"><span class="ar">متاح بالألوان <span class="num">003 · 006 · 007 · 008 · 087 · 094</span>.</span><span class="en">In 003 · 006 · 007 · 008 · 087 · 094.</span></p>
-        <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%B3%D9%88%D9%8A%D8%B3%D8%B1%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D9%A3%20%D9%85%D8%AA%D8%B1.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a><a class="more" href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a></div>
-      </div>
+    <div class="kinds rv" role="tablist">
+      <button type="button" class="kind" role="tab" data-kind="regular" aria-controls="regular" aria-selected="false">
+        <span class="ph"><img src="tulle-3.webp" alt="LUVINA regular Swiss tulle" loading="lazy"></span>
+        <span class="tx"><b><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></b><span class="d"><span class="ar">مئة لون · عرض ١٦٠ سم و٣ متر</span><span class="en">100 colours · 160 cm &amp; 3 m</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+      </button>
+      <button type="button" class="kind" role="tab" data-kind="stretch" aria-controls="stretch" aria-selected="false">
+        <span class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_782a1fd7-eb0d-4254-bda1-65415eeb103f.png" alt="LUVINA stretch tulle" loading="lazy"></span>
+        <span class="tx"><b><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></b><span class="d"><span class="ar">لونان · عرض ١٥٠ سم</span><span class="en">2 colours · 150 cm</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+      </button>
     </div>
-    <p class="fine"><span class="ar">خصم الشركاء من ١٠ أتواب حتى <span class="num">30%</span> — <a href="#trade">الشرائح ›</a> · للشراء بالمتر: <a href="#stockists">موزعونا المعتمدون ›</a> · <a href="order.html">طلب بالتفصيل أو شحن دولي ›</a></span><span class="en">Partner terms from 10 rolls, up to 30% — <a href="#trade">the tiers ›</a> · By the metre: <a href="#stockists">authorised stockists ›</a> · <a href="order.html">Detailed order or international shipping ›</a></span></p>
-  </div>
-</section>
 
-<section class="sec" id="stretch" data-kind="st" hidden>
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="ar">جديد · ١٠٠٪ نايلون</span><span class="en">New · 100% Nylon</span></div>
-      <h2><span class="ar">التل الاسترتش.</span><span class="en">Stretch Tulle.</span></h2>
-      <p class="sub"><span class="ar">يمتد طولاً وعرضاً ويعود لشكله. جودة عالية جداً.</span><span class="en">Stretches lengthwise and widthwise, then returns to shape. Exceptional quality.</span></p>
-    </div>
-    <div class="st-grid rv">
-      <div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_9eed62c6-573e-447b-9f27-b2e8fe821e57.png" alt="LUVINA stretch tulle gown in nude" loading="lazy"><span><span class="ar">نود</span><span class="en">Nude</span></span></div>
-      <div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_782a1fd7-eb0d-4254-bda1-65415eeb103f.png" alt="LUVINA stretch tulle gown in off-white" loading="lazy"><span><span class="ar">أوف وايت</span><span class="en">Off-white</span></span></div>
-      <div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114120_f0b3bb19-8764-4b82-95be-5f30533e4728.png" alt="LUVINA stretch tulle fabric in nude" loading="lazy"><span><span class="ar">نود</span><span class="en">Nude</span></span></div>
-      <div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_637415bc-6403-4d95-9690-3518bb75e526.png" alt="LUVINA stretch tulle fabric in off-white" loading="lazy"><span><span class="ar">أوف وايت</span><span class="en">Off-white</span></span></div>
-    </div>
-    <div class="st-info">
-      <div class="model rv">
-        <div class="w"><span class="ar">لونان فقط</span><span class="en">Two colours</span></div>
-        <h3><span class="ar">عرض ١٥٠ سم</span><span class="en">150 cm width</span></h3>
-        <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">4,000 EGP</b></div>
-        <p class="avail"><span class="ar">أوف وايت · نود (درجة البشرة). نفس السعر للونين.</span><span class="en">Off-white · Nude (skin tone). Same price for both.</span></p>
-        <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a></div>
+    <div class="kpanel" id="regular" role="tabpanel">
+      <div class="k-head">
+        <h3><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></h3>
+        <p><span class="ar">تل سويسري بمتانة تبقى. مئة لون بسعر واحد، بعرضين. يباع بالتوب الكامل.</span><span class="en">Swiss tulle made to last. One hundred colours at one price, in two widths. Sold by the full roll.</span></p>
+        <ul class="st-uses"><li><span class="ar">ثابت تحت المكواة</span><span class="en">Heat-stable</span></li><li><span class="ar">لا ينكمش</span><span class="en">Shrink-free</span></li><li><span class="ar">يقاوم القطع</span><span class="en">Tear-resistant</span></li><li><span class="ar">مسام دقيقة تتحمل التطريز</span><span class="en">Holds embroidery</span></li><li><span class="ar">ضمان لوفينا</span><span class="en">LUVINA guarantee</span></li></ul>
       </div>
-      <div class="model rv">
-        <div class="w"><span class="ar">يصلح لـ</span><span class="en">Made for</span></div>
-        <h3><span class="ar">لانجري وبطانة ومايوهات</span><span class="en">Lingerie, linings, swimwear</span></h3>
+      <div class="models">
+        <div class="model">
+          <div class="w"><span class="ar">الأكثر طلباً</span><span class="en">Most chosen</span></div>
+          <h3><span class="ar">عرض ١٦٠ سم</span><span class="en">160 cm width</span></h3>
+          <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">2,750 EGP</b></div>
+          <p class="avail"><span class="ar">متاح بكل الألوان عدا <span class="num">003 · 006 · 007</span>.</span><span class="en">Every colour except 003, 006 and 007.</span></p>
+          <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%B3%D9%88%D9%8A%D8%B3%D8%B1%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D9%A1%D9%A6%D9%A0%20%D8%B3%D9%85.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a></div>
+        </div>
+        <div class="model">
+          <div class="w"><span class="ar">للتنورات الواسعة</span><span class="en">For full skirts</span></div>
+          <h3><span class="ar">عرض ٣ متر</span><span class="en">3 m width</span></h3>
+          <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">5,500 EGP</b></div>
+          <p class="avail"><span class="ar">متاح بالألوان <span class="num">003 · 006 · 007 · 008 · 087 · 094</span>.</span><span class="en">In 003 · 006 · 007 · 008 · 087 · 094.</span></p>
+          <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%B3%D9%88%D9%8A%D8%B3%D8%B1%D9%8A%20%D8%B9%D8%B1%D8%B6%20%D9%A3%20%D9%85%D8%AA%D8%B1.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a></div>
+        </div>
+      </div>
+      <div class="k-tiers">
+        <div class="w"><span class="ar">خصم الكميات على التل العادي</span><span class="en">Quantity terms · Regular Tulle</span></div>
+        <div class="st-tiers"><div><b>10%</b><span><span class="ar">من ١٠ أتواب</span><span class="en">From 10 rolls</span></span></div><div><b>15%</b><span><span class="ar">من ٢٠ توب</span><span class="en">From 20 rolls</span></span></div><div><b>20%</b><span><span class="ar">من ٥٠ توب</span><span class="en">From 50 rolls</span></span></div><div><b>25%</b><span><span class="ar">من ١٠٠ توب</span><span class="en">From 100 rolls</span></span></div><div><b>30%</b><span><span class="ar">من ٢٠٠ توب</span><span class="en">From 200 rolls</span></span></div></div>
+      </div>
+      <div class="k-cta"><a class="pill" href="colors.html"><span class="ar">الألوان المئة</span><span class="en">The hundred colours</span></a></div>
+      <p class="fine"><span class="ar">خصم الشركاء من ١٠ أتواب حتى <span class="num">30%</span> — <a href="#trade">الشرائح ›</a> · للشراء بالمتر: <a href="#stockists">موزعونا المعتمدون ›</a> · <a href="order.html">طلب بالتفصيل أو شحن دولي ›</a></span><span class="en">Partner terms from 10 rolls, up to 30% — <a href="#trade">the tiers ›</a> · By the metre: <a href="#stockists">authorised stockists ›</a> · <a href="order.html">Detailed order or international shipping ›</a></span></p>
+    </div>
+
+    <div class="kpanel" id="stretch" role="tabpanel">
+      <div class="k-head">
+        <h3><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></h3>
+        <p><span class="ar">١٠٠٪ نايلون. يمتد طولاً وعرضاً ويعود لشكله. لونان فقط، بعرض واحد. يباع بالتوب الكامل.</span><span class="en">100% nylon. Stretches lengthwise and widthwise, then returns to shape. Two colours, one width. Sold by the full roll.</span></p>
         <ul class="st-uses"><li><span class="ar">لانجري</span><span class="en">Lingerie</span></li><li><span class="ar">بطانة فساتين</span><span class="en">Dress lining</span></li><li><span class="ar">مايوهات جمباز</span><span class="en">Gymnastics wear</span></li></ul>
-        <div class="st-tiers"><div><b>10%</b><span><span class="ar">من ١٠ أتواب</span><span class="en">From 10 rolls</span></span></div><div><b>15%</b><span><span class="ar">من ٢٠ توب</span><span class="en">From 20 rolls</span></span></div><div><b>20%</b><span><span class="ar">من ٥٠ توب</span><span class="en">From 50 rolls</span></span></div></div>
       </div>
+      <div class="models">
+        <div class="model">
+          <div class="w"><span class="ar">عرض واحد</span><span class="en">One width</span></div>
+          <h3><span class="ar">عرض ١٥٠ سم</span><span class="en">150 cm width</span></h3>
+          <div class="price"><span class="ar">التوب ٢٥ متر · </span><span class="en">25 m roll · </span><b class="num">4,000 EGP</b></div>
+          <p class="avail"><span class="ar">أوف وايت · نود (درجة البشرة). نفس السعر للونين.</span><span class="en">Off-white · Nude (skin tone). Same price for both.</span></p>
+          <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a></div>
+        </div>
+        <div class="model">
+          <div class="w"><span class="ar">خصم الكميات على الاسترتش</span><span class="en">Quantity terms · Stretch</span></div>
+          <div class="st-tiers"><div><b>10%</b><span><span class="ar">من ١٠ أتواب</span><span class="en">From 10 rolls</span></span></div><div><b>15%</b><span><span class="ar">من ٢٠ توب</span><span class="en">From 20 rolls</span></span></div><div><b>20%</b><span><span class="ar">من ٥٠ توب</span><span class="en">From 50 rolls</span></span></div></div>
+          <p class="avail"><span class="ar">شرائح خاصة بالاسترتش، مستقلة عن التل العادي.</span><span class="en">Stretch has its own terms, separate from Regular Tulle.</span></p>
+        </div>
+      </div>
+      <div class="k-cta"><a class="pill" href="colors.html#stretch"><span class="ar">اللونان المتاحان</span><span class="en">The two colours</span></a></div>
     </div>
+
   </div>
 </section>
 
@@ -694,19 +723,20 @@ html[lang=en] body{font-weight:400}
   setLang(LANG);
 })();
 (function(){
-  var btns=document.querySelectorAll('.type-switch button');
-  var reg=document.getElementById('tulle'), st=document.getElementById('stretch');
-  if(!reg||!st) return;
-  function show(kind){
-    var isSt = kind==='st';
-    reg.hidden = isSt; st.hidden = !isSt;
-    for(var i=0;i<btns.length;i++){ btns[i].setAttribute('aria-selected', String(btns[i].getAttribute('data-kind')===(isSt?'st':'reg'))); }
+  var kinds=document.querySelectorAll('.kind'),panels=document.querySelectorAll('.kpanel');
+  function show(id,scroll){
+    var p=document.getElementById(id),i;
+    if(!p||!p.classList.contains('kpanel'))return;
+    for(i=0;i<panels.length;i++)panels[i].classList.toggle('on',panels[i]===p);
+    for(i=0;i<kinds.length;i++)kinds[i].setAttribute('aria-selected',kinds[i].getAttribute('data-kind')===id?'true':'false');
+    if(scroll)setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'start'});},30);
   }
-  for(var i=0;i<btns.length;i++){
-    btns[i].addEventListener('click', function(){ show(this.getAttribute('data-kind')); });
-  }
-  function fromHash(){ if(location.hash==='#stretch') show('st'); else if(location.hash==='#tulle') show('reg'); }
-  window.addEventListener('hashchange', fromHash);
+  for(var i=0;i<kinds.length;i++)kinds[i].addEventListener('click',function(){
+    var id=this.getAttribute('data-kind');show(id,true);
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+  });
+  function fromHash(){var h=location.hash.slice(1);if(h==='regular'||h==='stretch')show(h,true);}
+  window.addEventListener('hashchange',fromHash);
   fromHash();
 })();
 </script>
