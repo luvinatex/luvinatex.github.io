@@ -243,9 +243,17 @@ section.sec:not(.alt) .model{background:var(--alt)}
 .piece:hover{box-shadow:2px 4px 16px rgba(0,0,0,.16);transform:scale(1.01)}
 .piece .ph{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--alt)}
 .piece .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s var(--ease),transform 6s linear}
-.piece .ph img.b{opacity:0}
-.piece:hover .ph img.a,.piece.tap .ph img.a{opacity:0}
-.piece:hover .ph img.b,.piece.tap .ph img.b{opacity:1;transform:scale(1.05)}
+.piece .ph{cursor:zoom-in}
+.piece:hover .ph img{transform:scale(1.04)}
+.piece .ph .zm{position:absolute;inset-inline-start:12px;bottom:12px;z-index:2;background:rgba(255,254,252,.9);color:#3A332E;font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
+.lbx{position:fixed;inset:0;z-index:9999;background:rgba(24,20,17,.96);display:none;align-items:center;justify-content:center}
+.lbx.on{display:flex}
+.lbx img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.lbx .x{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,254,252,.92);color:#2A2420;font-size:24px;line-height:1;cursor:pointer}
+.lbx .sw{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:4px;background:rgba(255,254,252,.14);padding:4px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.lbx .sw button{border:0;background:transparent;color:#fff;font:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.lbx .sw button.on{background:#FFFEFC;color:#2A2420}
+.lbx .cap{position:absolute;top:22px;inset-inline-start:18px;z-index:2;color:#fff;font-size:15px;font-weight:600}
 .piece .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:4px}
 .piece .st{font-size:12px;font-weight:600;color:#B08A66}
 .piece.out .st{color:var(--soft)}
@@ -683,14 +691,44 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     $('laceGrid').innerHTML=list.map(function(l){
       var msg=encodeURIComponent(T('أهلاً لوفينا 👋\nعايز أطلب الدانتيل الفرنسي '+l.ar+' (الكوب ٣ م × ١.٥ م).\nالعدد:','Hello LUVINA, I would like to order French Lace '+l.name+' (piece 3 m × 1.5 m).\nQty:'));
       return '<article class="piece rv in">'+
-        '<div class="ph"><img class="a" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><img class="b" src="'+l.b+'" alt="" loading="lazy"></div>'+
+        '<div class="ph" role="button" tabindex="0" data-id="'+l.id+'" aria-label="'+T('عرض التفاصيل عن قرب','View close-up')+'"><img src="'+l.b+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><span class="zm">'+T('اضغط للتفاصيل عن قرب','Tap for close-up')+'</span></div>'+
         '<div class="body"><span class="st">'+T('متاح الآن','Available now')+'</span>'+
         '<span class="name">'+l.name+'</span>'+
         '<span class="p"><span class="num">'+fmt(l.price)+' EGP</span> · '+T('الكوب','per piece')+'</span>'+
         '<div class="act"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+msg+'">'+T('اطلب على واتساب','Order on WhatsApp')+'</a></div>'+
       '</div></article>';
     }).join('');
-    Array.prototype.forEach.call(document.querySelectorAll('.piece .ph'),function(ph){ph.addEventListener('click',function(){ph.parentNode.classList.toggle('tap');});});
+    Array.prototype.forEach.call(document.querySelectorAll('.piece .ph'),function(ph){
+      var go=function(){openLace(ph.getAttribute('data-id'));};
+      ph.addEventListener('click',go);
+      ph.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+    });
+  }
+  var lbx=null,lbxCur=null;
+  var big=function(u){return u.replace('&w=900','&w=1800');};
+  function lbxShow(k){
+    lbx.querySelector('img').src=big(lbxCur[k]);
+    Array.prototype.forEach.call(lbx.querySelectorAll('.sw button'),function(b){b.classList.toggle('on',b.getAttribute('data-k')===k);});
+  }
+  function closeLace(){if(lbx){lbx.classList.remove('on');lbx.querySelector('img').removeAttribute('src');document.documentElement.style.overflow='';}}
+  function openLace(id){
+    lbxCur=LACE.filter(function(l){return l.id===id;})[0]; if(!lbxCur) return;
+    if(!lbx){
+      lbx=document.createElement('div');lbx.className='lbx';
+      lbx.innerHTML='<span class="cap"></span><button class="x" type="button" aria-label="Close">×</button><img alt=""><div class="sw"><button type="button" data-k="a"></button><button type="button" data-k="b"></button></div>';
+      document.body.appendChild(lbx);
+      lbx.addEventListener('click',function(e){
+        var k=e.target.getAttribute&&e.target.getAttribute('data-k');
+        if(k){lbxShow(k);return;}
+        closeLace();
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape') closeLace();});
+    }
+    lbx.querySelector('.cap').textContent=lbxCur.name;
+    lbx.querySelector('[data-k="a"]').textContent=T('من قريب','Close-up');
+    lbx.querySelector('[data-k="b"]').textContent=T('من بعيد','Full view');
+    lbxShow('a');
+    lbx.classList.add('on');document.documentElement.style.overflow='hidden';
   }
   function renderTiers(){
     $('tiers').innerHTML=TIERS.map(function(t,i){return '<div class="tier'+(i===TIERS.length-1?' top':'')+'"><b>'+t[1]+'%</b><span>'+T('من '+fmt(t[0])+' توب','From '+fmt(t[0])+' rolls')+'</span></div>';}).join('');
