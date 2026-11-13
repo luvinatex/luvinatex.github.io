@@ -246,13 +246,19 @@ section.sec:not(.alt) .model{background:var(--alt)}
 .piece .ph{cursor:zoom-in}
 .piece:hover .ph img{transform:scale(1.04)}
 .piece .ph .zm{position:absolute;inset-inline-start:12px;bottom:12px;z-index:2;background:rgba(255,254,252,.9);color:#3A332E;font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
-.lbx{position:fixed;inset:0;z-index:9999;background:rgba(24,20,17,.96);display:none;align-items:center;justify-content:center}
+.lbx{position:fixed;inset:0;z-index:9999;background:rgba(24,20,17,.96);display:none;align-items:center;justify-content:center;padding:64px 16px 44px}
 .lbx.on{display:flex}
-.lbx img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.lbx .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:1400px;height:100%}
+.lbx figure{margin:0;position:relative;min-height:0;display:flex;align-items:center;justify-content:center;cursor:zoom-in}
+.lbx figure img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.lbx figcaption{position:absolute;top:10px;inset-inline-start:10px;background:#FFFEFC;color:#2A2420;font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px}
+.lbx.solo .duo{grid-template-columns:1fr;grid-template-rows:1fr}
+.lbx.solo figure:not(.big){display:none}
+.lbx.solo figure{cursor:zoom-out}
+.lbx .hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:13px;white-space:nowrap}
+.lbx.solo .hint{display:none}
+@media(max-width:700px){.lbx{padding:60px 10px 36px}.lbx .duo{grid-template-columns:1fr;grid-template-rows:1fr 1fr;gap:10px}}
 .lbx .x{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,254,252,.92);color:#2A2420;font-size:24px;line-height:1;cursor:pointer}
-.lbx .sw{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:4px;background:rgba(255,254,252,.14);padding:4px;border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.lbx .sw button{border:0;background:transparent;color:#fff;font:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;cursor:pointer;white-space:nowrap}
-.lbx .sw button.on{background:#FFFEFC;color:#2A2420}
 .lbx .cap{position:absolute;top:22px;inset-inline-start:18px;z-index:2;color:#fff;font-size:15px;font-weight:600}
 .piece .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:4px}
 .piece .st{font-size:12px;font-weight:600;color:#B08A66}
@@ -445,7 +451,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
       <a href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a>
       <a href="/instructions/"><span class="ar">تعليمات التل</span><span class="en">Instructions</span></a>
       <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a>
-      <a href="#trade"><span class="ar">الشركاء</span><span class="en">Trade</span></a>
       <a href="#contact"><span class="ar">تواصل</span><span class="en">Contact</span></a>
       <a href="order.html"><span class="ar">طلب بالتفصيل</span><span class="en">Detailed order</span></a>
       <a href="team/" class="team-link"><span class="ar">فريق لوفينا</span><span class="en">LUVINA Team</span></a>
@@ -469,7 +474,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     <a href="#catalog-form" data-lvf="1"><span class="ar">كتالوج لوفينا</span><span class="en">The Luvina Catalogue</span></a>
     <a href="/instructions/"><span class="ar">تعليمات التل</span><span class="en">Instructions</span></a>
     <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a>
-    <a href="#trade"><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></a>
     <a href="order.html"><span class="ar">طلب بالتفصيل</span><span class="en">Detailed order</span></a>
     <a href="team/" class="team-link"><span class="ar">فريق لوفينا</span><span class="en">LUVINA Team</span></a>
   </nav>
@@ -502,22 +506,22 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     <div class="sec-head rv">
       <div class="kicker">Swiss Made · Since 2001</div>
       <h2><span class="ar">التل.</span><span class="en">Tulle.</span></h2>
-      <p class="sub"><span class="ar">نوعان. اختر ما يناسب تصميمك.</span><span class="en">Two kinds. Choose the one your design calls for.</span></p>
+      <p class="sub"><span class="ar">نوعان. اختر النوع لترى تفاصيله وشرائح خصمه.</span><span class="en">Two kinds. Choose one to see its details and terms.</span></p>
     </div>
     <div class="kinds rv" role="tablist">
       <button type="button" class="kind" role="tab" data-kind="regular" aria-controls="regular" aria-selected="false">
         <span class="ph"><img src="tulle-3.webp" alt="LUVINA regular Swiss tulle" loading="lazy"></span>
-        <span class="tx"><b><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></b><span class="d"><span class="ar">مئة لون · عرض ١٦٠ سم و٣ متر</span><span class="en">100 colours · 160 cm &amp; 3 m</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+        <span class="tx"><b><span class="ar">تل لوفينا العادي</span><span class="en">LUVINA Regular Tulle</span></b><span class="d"><span class="ar">مئة لون · عرض ١٦٠ سم و٣ متر</span><span class="en">100 colours · 160 cm &amp; 3 m</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
       </button>
       <button type="button" class="kind" role="tab" data-kind="stretch" aria-controls="stretch" aria-selected="false">
         <span class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_782a1fd7-eb0d-4254-bda1-65415eeb103f.png" alt="LUVINA stretch tulle" loading="lazy"></span>
-        <span class="tx"><b><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></b><span class="d"><span class="ar">لونان · عرض ١٥٠ سم</span><span class="en">2 colours · 150 cm</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+        <span class="tx"><b><span class="ar">تل لوفينا الاسترتش</span><span class="en">LUVINA Stretch Tulle</span></b><span class="d"><span class="ar">لونان · عرض ١٥٠ سم</span><span class="en">2 colours · 150 cm</span></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
       </button>
     </div>
 
     <div class="kpanel" id="regular" role="tabpanel">
       <div class="k-head">
-        <h3><span class="ar">التل العادي</span><span class="en">Regular Tulle</span></h3>
+        <h3><span class="ar">تل لوفينا العادي</span><span class="en">LUVINA Regular Tulle</span></h3>
         <p><span class="ar">تل سويسري بمتانة تبقى. مئة لون بسعر واحد، بعرضين. يباع بالتوب الكامل.</span><span class="en">Swiss tulle made to last. One hundred colours at one price, in two widths. Sold by the full roll.</span></p>
         <ul class="st-uses"><li><span class="ar">ثابت تحت المكواة</span><span class="en">Heat-stable</span></li><li><span class="ar">لا ينكمش</span><span class="en">Shrink-free</span></li><li><span class="ar">يقاوم القطع</span><span class="en">Tear-resistant</span></li><li><span class="ar">مسام دقيقة تتحمل التطريز</span><span class="en">Holds embroidery</span></li><li><span class="ar">ضمان لوفينا</span><span class="en">LUVINA guarantee</span></li></ul>
       </div>
@@ -538,16 +542,16 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
         </div>
       </div>
       <div class="k-tiers">
-        <div class="w"><span class="ar">خصم الكميات على التل العادي</span><span class="en">Quantity terms · Regular Tulle</span></div>
+        <div class="w"><span class="ar">شرائح خصم تل لوفينا العادي</span><span class="en">Quantity terms · Regular Tulle</span></div>
         <div class="st-tiers"><div><b>10%</b><span><span class="ar">من ١٠ أتواب</span><span class="en">From 10 rolls</span></span></div><div><b>15%</b><span><span class="ar">من ٢٠ توب</span><span class="en">From 20 rolls</span></span></div><div><b>20%</b><span><span class="ar">من ٥٠ توب</span><span class="en">From 50 rolls</span></span></div><div><b>25%</b><span><span class="ar">من ١٠٠ توب</span><span class="en">From 100 rolls</span></span></div><div><b>30%</b><span><span class="ar">من ٢٠٠ توب</span><span class="en">From 200 rolls</span></span></div></div>
       </div>
       <div class="k-cta"><a class="pill" href="colors.html"><span class="ar">الألوان المئة</span><span class="en">The hundred colours</span></a></div>
-      <p class="fine"><span class="ar">خصم الشركاء من ١٠ أتواب حتى <span class="num">30%</span> — <a href="#trade">الشرائح ›</a> · للشراء بالمتر: <a href="#stockists">موزعونا المعتمدون ›</a> · <a href="order.html">طلب بالتفصيل أو شحن دولي ›</a></span><span class="en">Partner terms from 10 rolls, up to 30% — <a href="#trade">the tiers ›</a> · By the metre: <a href="#stockists">authorised stockists ›</a> · <a href="order.html">Detailed order or international shipping ›</a></span></p>
+      <p class="fine"><span class="ar">للشراء بالمتر: <a href="#stockists">موزعونا المعتمدون ›</a> · <a href="order.html">طلب بالتفصيل أو شحن دولي ›</a></span><span class="en">By the metre: <a href="#stockists">authorised stockists ›</a> · <a href="order.html">Detailed order or international shipping ›</a></span></p>
     </div>
 
     <div class="kpanel" id="stretch" role="tabpanel">
       <div class="k-head">
-        <h3><span class="ar">التل الاسترتش</span><span class="en">Stretch Tulle</span></h3>
+        <h3><span class="ar">تل لوفينا الاسترتش</span><span class="en">LUVINA Stretch Tulle</span></h3>
         <p><span class="ar">١٠٠٪ نايلون. يمتد طولاً وعرضاً ويعود لشكله. لونان فقط، بعرض واحد. يباع بالتوب الكامل.</span><span class="en">100% nylon. Stretches lengthwise and widthwise, then returns to shape. Two colours, one width. Sold by the full roll.</span></p>
         <ul class="st-uses"><li><span class="ar">لانجري</span><span class="en">Lingerie</span></li><li><span class="ar">بطانة فساتين</span><span class="en">Dress lining</span></li><li><span class="ar">مايوهات جمباز</span><span class="en">Gymnastics wear</span></li></ul>
       </div>
@@ -560,7 +564,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
           <div class="ctas"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%AA%D8%B4.%0A%D8%A7%D9%84%D9%84%D9%88%D9%86%3A%0A%D8%A7%D9%84%D8%B9%D8%AF%D8%AF%3A"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a></div>
         </div>
         <div class="model">
-          <div class="w"><span class="ar">خصم الكميات على الاسترتش</span><span class="en">Quantity terms · Stretch</span></div>
+          <div class="w"><span class="ar">شرائح خصم تل لوفينا الاسترتش</span><span class="en">Quantity terms · Stretch</span></div>
           <div class="st-tiers"><div><b>10%</b><span><span class="ar">من ١٠ أتواب</span><span class="en">From 10 rolls</span></span></div><div><b>15%</b><span><span class="ar">من ٢٠ توب</span><span class="en">From 20 rolls</span></span></div><div><b>20%</b><span><span class="ar">من ٥٠ توب</span><span class="en">From 50 rolls</span></span></div></div>
           <p class="avail"><span class="ar">شرائح خاصة بالاسترتش، مستقلة عن التل العادي.</span><span class="en">Stretch has its own terms, separate from Regular Tulle.</span></p>
         </div>
@@ -595,18 +599,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
       <div class="card rv"><span class="ic">05</span><h3><span class="ar">ضمان لوفينا</span><span class="en">LUVINA guarantee</span></h3><p><span class="ar">جودة مضمونة وخدمة بعد البيع.</span><span class="en">Guaranteed quality and after-sales care.</span></p></div>
       <div class="card rv"><span class="ic">06</span><h3><span class="ar">مئة لون</span><span class="en">One hundred colours</span></h3><p><span class="ar"><a class="more" href="colors.html">تصفّح الألوان</a></span><span class="en"><a class="more" href="colors.html">Browse the colours</a></span></p></div>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="trade">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="ar">للتجار والمصانع والأتيليهات</span><span class="en">For merchants, ateliers &amp; houses</span></div>
-      <h2><span class="ar">كلما زاد طلبك، زادت مزاياك.</span><span class="en">The more you order, the more you save.</span></h2>
-      <p class="sub"><span class="ar">على التل السويسري فقط، ولا يشمل الدانتيل الفرنسي.</span><span class="en">Swiss tulle only, not French lace.</span></p>
-    </div>
-    <div class="tiers rv" id="tiers"></div>
-    <p class="fine"><a href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D8%B4%D8%B1%D9%83%D8%A7%D8%A1%20%D9%84%D9%83%D9%85%D9%8A%D8%A9%3A" target="_blank" rel="noopener"><span class="ar">اسأل عن سعر كميتك على واتساب ›</span><span class="en">Ask for your quantity price on WhatsApp ›</span></a></p>
   </div>
 </section>
 
@@ -654,7 +646,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     </div>
     <div class="cols">
       <div><b><span class="ar">تسوّق</span><span class="en">Shop</span></b><a href="#tulle"><span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></a><a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a><a href="colors.html"><span class="ar">الألوان المئة</span><span class="en">The 100 Colours</span></a></div>
-      <div><b><span class="ar">للأعمال</span><span class="en">For Business</span></b><a href="#trade"><span class="ar">الشركاء التجاريون</span><span class="en">Trade Partners</span></a><a href="order.html"><span class="ar">طلب بالتفصيل</span><span class="en">Detailed order</span></a></div>
+      <div><b><span class="ar">للأعمال</span><span class="en">For Business</span></b><a href="order.html"><span class="ar">طلب بالتفصيل</span><span class="en">Detailed order</span></a></div>
       <div><b><span class="ar">عن لوفينا</span><span class="en">About LUVINA</span></b><a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a><a href="https://instagram.com/luvinatex" target="_blank" rel="noopener">Instagram</a><a href="team/"><span class="ar">فريق لوفينا</span><span class="en">LUVINA Team</span></a></div>
       <div><b><span class="ar">تواصل</span><span class="en">Contact</span></b><a href="https://wa.me/201270455444" target="_blank" rel="noopener">WhatsApp</a><a href="#contact"><span class="ar">المقر والتوصيل</span><span class="en">Showroom &amp; Delivery</span></a><a href="order.html#intl"><span class="ar">الشحن الدولي</span><span class="en">International Shipping</span></a></div>
     </div>
@@ -680,7 +672,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     {id:'silver',name:'Silver Embroidered',ar:'مطرز سيلفر',price:4750,out:true,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261030_124624_540e23e5-8309-4aa6-aae1-b7da8b105661.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261030_124625_3aedbfdf-2222-4d39-84c0-92efe3d94143.png')},
     {id:'ivory',name:'Ivory Embroidered',ar:'مطرز أوف وايت',price:2950,out:false,a:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112549_549bb92c-bbd5-4edc-944c-d8ed9a9968e2.png'),b:img('d8j0ntlcm91z4.cloudfront.net%2Fuser_3KmFxrLZUZ0I6hjxRA8LqYLse8P%2Fhf_20261027_112552_30b9002c-33f9-4712-8202-8726d6fe71e4.png')}
   ];
-  var TIERS=[[10,10],[20,15],[50,20],[100,25],[200,30]];
   var fmt=function(n){return n.toLocaleString('en-US');};
   var T=function(ar,en){return LANG==='ar'?ar:en;};
   var $=function(id){return document.getElementById(id);};
@@ -691,7 +682,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     $('laceGrid').innerHTML=list.map(function(l){
       var msg=encodeURIComponent(T('أهلاً لوفينا 👋\nعايز أطلب الدانتيل الفرنسي '+l.ar+' (الكوب ٣ م × ١.٥ م).\nالعدد:','Hello LUVINA, I would like to order French Lace '+l.name+' (piece 3 m × 1.5 m).\nQty:'));
       return '<article class="piece rv in">'+
-        '<div class="ph" role="button" tabindex="0" data-id="'+l.id+'" aria-label="'+T('عرض التفاصيل عن قرب','View close-up')+'"><img src="'+l.b+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><span class="zm">'+T('عن قرب +','Close-up +')+'</span></div>'+
+        '<div class="ph" role="button" tabindex="0" data-id="'+l.id+'" aria-label="'+T('عرض الصورة من بعيد ومن قريب','View full and close-up')+'"><img src="'+l.b+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><span class="zm">'+T('من بعيد ومن قريب +','Full view &amp; close-up +')+'</span></div>'+
         '<div class="body"><span class="st">'+T('متاح الآن','Available now')+'</span>'+
         '<span class="name">'+l.name+'</span>'+
         '<span class="p"><span class="num">'+fmt(l.price)+' EGP</span> · '+T('الكوب','per piece')+'</span>'+
@@ -706,32 +697,26 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
   }
   var lbx=null,lbxCur=null;
   var big=function(u){return u.replace('&w=900','&w=1800');};
-  function lbxShow(k){
-    lbx.querySelector('img').src=big(lbxCur[k]);
-    Array.prototype.forEach.call(lbx.querySelectorAll('.sw button'),function(b){b.classList.toggle('on',b.getAttribute('data-k')===k);});
-  }
-  function closeLace(){if(lbx){lbx.classList.remove('on');lbx.querySelector('img').removeAttribute('src');document.documentElement.style.overflow='';}}
+  function closeLace(){if(lbx){lbx.classList.remove('on','solo');Array.prototype.forEach.call(lbx.querySelectorAll('figure'),function(f){f.classList.remove('big');});document.documentElement.style.overflow='';}}
   function openLace(id){
     lbxCur=LACE.filter(function(l){return l.id===id;})[0]; if(!lbxCur) return;
     if(!lbx){
       lbx=document.createElement('div');lbx.className='lbx';
-      lbx.innerHTML='<span class="cap"></span><button class="x" type="button" aria-label="Close">×</button><img alt=""><div class="sw"><button type="button" data-k="a"></button><button type="button" data-k="b"></button></div>';
+      lbx.innerHTML='<span class="cap"></span><button class="x" type="button" aria-label="Close">×</button><div class="duo"><figure data-k="b"><img alt=""><figcaption></figcaption></figure><figure data-k="a"><img alt=""><figcaption></figcaption></figure></div><span class="hint"></span>';
       document.body.appendChild(lbx);
       lbx.addEventListener('click',function(e){
-        var k=e.target.getAttribute&&e.target.getAttribute('data-k');
-        if(k){lbxShow(k);return;}
+        var f=e.target.closest&&e.target.closest('figure');
+        if(f){var on=!f.classList.contains('big');Array.prototype.forEach.call(lbx.querySelectorAll('figure'),function(g){g.classList.toggle('big',on&&g===f);});lbx.classList.toggle('solo',on);return;}
         closeLace();
       });
       document.addEventListener('keydown',function(e){if(e.key==='Escape') closeLace();});
     }
     lbx.querySelector('.cap').textContent=lbxCur.name;
-    lbx.querySelector('[data-k="a"]').textContent=T('من قريب','Close-up');
-    lbx.querySelector('[data-k="b"]').textContent=T('من بعيد','Full view');
-    lbxShow('a');
+    var fb=lbx.querySelector('[data-k="b"]'),fa=lbx.querySelector('[data-k="a"]');
+    fb.querySelector('img').src=big(lbxCur.b);fb.querySelector('img').alt=lbxCur.name+' — '+T('من بعيد','Full view');fb.querySelector('figcaption').textContent=T('من بعيد','Full view');
+    fa.querySelector('img').src=big(lbxCur.a);fa.querySelector('img').alt=lbxCur.name+' — '+T('من قريب','Close-up');fa.querySelector('figcaption').textContent=T('من قريب','Close-up');
+    lbx.querySelector('.hint').textContent=T('اضغط على أي صورة لتكبيرها','Tap a photo to enlarge it');
     lbx.classList.add('on');document.documentElement.style.overflow='hidden';
-  }
-  function renderTiers(){
-    $('tiers').innerHTML=TIERS.map(function(t,i){return '<div class="tier'+(i===TIERS.length-1?' top':'')+'"><b>'+t[1]+'%</b><span>'+T('من '+fmt(t[0])+' توب','From '+fmt(t[0])+' rolls')+'</span></div>';}).join('');
   }
 
   $('copyPhone').addEventListener('click',function(){var b=this;var done=function(){var o=b.innerHTML;b.textContent=T('تم النسخ','Copied');setTimeout(function(){b.innerHTML=o;},1600);};
@@ -741,7 +726,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     LANG=l;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
     Array.prototype.forEach.call(document.querySelectorAll('.lang button'),function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false');});
     try{localStorage.setItem('lv-lang',l);}catch(e){}
-    renderLace();renderTiers();
+    renderLace();
   }
   Array.prototype.forEach.call(document.querySelectorAll('.lang button'),function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
 
