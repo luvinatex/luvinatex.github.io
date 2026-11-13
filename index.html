@@ -245,7 +245,7 @@ section.sec:not(.alt) .model{background:var(--alt)}
 .piece .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s var(--ease),transform 6s linear}
 .piece .ph{cursor:zoom-in}
 .piece:hover .ph img{transform:scale(1.04)}
-.piece .ph .zm{position:absolute;inset-inline-start:12px;bottom:12px;z-index:2;background:rgba(255,254,252,.9);color:#3A332E;font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
+.piece .ph .zm{position:absolute;inset-inline-start:12px;bottom:12px;z-index:2;background:rgba(255,254,252,.9);color:#3A332E;font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
 .lbx{position:fixed;inset:0;z-index:9999;background:rgba(24,20,17,.96);display:none;align-items:center;justify-content:center}
 .lbx.on{display:flex}
 .lbx img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
@@ -691,7 +691,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     $('laceGrid').innerHTML=list.map(function(l){
       var msg=encodeURIComponent(T('أهلاً لوفينا 👋\nعايز أطلب الدانتيل الفرنسي '+l.ar+' (الكوب ٣ م × ١.٥ م).\nالعدد:','Hello LUVINA, I would like to order French Lace '+l.name+' (piece 3 m × 1.5 m).\nQty:'));
       return '<article class="piece rv in">'+
-        '<div class="ph" role="button" tabindex="0" data-id="'+l.id+'" aria-label="'+T('عرض التفاصيل عن قرب','View close-up')+'"><img src="'+l.b+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><span class="zm">'+T('اضغط للتفاصيل عن قرب','Tap for close-up')+'</span></div>'+
+        '<div class="ph" role="button" tabindex="0" data-id="'+l.id+'" aria-label="'+T('عرض التفاصيل عن قرب','View close-up')+'"><img src="'+l.b+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><span class="zm">'+T('عن قرب +','Close-up +')+'</span></div>'+
         '<div class="body"><span class="st">'+T('متاح الآن','Available now')+'</span>'+
         '<span class="name">'+l.name+'</span>'+
         '<span class="p"><span class="num">'+fmt(l.price)+' EGP</span> · '+T('الكوب','per piece')+'</span>'+
