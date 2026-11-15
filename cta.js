@@ -93,7 +93,13 @@
     });
   }
 
-  function open(e) { if (e) e.preventDefault(); build(); box.classList.add('on'); setTimeout(function () { var i = box.querySelector('input'); if (i && !i.value) i.focus(); }, 300); }
+  // No intro form any more: catalogue buttons go straight to WhatsApp
+  function open(e) {
+    if (e) e.preventDefault();
+    var wa = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('أهلاً لوفينا 👋\nأرغب في كتالوج لوفينا (هدية مع أول طلب).');
+    var w = window.open(wa, '_blank');
+    if (w) { try { w.opener = null; } catch (err) {} } else { location.href = wa; }
+  }
   function close() { pendingUrl = null; box && box.classList.remove('on'); }
 
   window.LuvinaForm = { open: open, bind: function (el) { el && el.addEventListener('click', open); } };
@@ -110,14 +116,6 @@
       } catch (err) {}
     }
   };
-  // Every WhatsApp link on the site goes through the lead form first
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
-    if (!a) return;
-    e.preventDefault(); e.stopImmediatePropagation();
-    pendingUrl = a.href; open();
-  }, true);
-  if (location.hash === '#catalog-form') document.addEventListener('DOMContentLoaded', function () { open(); });
   document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href="#catalog-form"]'); if (a) { e.preventDefault(); open(); } }, true);
 })();
 
