@@ -554,7 +554,6 @@ document.addEventListener('DOMContentLoaded',function(){
     {id:'t3m',ar:'التل العادي · عرض ٣ م · توب ٢٥ م',en:'Regular Tulle · 3 m · 25 m roll',price:5500,tulle:true,unitAr:'توب',unitEn:'roll',colors:three},
     {id:'st150',ar:'التل الاسترتش · عرض ١٥٠ سم · توب ٢٥ م',en:'Stretch Tulle · 150 cm · 25 m roll',price:4000,stretch:true,unitAr:'توب',unitEn:'roll',colors:['ow','nd'],cname:{ow:['أوف وايت','Off-white'],nd:['نود','Nude']}}
   ];
-  LACE.filter(function(l){return !l.out;}).forEach(function(l){PRODUCTS.push({id:'lace-'+l.id,ar:'دانتيل فرنسي '+l.ar+' · كوب',en:'French Lace '+l.name+' · piece',price:l.price,unitAr:'كوب',unitEn:'piece'});});
   PRODUCTS.push({id:'catalog',ar:'كتالوج لوفينا',en:'The Luvina Catalogue',price:350,unitAr:'كتالوج',unitEn:'catalogue'});
   var byId={};PRODUCTS.forEach(function(p){byId[p.id]=p;});
 
@@ -582,7 +581,7 @@ document.addEventListener('DOMContentLoaded',function(){
         '<div class="ph"><img class="a" src="'+l.a+'" alt="LUVINA French Lace '+l.name+'" loading="lazy"><img class="b" src="'+l.b+'" alt="" loading="lazy"></div>'+
         '<div class="body"><span class="st">'+(l.out?T('نفدت الكمية','Sold out'):T('متاح الآن','Available now'))+'</span>'+
         '<span class="name">'+l.name+'</span>'+
-        '<span class="p"><span class="num">'+fmt(l.price)+' EGP</span> · '+T('الكوب ٣ م × ١.٥ م','3 m × 1.5 m')+'</span>'+
+        '<span class="p">'+T('الكوب ٣ م × ١.٥ م','3 m × 1.5 m')+'</span>'+
         (l.out?'':'<div class="act"><a class="pill sm" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+msg+'">'+T('اطلب هذا التصميم','Request this design')+'</a></div>')+
       '</div></article>';
     }).join('');
