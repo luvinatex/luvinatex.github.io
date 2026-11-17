@@ -98,8 +98,8 @@ document.addEventListener('click',function(e){
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1497584932184983&ev=PageView&noscript=1"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400&display=swap" rel="stylesheet"></noscript>
 <style>
 /* Layout: Apple-style — thin glass nav, full-width modules, centered headlines, pill links, rounded tiles */
 :root{
@@ -461,15 +461,15 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 
 /* hero: magazine-cover style */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cv{position:relative;overflow:hidden;height:min(86vh,760px);min-height:480px;background:linear-gradient(#5a3638,#7e5455 55%,#8f6666)}
-.cv-img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.cv::before{content:"";position:absolute;inset:0 0 auto;height:30%;background:linear-gradient(rgba(60,30,32,.35),transparent);z-index:1}
-.cv-mast{position:absolute;z-index:2;top:clamp(14px,3vw,38px);inset-inline:0;text-align:center;margin:0;color:#FFF1E6;font-weight:400;line-height:1;text-shadow:0 2px 30px rgba(40,15,18,.35);font-size:clamp(76px,16vw,250px)}
-html[lang=en] .cv-mast{font-family:'Playfair Display','Didot','Bodoni MT',Georgia,serif;letter-spacing:.03em;font-size:clamp(64px,15vw,230px)}
-html[lang=ar] .cv-mast{font-family:var(--f-ar-d);font-weight:700;line-height:1.15}
-.cv-line{position:absolute;z-index:2;bottom:clamp(18px,3vw,36px);inset-inline-start:max(18px,3vw);margin:0;max-width:30ch;font-size:14px;line-height:1.6;color:#fff;text-shadow:0 1px 14px rgba(40,15,18,.55)}
-.cv-lnk{position:absolute;z-index:2;bottom:clamp(18px,3vw,36px);inset-inline-end:max(18px,3vw);color:#fff;font-size:16px;border-bottom:1px solid #fff;padding-bottom:2px;text-shadow:0 1px 14px rgba(40,15,18,.55)}
-@media(max-width:700px){.cv{height:auto;min-height:0;display:flex;flex-direction:column;padding-bottom:88px}.cv-mast{position:static;padding-top:18px;font-size:clamp(64px,22vw,110px)}.cv-img{position:static;transform:none;left:auto;width:100%;height:auto;aspect-ratio:3/2;margin-top:-34px;object-position:50% 50%;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 88%,transparent)}.cv::before{display:none}.cv-line{position:static;max-width:none;text-align:center;margin:14px 18px 0}.cv-lnk{position:static;align-self:center;margin-top:10px}}
+.cv{background:var(--bg)}
+.cv-stage{position:relative;overflow:hidden;height:min(88vh,66.7vw);min-height:300px;background:#6d6d70}
+.cv-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.cv-cut{z-index:3}
+.cv-mast{position:absolute;z-index:2;top:1.2%;inset-inline:0;margin:0;text-align:center;direction:ltr;font-family:'Bodoni Moda','Didot','Bodoni MT','Playfair Display',Georgia,serif;font-weight:400;font-size:min(20vw,27vh);line-height:1;letter-spacing:.04em;padding-inline-start:.04em;color:#C9558A}
+html[lang=ar] .cv-mast{font-family:'Bodoni Moda','Didot','Bodoni MT','Playfair Display',Georgia,serif;font-weight:400;line-height:1}
+.cv-foot{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 22px 26px;text-align:center}
+.cv-line{margin:0;font-size:15px;color:var(--soft)}
+.cv-lnk{color:var(--link);font-size:16px;border-bottom:1px solid currentColor;padding-bottom:2px}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
@@ -517,10 +517,15 @@ html[lang=ar] .cv-mast{font-family:var(--f-ar-d);font-weight:700;line-height:1.1
 </div>
 
 <section class="cv" id="home">
-  <h1 class="cv-mast"><span class="ar">لوفينا</span><span class="en">LUVINA</span><span class="vh"> — <span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></span></h1>
-  <img class="cv-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_162204_be25e9d0-5205-4a44-b7d4-132e5e395a0d.png" alt="LUVINA Swiss tulle gown" width="1024" height="688" fetchpriority="high" decoding="async">
-  <p class="cv-line"><span class="ar">مئة لون · للأتيليهات ومصانع الفساتين بالتوب الكامل</span><span class="en">100 colours · for ateliers and factories, by the full roll</span></p>
-  <a class="cv-lnk" href="#tulle"><span class="ar">الأسعار</span><span class="en">Prices</span></a>
+  <div class="cv-stage">
+    <img class="cv-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_162817_84d1e7a6-afb7-41af-9e5c-0d54659e4d0d.png" alt="" width="1024" height="688" fetchpriority="high" decoding="async">
+    <h1 class="cv-mast">LUVINA<span class="vh"> — <span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></span></h1>
+    <img class="cv-img cv-cut" src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_162947_b7527e6e-da39-45fa-9732-cb1c57904661.png" alt="LUVINA Swiss tulle gown" width="1024" height="688" decoding="async">
+  </div>
+  <div class="cv-foot">
+    <p class="cv-line"><span class="ar">تل سويسري فاخر · مئة لون · للأتيليهات ومصانع الفساتين بالتوب الكامل</span><span class="en">Luxury Swiss tulle · 100 colours · for ateliers and factories, by the full roll</span></p>
+    <a class="cv-lnk" href="#tulle"><span class="ar">الأسعار</span><span class="en">Prices</span></a>
+  </div>
 </section>
 
 <section class="sec alt" id="tulle">
