@@ -169,7 +169,7 @@
     var orderVisible = false, nudged = false;
 
     function update() {
-      var scrolled = nudged || window.scrollY > Math.min(260, window.innerHeight * 0.35);
+      var scrolled = nudged || window.scrollY > Math.min(80, window.innerHeight * 0.12);
       var menuOpen = overlay && getComputedStyle(overlay).opacity !== '0' && getComputedStyle(overlay).pointerEvents !== 'none';
       bar.classList.toggle('on', scrolled && !orderVisible && !menuOpen);
     }
@@ -181,7 +181,7 @@
     }
     window.addEventListener('scroll', update, { passive: true });
     document.addEventListener('click', function () { setTimeout(update, 450); }, true);
-    setTimeout(function () { nudged = true; update(); }, 6000); // nudge after 6s even without scrolling
+    setTimeout(function () { nudged = true; update(); }, 1500); // nudge after 1.5s even without scrolling
     update();
   }
 

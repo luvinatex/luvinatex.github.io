@@ -98,7 +98,8 @@ document.addEventListener('click',function(e){
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1497584932184983&ev=PageView&noscript=1"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
 /* Layout: Apple-style — thin glass nav, full-width modules, centered headlines, pill links, rounded tiles */
 :root{
@@ -750,7 +751,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
   else Array.prototype.forEach.call(rv,function(el){el.classList.add('in');});
   setTimeout(function(){Array.prototype.forEach.call(rv,function(el){el.classList.add('in');});},2500);
 
-  var hf=$('heroFilm');if(hf){hf.muted=true;var pp=hf.play&&hf.play();if(pp&&pp.catch)pp.catch(function(){});}
+  var hf=$('heroFilm');if(hf){var cn=navigator.connection||{};if(cn.saveData||/(^|-)2g$|3g/.test(cn.effectiveType||'')){hf.removeAttribute('autoplay');hf.pause();}else{hf.muted=true;var pp=hf.play&&hf.play();if(pp&&pp.catch)pp.catch(function(){});}}
   setLang(LANG);
 })();
 (function(){
