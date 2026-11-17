@@ -452,6 +452,88 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{padding:0 0 18px;font-size:16px;line-height:1.7;color:var(--soft)}
 .faq details p a{color:var(--link);text-decoration:underline}
+
+/* ===== Editorial gallery skin: monochrome, shop-window staging, huge type, negative space ===== */
+:root{
+  --bg:#F4F2ED; --alt:#EAE7E0; --ink:#121110; --soft:#5C5750; --line:#D6D1C7;
+  --link:#6B5230; --gold:#D2B07E; --night:#0F0E0D; --r:2px;
+  --blush:#EAE7E0; --sage:#EAE7E0; --powder:#EAE7E0; --sand:#EAE7E0;
+}
+body::before,header.gn{background:rgba(244,242,237,.92)}
+header.gn{border-bottom:1px solid var(--line)}
+.gn .logo{font-weight:700;letter-spacing:.5em;opacity:1}
+.gn nav a{letter-spacing:.14em;text-transform:uppercase;font-size:11px;opacity:.9}
+html[lang=ar] .gn nav a{letter-spacing:0;text-transform:none;font-size:13px}
+.gn nav .team-link{border-radius:0}
+.ribbon{background:var(--night);color:#E9E4DA;font-size:12px;letter-spacing:.06em;padding:11px 22px}
+.ribbon a{color:var(--gold)}
+/* buttons: sharp, quiet */
+.pill{border-radius:0;background:var(--ink);border-color:var(--ink);color:#fff;font-size:13px;letter-spacing:.16em;text-transform:uppercase;min-height:48px;padding:0 30px}
+html[lang=ar] .pill{letter-spacing:0;text-transform:none;font-size:16px}
+.pill:hover{background:#2c2a27;border-color:#2c2a27}
+.pill.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.pill.ghost:hover{background:var(--ink);color:#fff}
+.pill.sm{min-height:40px;padding:0 18px;font-size:11px}
+.more{color:var(--link)}
+/* HERO = lit shop window */
+.mod:first-of-type,section.mod{background:var(--night);color:#F6F2EA;min-height:min(94vh,860px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero-media{position:absolute;inset:0;height:auto;margin:0}
+.hero-media::after{inset:0;height:auto;background:linear-gradient(to top,rgba(10,9,8,.92) 6%,rgba(10,9,8,.35) 55%,rgba(10,9,8,.5))}
+.mod .copy{align-items:flex-start;text-align:start;padding:120px max(22px,4vw) clamp(34px,6vw,70px);max-width:1440px;margin:0 auto;width:100%;gap:0}
+.mod .copy::before{content:"SWISS MADE · SINCE 2001";font-family:var(--f-en);font-size:11px;letter-spacing:.34em;color:var(--gold);margin-bottom:22px;direction:ltr}
+.mod h1{font-family:var(--f-en);font-weight:700;font-size:clamp(54px,11vw,170px);line-height:.92;letter-spacing:-.045em;color:#fff;max-width:14ch}
+html[lang=ar] .mod h1{font-family:var(--f-ar-d);font-weight:700;letter-spacing:0;line-height:1.1;font-size:clamp(52px,9.5vw,140px);max-width:12ch}
+.mod .sub{color:#F1EDE5;font-size:clamp(18px,2vw,26px);max-width:34ch;margin-top:22px;font-weight:300}
+.mod .sub[style]{opacity:.85!important;max-width:52ch;font-size:15px!important}
+.mod .ctas{justify-content:flex-start;margin-top:28px}
+.mod .pill{background:#fff;color:var(--ink);border-color:#fff}
+.mod .pill:hover{background:var(--gold);border-color:var(--gold)}
+.mod .pill.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.mod .pill.ghost:hover{background:#fff;color:var(--ink)}
+/* section heads: big, ruled, editorial */
+section.sec{padding-block:clamp(84px,12vw,150px)}
+.sec-head{gap:14px}
+.sec-head .kicker{font-family:var(--f-en);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--soft);display:flex;align-items:center;gap:14px;direction:ltr}
+.sec-head .kicker::before,.sec-head .kicker::after{content:"";width:34px;height:1px;background:currentColor;opacity:.5}
+.sec-head h2{font-family:var(--f-en);font-weight:700;font-size:clamp(46px,8vw,112px);line-height:.95;letter-spacing:-.045em}
+html[lang=ar] .sec-head h2{font-family:var(--f-ar-d);letter-spacing:0;line-height:1.15;font-size:clamp(46px,7.4vw,100px)}
+.sec-head .sub{font-size:clamp(17px,1.8vw,21px);max-width:44ch}
+/* surfaces: sharp edges, no soft shadows */
+.model,.card,.info .blk,.panel,.k-tiers,.kind,.faq details,.tier,.piece,.st-grid .ph,.st-tiers div,.reel,.lace-hero .ph,.tile{border-radius:0}
+.piece{box-shadow:none;border:1px solid var(--line);background:#FBFAF7}
+.piece:hover{box-shadow:none;transform:none;border-color:var(--ink)}
+.piece .st{color:#7A5E3A;letter-spacing:.08em}
+.kind,.model{background:#FBFAF7;border:1px solid var(--line)}
+.kind:hover{border-color:var(--ink)}
+.kind[aria-selected="true"]{box-shadow:none;border-color:var(--ink);outline:1px solid var(--ink)}
+section.sec:not(.alt) .model,section.sec:not(.alt) .card,section.sec:not(.alt) .tier{background:var(--alt)}
+.card h3,.model h3,.piece .name,.k-head h3,.kind b{letter-spacing:-.02em}
+.st-uses li{border-radius:0}
+.faq details{border-radius:0}
+.f input,.f select,.rm{border-radius:0}
+.summary .pill,.pill{border-radius:0}
+.tier.top,section.sec .tier.top{background:var(--ink);color:#fff}
+section.sec .tier.top span{color:#E6E0D4}
+.big100{background:none;-webkit-text-fill-color:initial;color:var(--ink)}
+/* LACE = night window, pieces lit like display pieces */
+#lace{background:var(--night);color:#F4F0E8}
+#lace .sec-head .kicker{color:var(--gold)}
+#lace .sec-head h2{color:#fff}
+#lace .sec-head .sub{color:#CFC8BB}
+#lace .piece{background:#161513;border-color:#2c2a26;color:#F4F0E8}
+#lace .piece:hover{border-color:var(--gold)}
+#lace .piece .name{color:#fff}
+#lace .piece .p{color:#BDB6A9}
+#lace .piece .st{color:var(--gold)}
+#lace .piece.out .st{color:#A8A296}
+#lace .piece .pill{background:#fff;color:var(--ink);border-color:#fff}
+#lace .piece .pill.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+#lace .fine,#lace .fine a{color:#BDB6A9}
+/* footer */
+footer{background:var(--night);color:#BDB6A9}
+footer .cols b,footer .mk,footer .cols a:hover{color:#fff}
+footer .notes,footer .cols{border-color:#2c2a26}
+@media(max-width:600px){.mod .copy{padding-top:96px;padding-bottom:104px}.mod h1{font-size:clamp(50px,17vw,84px)}html[lang=ar] .mod h1{font-size:clamp(46px,14vw,72px)}.sec-head h2{font-size:clamp(42px,13vw,64px)}}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
