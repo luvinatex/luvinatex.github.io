@@ -452,127 +452,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{padding:0 0 18px;font-size:16px;line-height:1.7;color:var(--soft)}
 .faq details p a{color:var(--link);text-decoration:underline}
-
-/* ===== Editorial gallery skin: monochrome, shop-window staging, huge type, negative space ===== */
-:root{
-  --bg:#F4F2ED; --alt:#EAE7E0; --ink:#121110; --soft:#5C5750; --line:#D6D1C7;
-  --link:#6B5230; --gold:#D2B07E; --night:#0F0E0D; --r:2px;
-  --blush:#EAE7E0; --sage:#EAE7E0; --powder:#EAE7E0; --sand:#EAE7E0;
-}
-body::before,header.gn{background:rgba(244,242,237,.92)}
-header.gn{border-bottom:1px solid var(--line)}
-.gn .logo{font-weight:700;letter-spacing:.5em;opacity:1}
-.gn nav a{letter-spacing:.14em;text-transform:uppercase;font-size:11px;opacity:.9}
-html[lang=ar] .gn nav a{letter-spacing:0;text-transform:none;font-size:13px}
-.gn nav .team-link{border-radius:0}
-.ribbon{background:var(--night);color:#E9E4DA;font-size:12px;letter-spacing:.06em;padding:11px 22px}
-.ribbon a{color:var(--gold)}
-/* buttons: sharp, quiet */
-.pill{border-radius:0;background:var(--ink);border-color:var(--ink);color:#fff;font-size:13px;letter-spacing:.16em;text-transform:uppercase;min-height:48px;padding:0 30px}
-html[lang=ar] .pill{letter-spacing:0;text-transform:none;font-size:16px}
-.pill:hover{background:#2c2a27;border-color:#2c2a27}
-.pill.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-.pill.ghost:hover{background:var(--ink);color:#fff}
-.pill.sm{min-height:40px;padding:0 18px;font-size:11px}
-.more{color:var(--link)}
-/* HERO = lit shop window */
-.mod:first-of-type,section.mod{background:var(--night);color:#F6F2EA;min-height:min(94vh,860px);display:flex;flex-direction:column;justify-content:flex-end}
-.hero-media{position:absolute;inset:0;height:auto;margin:0}
-.hero-media::after{inset:0;height:auto;background:linear-gradient(to top,rgba(10,9,8,.92) 6%,rgba(10,9,8,.35) 55%,rgba(10,9,8,.5))}
-.mod .copy{align-items:flex-start;text-align:start;padding:120px max(22px,4vw) clamp(34px,6vw,70px);max-width:1440px;margin:0 auto;width:100%;gap:0}
-.mod .copy::before{content:"SWISS MADE · SINCE 2001";font-family:var(--f-en);font-size:11px;letter-spacing:.34em;color:var(--gold);margin-bottom:22px;direction:ltr}
-.mod h1{font-family:var(--f-en);font-weight:700;font-size:clamp(54px,11vw,170px);line-height:.92;letter-spacing:-.045em;color:#fff;max-width:14ch}
-html[lang=ar] .mod h1{font-family:var(--f-ar-d);font-weight:700;letter-spacing:0;line-height:1.1;font-size:clamp(52px,9.5vw,140px);max-width:12ch}
-.mod .sub{color:#F1EDE5;font-size:clamp(18px,2vw,26px);max-width:34ch;margin-top:22px;font-weight:300}
-.mod .sub[style]{opacity:.85!important;max-width:52ch;font-size:15px!important}
-.mod .ctas{justify-content:flex-start;margin-top:28px}
-.mod .pill{background:#fff;color:var(--ink);border-color:#fff}
-.mod .pill:hover{background:var(--gold);border-color:var(--gold)}
-.mod .pill.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
-.mod .pill.ghost:hover{background:#fff;color:var(--ink)}
-/* section heads: big, ruled, editorial */
-section.sec{padding-block:clamp(84px,12vw,150px)}
-.sec-head{gap:14px}
-.sec-head .kicker{font-family:var(--f-en);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--soft);display:flex;align-items:center;gap:14px;direction:ltr}
-.sec-head .kicker::before,.sec-head .kicker::after{content:"";width:34px;height:1px;background:currentColor;opacity:.5}
-.sec-head h2{font-family:var(--f-en);font-weight:700;font-size:clamp(46px,8vw,112px);line-height:.95;letter-spacing:-.045em}
-html[lang=ar] .sec-head h2{font-family:var(--f-ar-d);letter-spacing:0;line-height:1.15;font-size:clamp(46px,7.4vw,100px)}
-.sec-head .sub{font-size:clamp(17px,1.8vw,21px);max-width:44ch}
-/* surfaces: sharp edges, no soft shadows */
-.model,.card,.info .blk,.panel,.k-tiers,.kind,.faq details,.tier,.piece,.st-grid .ph,.st-tiers div,.reel,.lace-hero .ph,.tile{border-radius:0}
-.piece{box-shadow:none;border:1px solid var(--line);background:#FBFAF7}
-.piece:hover{box-shadow:none;transform:none;border-color:var(--ink)}
-.piece .st{color:#7A5E3A;letter-spacing:.08em}
-.kind,.model{background:#FBFAF7;border:1px solid var(--line)}
-.kind:hover{border-color:var(--ink)}
-.kind[aria-selected="true"]{box-shadow:none;border-color:var(--ink);outline:1px solid var(--ink)}
-section.sec:not(.alt) .model,section.sec:not(.alt) .card,section.sec:not(.alt) .tier{background:var(--alt)}
-.card h3,.model h3,.piece .name,.k-head h3,.kind b{letter-spacing:-.02em}
-.st-uses li{border-radius:0}
-.faq details{border-radius:0}
-.f input,.f select,.rm{border-radius:0}
-.summary .pill,.pill{border-radius:0}
-.tier.top,section.sec .tier.top{background:var(--ink);color:#fff}
-section.sec .tier.top span{color:#E6E0D4}
-.big100{background:none;-webkit-text-fill-color:initial;color:var(--ink)}
-/* LACE = night window, pieces lit like display pieces */
-#lace{background:var(--night);color:#F4F0E8}
-#lace .sec-head .kicker{color:var(--gold)}
-#lace .sec-head h2{color:#fff}
-#lace .sec-head .sub{color:#CFC8BB}
-#lace .piece{background:#161513;border-color:#2c2a26;color:#F4F0E8}
-#lace .piece:hover{border-color:var(--gold)}
-#lace .piece .name{color:#fff}
-#lace .piece .p{color:#BDB6A9}
-#lace .piece .st{color:var(--gold)}
-#lace .piece.out .st{color:#A8A296}
-#lace .piece .pill{background:#fff;color:var(--ink);border-color:#fff}
-#lace .piece .pill.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
-#lace .fine,#lace .fine a{color:#BDB6A9}
-/* footer */
-footer{background:var(--night);color:#BDB6A9}
-footer .cols b,footer .mk,footer .cols a:hover{color:#fff}
-footer .notes,footer .cols{border-color:#2c2a26}
-@media(max-width:600px){.mod .copy{padding-top:96px;padding-bottom:104px}.mod h1{font-size:clamp(50px,17vw,84px)}html[lang=ar] .mod h1{font-size:clamp(46px,14vw,72px)}.sec-head h2{font-size:clamp(42px,13vw,64px)}}
-
-/* ===== Light editorial layout, warm palette ===== */
-:root{--bg:#F1E9DC;--alt:#E8DDCB;--ink:#16120D;--soft:#5E5446;--line:#D3C6B0;--link:#6B4F2A;--gold:#C9A468;--night:#17120C}
-body::before,header.gn{background:rgba(241,233,220,.92)}
-.ribbon{background:var(--night)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.gz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:stretch;background:var(--bg);min-height:min(66vh,520px);text-align:start}
-.gz-t{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:48px max(22px,5vw)}
-.gz-cap{font-family:var(--f-en);font-size:11px;letter-spacing:.34em;color:var(--soft)}
-html[lang=ar] .gz-cap{font-family:var(--f-ar);letter-spacing:0;font-size:15px}
-.gz-word{font-family:var(--f-en);font-weight:300;font-size:clamp(44px,7vw,96px);line-height:1;letter-spacing:.14em;color:var(--ink);direction:ltr;text-align:start;margin:6px 0}
-.gz-sub{font-size:clamp(18px,1.8vw,22px);color:var(--ink)}
-.gz-for{font-size:14px;color:var(--soft)}
-.gz-lnk{align-self:flex-start;margin-top:12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px;color:var(--ink)}
-html[lang=ar] .gz-lnk{letter-spacing:0;text-transform:none;font-size:16px}
-.gz-img{position:relative;min-height:260px}
-.gz-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.gz-band{background:var(--night);color:#F4ECDD;padding:20px 0}
-.gz-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1100px}
-.gz-card{display:flex;align-items:center;gap:14px;color:inherit;padding:8px;border-bottom:1px solid transparent;transition:border-color .3s}
-.gz-card:hover{border-color:var(--gold)}
-.gz-card img{width:64px;height:80px;object-fit:cover;flex:0 0 64px}
-.gz-card b{display:block;font-family:var(--f-en);font-size:12px;letter-spacing:.22em;color:#fff;margin-bottom:4px;font-weight:600}
-html[lang=ar] .gz-card b{font-family:var(--f-ar-d);font-size:20px;letter-spacing:0}
-.gz-card p{font-size:12px;line-height:1.5;color:#CDBFA8;margin:0}
-.gz-card i{display:none}
-.gz-split,.gz-trust{display:none}
-/* lighter sections */
-section.sec{padding-block:clamp(44px,6vw,76px)}
-.sec-head{margin-bottom:28px;gap:8px}
-.sec-head h2{font-weight:600;font-size:clamp(30px,4vw,48px);letter-spacing:-.02em;line-height:1.1}
-html[lang=ar] .sec-head h2{font-size:clamp(32px,4.4vw,52px);line-height:1.2}
-.sec-head .sub{font-size:clamp(15px,1.5vw,18px)}
-.sec-head .kicker{font-size:10px}
-.model,.card{padding:24px 22px}
-.card{min-height:0}
-.k-head{margin-bottom:14px}
-@media(max-width:900px){.gz{grid-template-columns:1fr;min-height:0}.gz-img{order:-1;height:240px;min-height:0}.gz-t{padding:28px 22px 32px}.gz-cards{grid-template-columns:1fr}}
-@media(max-width:600px){.gz-word{font-size:clamp(40px,13vw,60px)}.gz-card img{width:52px;height:64px;flex-basis:52px}}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
@@ -619,43 +498,20 @@ html[lang=ar] .sec-head h2{font-size:clamp(32px,4.4vw,52px);line-height:1.2}
   <span class="ar">كتالوج لوفينا بعينات المئة لون — هدية مع أول طلب. </span><span class="en">The Luvina Catalogue, one hundred real swatches — a gift with your first order. </span><a href="#catalog-form" data-lvf="1"><span class="ar">اطلبه ›</span><span class="en">Request it ›</span></a>
 </div>
 
-<section class="gz" id="home">
-  <div class="gz-t">
-    <small class="gz-cap"><span class="ar">التل السويسري</span><span class="en">SWISS TULLE</span></small>
-    <h1 class="gz-word">LUVINA<span class="vh"> — <span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></span></h1>
-    <p class="gz-sub"><span class="ar">مئة لون. متانة صُنعت لتبقى.</span><span class="en">One hundred colours. Made to last.</span></p>
-    <p class="gz-for"><span class="ar">للأتيليهات ومصانع الفساتين، بالتوب الكامل.</span><span class="en">For ateliers and factories, by the full roll.</span></p>
-    <a class="gz-lnk" href="#tulle"><span class="ar">الأسعار</span><span class="en">See prices</span></a>
-  </div>
-  <div class="gz-img"><img src="tulle-3.webp" alt="LUVINA Swiss tulle in many colours" fetchpriority="high" decoding="async"></div>
-</section>
-
-<section class="gz-band">
-  <div class="wrap gz-cards">
-    <a class="gz-card" href="#tulle" data-open="regular"><img src="tulle-3.webp" alt="" loading="lazy"><div><b><span class="ar">التل العادي</span><span class="en">TULLE</span></b><p><span class="ar">مئة لون، عرضان. ثابت تحت المكواة.</span><span class="en">100 colours, two widths. Heat-stable.</span></p><i><span class="ar">اكتشف ›</span><span class="en">SHOP TULLE →</span></i></div></a>
-    <a class="gz-card" href="#tulle" data-open="stretch"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_782a1fd7-eb0d-4254-bda1-65415eeb103f.png" alt="" loading="lazy"><div><b><span class="ar">الاسترتش</span><span class="en">STRETCH</span></b><p><span class="ar">مرونة تتبع الجسم. عرض ١٥٠ سم.</span><span class="en">Soft stretch that follows the body. 150 cm.</span></p><i><span class="ar">اكتشف ›</span><span class="en">SHOP STRETCH →</span></i></div></a>
-    <a class="gz-card" href="#lace"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_112549_050e7322-417b-4275-acab-a917be6048af.png" alt="" loading="lazy"><div><b><span class="ar">الدانتيل الفرنسي</span><span class="en">FRENCH LACE</span></b><p><span class="ar">كوردونيه بارز ومطرز بالخرز.</span><span class="en">Raised cordonnet and beaded embroidery.</span></p><i><span class="ar">اكتشف ›</span><span class="en">SHOP LACE →</span></i></div></a>
-  </div>
-</section>
-
-<section class="gz-split">
-  <div class="wrap gz-sp">
-    <div class="gz-sp-t rv">
-      <small><span class="ar">موسم جديد</span><span class="en">NEW SEASON</span></small>
-      <h2><span class="ar">دانتيل<br>جديد.</span><span class="en">NEW<br>LACE.</span></h2>
-      <p><span class="ar">تصاميم فرنش ليس جديدة بكوب ٣ × ١.٥ م، وكنار من الجانبين.</span><span class="en">New French lace designs. 3 × 1.5 m per piece, bordered on both sides.</span></p>
-      <a class="pill" href="#lace"><span class="ar">شاهد التصاميم</span><span class="en">Explore the collection</span></a>
+<section class="mod">
+  <div class="copy rv">
+    <h1><span class="ar">لوفينا — التل السويسري</span><span class="en">LUVINA — Swiss Tulle</span></h1>
+    <p class="sub"><span class="ar">مئة لون. متانة صُنعت لتبقى.</span><span class="en">One hundred colours. Made to last.</span></p>
+    <p class="sub" style="font-size:15px;margin-top:10px;opacity:.75"><span class="ar">للأتيليهات ومصممي الأزياء ومصانع الفساتين — بالتوب الكامل. للشراء بالمتر: موزعونا المعتمدون.</span><span class="en">For ateliers, designers and dress factories — by the full roll. By the metre: our authorised stockists.</span></p>
+    <div class="ctas">
+      <a class="pill" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AA%D9%84%20%D8%B3%D9%88%D9%8A%D8%B3%D8%B1%D9%8A." target="_blank" rel="noopener"><span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span></a>
+      <a class="pill ghost" href="#tulle"><span class="ar">الأسعار</span><span class="en">Prices</span></a>
     </div>
-    <div class="gz-sp-i rv"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261027_112549_050e7322-417b-4275-acab-a917be6048af.png" alt="LUVINA French lace" loading="lazy"></div>
   </div>
-</section>
-
-<section class="gz-trust">
-  <div class="wrap gz-tr">
-    <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 6h13v10H1zM14 10h5l3 3v3h-8M5 19a2 2 0 100-.01M18 19a2 2 0 100-.01"/></svg><b><span class="ar">توصيل سريع</span><span class="en">FAST DELIVERY</span></b><span><span class="ar">القاهرة نفس اليوم</span><span class="en">Cairo same day</span></span></div>
-    <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="5"/><circle cx="16" cy="9" r="5"/><circle cx="12" cy="16" r="5"/></svg><b><span class="ar">مئة لون</span><span class="en">100 COLOURS</span></b><span><span class="ar">بسعر واحد</span><span class="en">One price</span></span></div>
-    <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.500-2-8-6-8-11V5z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><b><span class="ar">بضمان</span><span class="en">GUARANTEED</span></b><span><span class="ar">تل سويسري فاخر</span><span class="en">Swiss quality</span></span></div>
-    <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="7"/><ellipse cx="7" cy="12" rx="4" ry="7"/></svg><b><span class="ar">بالتوب</span><span class="en">BY THE ROLL</span></b><span><span class="ar">جملة للمحترفين</span><span class="en">Wholesale</span></span></div>
+  <div class="hero-media">
+    <video id="heroFilm" autoplay muted loop playsinline preload="metadata" poster="tulle-3.webp" aria-label="LUVINA film">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_f779c5c8-93a0-4c7d-bacf-944d8caf0a3d.mp4" type="video/mp4">
+    </video>
   </div>
 </section>
 
