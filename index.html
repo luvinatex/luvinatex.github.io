@@ -103,8 +103,8 @@ document.addEventListener('click',function(e){
 <style>
 /* Layout: Apple-style — thin glass nav, full-width modules, centered headlines, pill links, rounded tiles */
 :root{
-  --bg:#FDFBF8; --alt:#F8F3EE; --ink:#3D3330; --soft:#8E7F76; --line:#EAE0D7;
-  --blue:#B89C80; --blue-h:#A88B6E; --link:#9E8061; --dark:#EADDD3; --dark-soft:#9C8A7E; --champ:#B89C80;
+  --bg:#FDFBF8; --alt:#F8F3EE; --ink:#3D3330; --soft:#6E6058; --line:#EAE0D7;
+  --blue:#B89C80; --blue-h:#A88B6E; --link:#7A5E43; --dark:#EADDD3; --dark-soft:#6E6058; --champ:#B89C80;
   --blush:#F8EEEA; --sage:#EFF2EA; --powder:#EDF1F4; --sand:#F6F0E8;
   --r:28px;
   --f-en:'Inter','SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -115,7 +115,7 @@ document.addEventListener('click',function(e){
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:52px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ar);font-weight:300;font-size:17px;line-height:1.6;letter-spacing:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ar);font-weight:400;font-size:17px;line-height:1.6;letter-spacing:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 html[lang=en] body{font-family:var(--f-en);letter-spacing:-.022em}
 img,video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -175,14 +175,14 @@ html[lang=ar] .mod .sub{line-height:1.45}
 .mod .eyebrow{font-size:17px;font-weight:600;color:var(--soft)}
 .mod.dark .eyebrow{color:var(--dark-soft)}
 .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:16px}
-.pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:980px;font-size:17px;line-height:1;border:1px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;transition:background .25s,color .25s}
-.pill:hover{background:var(--blue-h)}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:980px;font-size:17px;line-height:1;border:1px solid #8A6C50;background:#8A6C50;color:#fff;cursor:pointer;transition:background .25s,color .25s}
+.pill:hover{background:#775B41;border-color:#775B41}
 .pill.ghost{background:transparent;color:#8A6E52;border-color:#B89C80}
-.pill.ghost:hover{background:var(--blue);color:#fff}
-.mod.dark .pill{background:var(--champ);border-color:var(--champ);color:#fff}
-.mod.dark .pill:hover{background:var(--blue-h)}
+.pill.ghost:hover{background:#8A6C50;color:#fff}
+.mod.dark .pill{background:#8A6C50;border-color:#8A6C50;color:#fff}
+.mod.dark .pill:hover{background:#775B41;border-color:#775B41}
 .mod.dark .pill.ghost{background:transparent;color:#8A6E52;border-color:#A88B6E}
-.mod.dark .pill.ghost:hover{background:var(--champ);color:#fff}
+.mod.dark .pill.ghost:hover{background:#8A6C50;color:#fff}
 .pill.sm{min-height:36px;padding:0 16px;font-size:14px}
 .more{color:var(--link);font-size:17px}
 .more::after{content:" ›"}
@@ -234,7 +234,7 @@ html[lang=ar] .sec-head h2{font-weight:700;line-height:1.2}
 .models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
 .model{background:#FFFEFC;border-radius:var(--r);padding:36px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
 section.sec:not(.alt) .model{background:var(--alt)}
-.model .w{font-size:14px;font-weight:600;color:#B08A66}
+.model .w{font-size:14px;font-weight:600;color:#8A6C50}
 .model h3{font-size:28px;font-weight:600;line-height:1.15}
 .model .price{font-size:17px;color:var(--ink)}
 .model .price b{font-weight:600}
@@ -443,6 +443,15 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 .k-tiers .st-tiers{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:0}
 .k-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
 @media(max-width:700px){.kinds{gap:10px}.kind .tx{padding:14px 8px 16px}.kind .d{font-size:12px}.k-tiers{padding:22px 12px}.k-tiers .st-tiers{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.faq{max-width:760px;margin:28px auto 0;display:flex;flex-direction:column;gap:10px;text-align:start}
+.faq details{background:#FFFEFC;border:1px solid var(--line);border-radius:18px;padding:0 20px}
+.faq summary{list-style:none;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:17px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;font-weight:400;color:#8A6C50;flex:0 0 auto}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 0 18px;font-size:16px;line-height:1.7;color:var(--soft)}
+.faq details p a{color:var(--link);text-decoration:underline}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
@@ -456,7 +465,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
       <a href="#tulle"><span class="ar">التل</span><span class="en">Tulle</span></a>
       <a href="#lace"><span class="ar">الدانتيل الفرنسي</span><span class="en">French Lace</span></a>
       <a href="colors.html"><span class="ar">الألوان</span><span class="en">Colours</span></a>
-      <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a>
+      <a href="#maison"><span class="ar">ليه لوفينا</span><span class="en">Why LUVINA</span></a><a href="#faq"><span class="ar">أسئلة شائعة</span><span class="en">FAQ</span></a>
       <a href="#contact"><span class="ar">تواصل</span><span class="en">Contact</span></a>
     </nav>
     <div class="tools">
@@ -500,7 +509,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     </div>
   </div>
   <div class="hero-media">
-    <video id="heroFilm" autoplay muted loop playsinline preload="metadata" poster="og-luvina.jpg" aria-label="LUVINA film">
+    <video id="heroFilm" autoplay muted loop playsinline preload="metadata" poster="tulle-3.webp" aria-label="LUVINA film">
       <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261101_143040_f779c5c8-93a0-4c7d-bacf-944d8caf0a3d.mp4" type="video/mp4">
     </video>
   </div>
@@ -603,6 +612,22 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
       <div class="card rv"><span class="ic">04</span><h3><span class="ar">مسام تتحمل التطريز</span><span class="en">Built for embroidery</span></h3><p><span class="ar">تثبّت التطريز والخرز والكريستال.</span><span class="en">Holds embroidery, beading and crystal.</span></p></div>
       <div class="card rv"><span class="ic">05</span><h3><span class="ar">ضمان لوفينا</span><span class="en">LUVINA guarantee</span></h3><p><span class="ar">جودة مضمونة وخدمة بعد البيع.</span><span class="en">Guaranteed quality and after-sales care.</span></p></div>
       <div class="card rv"><span class="ic">06</span><h3><span class="ar">مئة لون</span><span class="en">One hundred colours</span></h3><p><span class="ar"><a class="more" href="colors.html">تصفّح الألوان</a></span><span class="en"><a class="more" href="colors.html">Browse the colours</a></span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2><span class="ar">أسئلة شائعة.</span><span class="en">FAQ.</span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary><span class="ar">هل تبيعون بالمتر؟</span><span class="en">Do you sell by the metre?</span></summary><p><span class="ar">لا، البيع بالتوب الكامل (٢٥ متر). للشراء بالمتر يمكنك التوجه إلى <a href="#stockists">موزعينا المعتمدين</a>.</span><span class="en">No, we sell by the full 25 m roll. For metre purchases, visit our <a href="#stockists">authorised stockists</a>.</span></p></details>
+      <details><summary><span class="ar">ما أقل كمية للطلب؟</span><span class="en">What is the minimum order?</span></summary><p><span class="ar">توب واحد بالسعر العادي، وتبدأ شرائح خصم التجار من ١٠ أتواب. الدانتيل الفرنسي لا يدخل ضمن الخصم.</span><span class="en">One roll at the regular price; trader discounts start from 10 rolls. French lace is excluded from the discount.</span></p></details>
+      <details><summary><span class="ar">كيف يتم الشحن؟</span><span class="en">How does delivery work?</span></summary><p><span class="ar">القاهرة في نفس اليوم، وباقي المحافظات خلال ٤٨ إلى ٧٢ ساعة. الشحن الدولي متاح بحد أدنى ٥ أتواب، <a href="order.html#intl">التفاصيل هنا</a>.</span><span class="en">Cairo same day; other governorates within 48 to 72 hours. International shipping is available from 5 rolls, <a href="order.html#intl">details here</a>.</span></p></details>
+      <details><summary><span class="ar">كيف أدفع؟</span><span class="en">How do I pay?</span></summary><p><span class="ar">محفظة إلكترونية، أو InstaPay، أو كاش في المقر.</span><span class="en">E-wallet, InstaPay, or cash at the showroom.</span></p></details>
+      <details><summary><span class="ar">ماذا يشمل ضمان لوفينا؟</span><span class="en">What does the LUVINA guarantee cover?</span></summary><p><span class="ar">كل توب بضمان الجودة وخدمة ما بعد البيع. لأي حالة بعينها، راسلنا على <a href="https://wa.me/201270455444" target="_blank" rel="noopener">واتساب</a> ونتابعها معك.</span><span class="en">Every roll carries our quality guarantee and after-sales care. For a specific case, message us on <a href="https://wa.me/201270455444" target="_blank" rel="noopener">WhatsApp</a> and we will follow it through.</span></p></details>
+      <details><summary><span class="ar">كيف أرى الألوان قبل الطلب؟</span><span class="en">How can I see the colours before ordering?</span></summary><p><span class="ar">كتالوج لوفينا بعينات المئة لون: هدية مع أول طلب، وإن طُلب وحده فسعره ٣٥٠ جنيه وتُخصم قيمته من أول طلب. الشحن على حساب العميل.</span><span class="en">The Luvina Catalogue holds all one hundred swatches: a gift with your first order, or EGP 350 on its own, credited against your first order. Shipping at the client's expense.</span></p></details>
     </div>
   </div>
 </section>

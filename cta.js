@@ -127,7 +127,7 @@
 
   var WA = '201270455444';
   var msgBook = 'أهلاً لوفينا 👋\nعايز أطلب كتالوج لوفينا (هدية مع طلبي).\nالاسم:\nالمحافظة:';
-  var msgAsk = 'أهلاً لوفينا 👋\nعندي استفسار عن التل السويسري.';
+  var msgAsk = 'أهلاً لوفينا 👋\nعايز أطلب تل سويسري.';
   var u = function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); };
 
   var css = '' +
@@ -139,13 +139,12 @@
     'html[lang=en] #lvc{font-family:var(--f-en,"Inter",sans-serif)}' +
     '#lvc.on{transform:translate(-50%,0);opacity:1}' +
     '#lvc a{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:980px;white-space:nowrap;line-height:1}' +
-    '#lvc .b{background:#3D3330;color:#FDFBF8;padding:13px 20px;font-size:14px;font-weight:500}' +
-    '#lvc .b small{opacity:.7;font-size:12px;font-weight:400}' +
-    '#lvc .w{background:#25D366;color:#fff;width:44px;height:44px;flex:0 0 44px}' +
-    '#lvc .w svg{width:23px;height:23px}' +
-    '#lvc .b:active,#lvc .w:active{transform:scale(.97)}' +
+    '#lvc .b{background:#3D3330;color:#FDFBF8;padding:13px 22px;font-size:15px;font-weight:600}' +
+    '#lvc .b svg{width:20px;height:20px;flex:0 0 20px}' +
+    '#lvc .c{background:transparent;color:#6E6058;padding:13px 14px 13px 8px;font-size:13px;font-weight:500}' +
+    '#lvc .b:active,#lvc .c:active{transform:scale(.97)}' +
     'html[lang=ar] #lvc .en,html[lang=en] #lvc .ar{display:none}' +
-    '@media(max-width:360px){#lvc .b small{display:none}}';
+    '@media(max-width:360px){#lvc .c{display:none}}';
 
   var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
 
@@ -155,11 +154,12 @@
   bar.id = 'lvc';
   bar.setAttribute('role', 'complementary');
   bar.innerHTML =
-    '<a class="b" href="#catalog-form" data-lvf="1">' +
-      '<span class="ar">اطلب كتالوج لوفينا <small>· هدية مع أول طلب</small></span>' +
-      '<span class="en">Get the Luvina Catalogue <small>· a gift with your first order</small></span>' +
+    '<a class="b" href="' + u(msgAsk) + '" target="_blank" rel="noopener">' + ico +
+      '<span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span>' +
     '</a>' +
-    '<a class="w" href="' + u(msgAsk) + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + ico + '</a>';
+    '<a class="c" href="#catalog-form" data-lvf="1">' +
+      '<span class="ar">كتالوج الألوان</span><span class="en">Colour catalogue</span>' +
+    '</a>';
 
   function mount() {
     document.body.appendChild(bar);
