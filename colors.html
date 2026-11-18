@@ -125,7 +125,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     <a class="back" href="./">‹ الرئيسية</a>
   </header>
   <div class="head">
-    <div class="kt" role="tablist" aria-label="نوع التل"><button type="button" role="tab" data-m="reg" aria-selected="true">التل العادي</button><button type="button" role="tab" data-m="st" aria-selected="false">التل الاسترتش</button></div>
+    <div class="kt" role="tablist" aria-label="نوع التل"><button type="button" role="tab" data-m="reg" aria-selected="true">تل الكورساجات</button><button type="button" role="tab" data-m="st" aria-selected="false">التل الاسترتش</button></div>
     <h1 id="hT">الألوان المئة</h1>
     <p id="hReg">اضغط على أي لون لتراه بالحجم الكامل وتضيفه لاختيارك. <span class="legend"><span class="dot"></span> متاح بعرض ٣ متر</span></p>
     <p id="hSt" hidden>لونان فقط، بعرض ١٥٠ سم. اضغط على اللون لترى الفستان.</p>
@@ -211,7 +211,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     $('cnt').textContent=k===1?'لون واحد':k===2?'لونان':k+(k<=10?' ألوان':' لوناً');
     $('lst').textContent=sel.map(lab).join(' · ');
     var rg=sel.filter(function(n){return !isS(n);}),sg=sel.filter(isS),ln=function(n){return '• لون '+pad(n)+' ('+wd(n)+')';},ls=function(n){return '• '+NM[n][1]+' ('+wd(n)+')';};
-    $('send').href='https://wa.me/201270455444?text='+encodeURIComponent(!sg.length?'أهلاً لوفينا، أود الاستفسار عن هذه الألوان من التل السويسري:\n'+rg.map(ln).join('\n'):'أهلاً لوفينا، أود الاستفسار عن:'+(rg.length?'\nالتل العادي:\n'+rg.map(ln).join('\n'):'')+'\nالتل الاسترتش:\n'+sg.map(ls).join('\n'));
+    $('send').href='https://wa.me/201270455444?text='+encodeURIComponent(!sg.length?'أهلاً لوفينا، أود الاستفسار عن هذه الألوان من التل السويسري:\n'+rg.map(ln).join('\n'):'أهلاً لوفينا، أود الاستفسار عن:'+(rg.length?'\nتل الكورساجات:\n'+rg.map(ln).join('\n'):'')+'\nالتل الاسترتش:\n'+sg.map(ls).join('\n'));
     if(cur){var on=sel.indexOf(cur)>-1;$('pvPick').textContent=on?'✓ مُضاف':'أضف للاختيار';$('pvPick').className=on?'pill ghost':'pill';}
   }
   var cur=0;
