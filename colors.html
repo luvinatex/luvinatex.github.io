@@ -125,7 +125,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     <a class="back" href="./">‹ الرئيسية</a>
   </header>
   <div class="head">
-    <div class="kt" role="tablist" aria-label="نوع التل"><button type="button" role="tab" data-m="reg" aria-selected="true">تل الكورساجات</button><button type="button" role="tab" data-m="st" aria-selected="false">التل الاسترتش</button></div>
+    <div class="kt" role="tablist" aria-label="نوع التل"><button type="button" role="tab" data-m="reg" aria-selected="true">تل الكورساجات</button><button type="button" role="tab" data-m="st" aria-selected="false">التل الستريتش</button></div>
     <h1 id="hT">الألوان المئة</h1>
     <p id="hReg">اضغط على أي لون لتراه بالحجم الكامل وتضيفه لاختيارك. <span class="legend"><span class="dot"></span> متاح بعرض ٣ متر</span></p>
     <p id="hSt" hidden>لونان فقط، بعرض ١٥٠ سم. اضغط على اللون لترى الفستان.</p>
@@ -169,7 +169,7 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
   NM[101]=["Off-White","أوف وايت"];NM[102]=["Nude","نود"];
   var STL={101:'https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_782a1fd7-eb0d-4254-bda1-65415eeb103f.png',102:'https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_9eed62c6-573e-447b-9f27-b2e8fe821e57.png'};
   var STS={101:'https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114121_637415bc-6403-4d95-9690-3518bb75e526.png',102:'https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261112_114120_f0b3bb19-8764-4b82-95be-5f30533e4728.png'};
-  var lab=function(n){return isS(n)?'استرتش '+NM[n][1]:pad(n);};
+  var lab=function(n){return isS(n)?'ستريتش '+NM[n][1]:pad(n);};
   function look(n){if(isS(n))return STL[n];return 'https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_'+LK[n]+'_min.webp';}
   function pre(n){var i=new Image();i.src=look(n);}
   function sw(n){if(isS(n))return STS[n];return SWC[n]||('luvina-'+pad(n)+'.jpg');}
@@ -185,16 +185,16 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
   function draw(){
     wall.className='wall'+(MODE==='st'?' st':'');
     wall.innerHTML=LIST.map(function(n){
-      if(isS(n))return '<button class="sw st lt" type="button" role="listitem" data-n="'+n+'" aria-label="تل استرتش '+NM[n][1]+'" title="'+NM[n][1]+' · '+NM[n][0]+'"><span class="ph"><img src="'+STS[n]+'" alt="" decoding="async"></span><span class="c">'+NM[n][1]+'</span><span class="n">'+NM[n][0]+'</span></button>';
+      if(isS(n))return '<button class="sw st lt" type="button" role="listitem" data-n="'+n+'" aria-label="تل ستريتش '+NM[n][1]+'" title="'+NM[n][1]+' · '+NM[n][0]+'"><span class="ph"><img src="'+STS[n]+'" alt="" decoding="async"></span><span class="c">'+NM[n][1]+'</span><span class="n">'+NM[n][0]+'</span></button>';
       var w3=ONLY3.indexOf(n)>-1||ALSO3.indexOf(n)>-1;
       return '<button class="sw'+(LIGHT[n-1]==='1'?' lt':'')+'" type="button" role="listitem" data-n="'+n+'" aria-label="لون '+pad(n)+' '+NM[n][1]+'" title="'+pad(n)+' · '+NM[n][1]+' · '+NM[n][0]+'"><span class="ph"><img src="'+sw(n)+'"'+(FIX[n]&&!SWC[n]?' style="opacity:0"':'')+' alt="" loading="lazy" decoding="async">'+(w3?'<span class="w3"></span>':'')+'</span><span class="c">'+pad(n)+'</span><span class="n">'+NM[n][1]+'</span></button>';
     }).join('');
   }
   function setMode(m,keep){
     MODE=m==='st'?'st':'reg';LIST=MODE==='st'?ST:ORDER;
-    $('hT').textContent=MODE==='st'?'لونا الاسترتش':'الألوان المئة';
+    $('hT').textContent=MODE==='st'?'لونا الستريتش':'الألوان المئة';
     $('hReg').hidden=MODE==='st';$('hSt').hidden=MODE!=='st';
-    wall.setAttribute('aria-label',MODE==='st'?'ألوان التل الاسترتش':'الألوان المئة');
+    wall.setAttribute('aria-label',MODE==='st'?'ألوان التل الستريتش':'الألوان المئة');
     Array.prototype.forEach.call(document.querySelectorAll('.kt button'),function(b){b.setAttribute('aria-selected',b.dataset.m===MODE?'true':'false');});
     draw();paint();$('stage').scrollTop=0;
     if(!keep){try{history.replaceState(null,'',MODE==='st'?'#stretch':location.pathname+location.search);}catch(e){}}
@@ -211,11 +211,11 @@ header .back{font-size:13px;color:var(--link);min-height:44px;display:flex;align
     $('cnt').textContent=k===1?'لون واحد':k===2?'لونان':k+(k<=10?' ألوان':' لوناً');
     $('lst').textContent=sel.map(lab).join(' · ');
     var rg=sel.filter(function(n){return !isS(n);}),sg=sel.filter(isS),ln=function(n){return '• لون '+pad(n)+' ('+wd(n)+')';},ls=function(n){return '• '+NM[n][1]+' ('+wd(n)+')';};
-    $('send').href='https://wa.me/201270455444?text='+encodeURIComponent(!sg.length?'أهلاً لوفينا، أود الاستفسار عن هذه الألوان من التل السويسري:\n'+rg.map(ln).join('\n'):'أهلاً لوفينا، أود الاستفسار عن:'+(rg.length?'\nتل الكورساجات:\n'+rg.map(ln).join('\n'):'')+'\nالتل الاسترتش:\n'+sg.map(ls).join('\n'));
+    $('send').href='https://wa.me/201270455444?text='+encodeURIComponent(!sg.length?'أهلاً لوفينا، أود الاستفسار عن هذه الألوان من التل السويسري:\n'+rg.map(ln).join('\n'):'أهلاً لوفينا، أود الاستفسار عن:'+(rg.length?'\nتل الكورساجات:\n'+rg.map(ln).join('\n'):'')+'\nالتل الستريتش:\n'+sg.map(ls).join('\n'));
     if(cur){var on=sel.indexOf(cur)>-1;$('pvPick').textContent=on?'✓ مُضاف':'أضف للاختيار';$('pvPick').className=on?'pill ghost':'pill';}
   }
   var cur=0;
-  function open(n){if(LIST.indexOf(n)<0)setMode(isS(n)?'st':'reg',1);cur=n;zset(1,0,0);var im=$('pvImg');im.classList.remove('ok');im.onload=function(){im.classList.add('ok');};im.alt='فستان من تل لوفينا '+(isS(n)?'الاسترتش ':'لون '+pad(n)+' ')+NM[n][1];im.src=look(n);if(im.complete&&im.naturalWidth)im.classList.add('ok');$('pvSw').src=sw(n);var oi=LIST.indexOf(n),L=LIST.length;pre(LIST[(oi+1)%L]);pre(LIST[(oi+L-1)%L]);$('pvCode').textContent=isS(n)?'Stretch':'N° '+pad(n);$('pvNm').textContent=NM[n][1]+' · '+NM[n][0];$('pvWd').textContent=wd(n);$('sheet').classList.add('on');$('sheet').setAttribute('aria-hidden','false');paint();}
+  function open(n){if(LIST.indexOf(n)<0)setMode(isS(n)?'st':'reg',1);cur=n;zset(1,0,0);var im=$('pvImg');im.classList.remove('ok');im.onload=function(){im.classList.add('ok');};im.alt='فستان من تل لوفينا '+(isS(n)?'الستريتش ':'لون '+pad(n)+' ')+NM[n][1];im.src=look(n);if(im.complete&&im.naturalWidth)im.classList.add('ok');$('pvSw').src=sw(n);var oi=LIST.indexOf(n),L=LIST.length;pre(LIST[(oi+1)%L]);pre(LIST[(oi+L-1)%L]);$('pvCode').textContent=isS(n)?'Stretch':'N° '+pad(n);$('pvNm').textContent=NM[n][1]+' · '+NM[n][0];$('pvWd').textContent=wd(n);$('sheet').classList.add('on');$('sheet').setAttribute('aria-hidden','false');paint();}
   function close(){$('sheet').classList.remove('on');$('sheet').setAttribute('aria-hidden','true');cur=0;}
   function step(d){var i=LIST.indexOf(cur),L=LIST.length;open(LIST[(i+d+L)%L]);}
   $('pvPick').onclick=function(){toggle(cur);};

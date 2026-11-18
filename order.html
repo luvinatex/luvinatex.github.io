@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var PRODUCTS=[
     {id:'t160',ar:'تل الكورساجات · عرض ١٦٠ سم · توب ٢٥ م',en:'Corsage Tulle · 160 cm · 25 m roll',price:2750,tulle:true,unitAr:'توب',unitEn:'roll',colors:all.filter(function(c){return [3,6,7].indexOf(c)<0;})},
     {id:'t3m',ar:'تل الكورساجات · عرض ٣ م · توب ٢٥ م',en:'Corsage Tulle · 3 m · 25 m roll',price:5500,tulle:true,unitAr:'توب',unitEn:'roll',colors:three},
-    {id:'st150',ar:'التل الاسترتش · عرض ١٥٠ سم · توب ٢٥ م',en:'Stretch Tulle · 150 cm · 25 m roll',price:4000,stretch:true,unitAr:'توب',unitEn:'roll',colors:['ow','nd'],cname:{ow:['أوف وايت','Off-white'],nd:['نود','Nude']}}
+    {id:'st150',ar:'التل الستريتش · عرض ١٥٠ سم · توب ٢٥ م',en:'Stretch Tulle · 150 cm · 25 m roll',price:4000,stretch:true,unitAr:'توب',unitEn:'roll',colors:['ow','nd'],cname:{ow:['أوف وايت','Off-white'],nd:['نود','Nude']}}
   ];
   PRODUCTS.push({id:'catalog',ar:'كتالوج لوفينا',en:'The Luvina Catalogue',price:350,unitAr:'كتالوج',unitEn:'catalogue'});
   var byId={};PRODUCTS.forEach(function(p){byId[p.id]=p;});
@@ -635,13 +635,13 @@ document.addEventListener('DOMContentLoaded',function(){
     $('sumItems').innerHTML=lines.map(function(l){var p=byId[l.p];return '<div class="s-row item"><span>'+T(p.ar,p.en)+(p.colors?' · '+clab(p,l.c):'')+' × '+l.q+'</span><span class="num">'+fmt(p.price*l.q)+'</span></div>';}).join('');
     $('sumSub').textContent=fmt(t.sub)+' EGP';
     var both=t.rolls>0&&t.stRolls>0;
-    $('sumDiscLbl').textContent=both?T('خصم الكميات (الكورساجات '+t.pct+'% · الاسترتش '+t.spct+'%)','Quantity terms (Corsage '+t.pct+'% · Stretch '+t.spct+'%)'):t.stRolls>0?T('خصم الكميات ('+t.spct+'%) على الاسترتش','Quantity terms ('+t.spct+'%) on stretch'):T('خصم الشركاء ('+t.pct+'%) على التل','Partner terms ('+t.pct+'%) on tulle');
+    $('sumDiscLbl').textContent=both?T('خصم الكميات (الكورساجات '+t.pct+'% · الستريتش '+t.spct+'%)','Quantity terms (Corsage '+t.pct+'% · Stretch '+t.spct+'%)'):t.stRolls>0?T('خصم الكميات ('+t.spct+'%) على الستريتش','Quantity terms ('+t.spct+'%) on stretch'):T('خصم الشركاء ('+t.pct+'%) على التل','Partner terms ('+t.pct+'%) on tulle');
     var d=t.disc+t.sdisc;
     $('sumDisc').textContent=(d?'− ':'')+fmt(d)+' EGP';
     $('sumTotal').textContent=fmt(t.total)+' EGP';
     var h=[];
     if(t.rolls>0&&t.next)h.push(T('أضف '+(t.next[0]-t.rolls)+' توب من تل الكورساجات لتحصل على '+t.next[1]+'% عليه بالكامل.','Add '+(t.next[0]-t.rolls)+' more corsage rolls for '+t.next[1]+'% on all regular tulle.'));
-    if(t.stRolls>0&&t.snext)h.push(T('أضف '+(t.snext[0]-t.stRolls)+' توب استرتش لتحصل على '+t.snext[1]+'% على الاسترتش.','Add '+(t.snext[0]-t.stRolls)+' more stretch rolls for '+t.snext[1]+'% on stretch.'));
+    if(t.stRolls>0&&t.snext)h.push(T('أضف '+(t.snext[0]-t.stRolls)+' توب ستريتش لتحصل على '+t.snext[1]+'% على الستريتش.','Add '+(t.snext[0]-t.stRolls)+' more stretch rolls for '+t.snext[1]+'% on stretch.'));
     $('hint').textContent=h.join(' ');
   }
 
@@ -672,7 +672,7 @@ document.addEventListener('DOMContentLoaded',function(){
     L.push('');
     L.push(T('الإجمالي قبل الخصم: ','Subtotal: ')+fmt(t.sub)+' EGP');
     if(t.disc)L.push(T('خصم تل الكورساجات ','Corsage tulle terms ')+t.pct+'%: − '+fmt(t.disc)+' EGP');
-    if(t.sdisc)L.push(T('خصم التل الاسترتش ','Stretch tulle terms ')+t.spct+'%: − '+fmt(t.sdisc)+' EGP');
+    if(t.sdisc)L.push(T('خصم التل الستريتش ','Stretch tulle terms ')+t.spct+'%: − '+fmt(t.sdisc)+' EGP');
     L.push(T('الإجمالي: ','Total: ')+fmt(t.total)+' EGP');L.push('');
     L.push(T('الاسم: ','Name: ')+name);
     L.push(T('الموبايل: ','Mobile: ')+phone);
