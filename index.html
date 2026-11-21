@@ -426,8 +426,8 @@ html[lang=en] body{font-weight:400}
 .kind .tx{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 12px 22px}
 .kind b{font-size:clamp(20px,3vw,28px);font-weight:600;line-height:1.25}
 html[lang=ar] .kind b{font-family:var(--f-ar-d);font-weight:500}
-.kind .fp{display:block;font-size:14px;color:var(--ink);margin-top:6px}.kind .fp b{font-weight:600}
-.kind .d{font-size:14px;color:var(--soft);line-height:1.5}
+.kind .fp{display:block;font-size:15px;color:var(--ink);margin-top:6px;line-height:1.5}.kind .fp b,.kind .fp b.num{font-size:1em;font-weight:600;line-height:inherit;white-space:nowrap}
+.kind .d{font-size:14px;color:var(--soft);line-height:1.5;text-wrap:balance}
 .kind .go{margin-top:8px;font-size:14px;color:var(--link)}
 .kind .go::after{content:" ›"}
 .kind[aria-selected="true"]{box-shadow:0 0 0 2px var(--ink)}
@@ -442,7 +442,7 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 .k-tiers .w{font-size:14px;font-weight:600;color:#B08A66;margin-bottom:10px}
 .k-tiers .st-tiers{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:0}
 .k-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
-@media(max-width:700px){.kinds{gap:10px}.kind .tx{padding:14px 8px 16px}.kind .d{font-size:12px}.k-tiers{padding:22px 12px}.k-tiers .st-tiers{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.kind .d .pt{display:block}.kind .d .sp{display:none}.kinds{gap:10px}.kind .tx{padding:14px 8px 16px}.kind .d{font-size:12px}.kind .fp{font-size:14px}.k-tiers{padding:22px 12px}.k-tiers .st-tiers{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 .faq{max-width:760px;margin:28px auto 0;display:flex;flex-direction:column;gap:10px;text-align:start}
 .faq details{background:#FFFEFC;border:1px solid var(--line);border-radius:18px;padding:0 20px}
@@ -527,11 +527,11 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
     <div class="kinds rv" role="tablist">
       <button type="button" class="kind" role="tab" data-kind="regular" aria-controls="regular" aria-selected="false">
         <span class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_170438_685a499e-0685-4e35-a00a-03a389b17e8a.png" alt="LUVINA corsage Swiss tulle dress" loading="lazy"></span>
-        <span class="tx"><b><span class="ar">تل لوفينا كورساجات</span><span class="en">LUVINA Corsage Tulle</span></b><span class="d"><span class="ar">مئة لون · عرض ١٦٠ سم و٣ متر</span><span class="en">100 colours · 160 cm &amp; 3 m</span></span><span class="fp"><span class="ar">التوب من </span><span class="en">Roll from </span><b class="num" dir="ltr">2,750 EGP</b></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+        <span class="tx"><b><span class="ar">تل لوفينا كورساجات</span><span class="en">LUVINA Corsage Tulle</span></b><span class="d"><span class="ar"><span class="pt">مئة لون</span><span class="sp"> · </span><span class="pt">عرض ١٦٠ سم و٣ متر</span></span><span class="en"><span class="pt">100 colours</span><span class="sp"> · </span><span class="pt">160&nbsp;cm &amp; 3&nbsp;m</span></span></span><span class="fp"><span class="ar">التوب من </span><span class="en">Roll from </span><b class="num" dir="ltr">2,750&nbsp;EGP</b></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
       </button>
       <button type="button" class="kind" role="tab" data-kind="stretch" aria-controls="stretch" aria-selected="false">
         <span class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_170800_c3a9f1b6-0725-49d6-ae12-052aef893c14.png" alt="LUVINA stretch tulle dress" loading="lazy"></span>
-        <span class="tx"><b><span class="ar">تل لوفينا الستريتش</span><span class="en">LUVINA Stretch Tulle</span></b><span class="d"><span class="ar">لونان · عرض ١٥٠ سم</span><span class="en">2 colours · 150 cm</span></span><span class="fp"><span class="ar">التوب من </span><span class="en">Roll from </span><b class="num" dir="ltr">4,000 EGP</b></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
+        <span class="tx"><b><span class="ar">تل لوفينا الستريتش</span><span class="en">LUVINA Stretch Tulle</span></b><span class="d"><span class="ar"><span class="pt">لونان</span><span class="sp"> · </span><span class="pt">عرض ١٥٠ سم</span></span><span class="en"><span class="pt">2 colours</span><span class="sp"> · </span><span class="pt">150&nbsp;cm</span></span></span><span class="fp"><span class="ar">التوب من </span><span class="en">Roll from </span><b class="num" dir="ltr">4,000&nbsp;EGP</b></span><span class="go"><span class="ar">التفاصيل والأسعار</span><span class="en">Details &amp; prices</span></span></span>
       </button>
     </div>
 
