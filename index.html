@@ -465,35 +465,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
 </style>
 <script src="/analytics.js" defer></script>
 <script src="/cta.js" defer></script>
-
-<style>
-.lh{position:relative;min-height:88svh;display:grid;align-items:end;overflow:hidden;background:#2b221e}
-.lh>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;opacity:.92}
-.lh:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,34,30,.05) 20%,rgba(43,34,30,.72) 100%)}
-.lh .in{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:0 22px 64px;color:#FDFBF8;text-align:center}
-.lh .k{font:500 12px/1 Inter,sans-serif;letter-spacing:.32em;text-transform:uppercase;opacity:.85}
-.lh h1{font:400 clamp(44px,9vw,92px)/1.12 Amiri,serif;margin:18px 0 14px}
-.lh p{font:300 clamp(16px,2.4vw,21px)/1.9 Alexandria,Inter,sans-serif;margin:0 auto 28px;max-width:560px;opacity:.92}
-.lh .b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.lh .b a{padding:14px 28px;border-radius:99px;font:500 15px Alexandria,Inter,sans-serif;text-decoration:none;border:1px solid rgba(253,251,248,.7);color:#FDFBF8}
-.lh .b a.f{background:#FDFBF8;color:#3D3330;border-color:#FDFBF8}
-.story{padding:84px 22px 40px;background:var(--bg);text-align:center}
-.story h2{font:400 clamp(34px,6vw,60px)/1.2 Amiri,serif;margin:0 0 18px;color:var(--ink)}
-.story p{font:300 clamp(16px,2.2vw,19px)/2.1 Alexandria,Inter,sans-serif;color:var(--soft);max-width:660px;margin:0 auto}
-.story .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:960px;margin:44px auto 0}
-.story .tri img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px}
-.partners{padding:92px 22px;background:#3D3330;color:#F8F3EE;text-align:center}
-.partners .k{font:500 12px/1 Inter,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#B89C80}
-.partners h2{font:400 clamp(36px,6.5vw,66px)/1.2 Amiri,serif;margin:16px 0 18px}
-.partners>p{font:300 clamp(16px,2.2vw,19px)/2.1 Alexandria,Inter,sans-serif;max-width:640px;margin:0 auto;opacity:.88}
-.partners .pl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:960px;margin:44px auto}
-.partners .pl div{border:1px solid rgba(184,156,128,.35);border-radius:10px;padding:26px 18px}
-.partners .pl b{display:block;font:600 17px Alexandria,Inter,sans-serif;color:#EADDD3;margin-bottom:8px}
-.partners .pl span{font:300 14px/1.9 Alexandria,Inter,sans-serif;opacity:.85}
-.partners .cta{display:inline-block;padding:15px 34px;border-radius:99px;background:#B89C80;color:#2b221e;font:600 15px Alexandria,Inter,sans-serif;text-decoration:none}
-@media(min-width:900px){.lh{grid-template-columns:1fr 1fr;align-items:center;background:#2b221e;min-height:0}.lh:after{display:none}.lh>img{position:relative;grid-column:2;grid-row:1;height:min(86svh,860px);object-position:50% 35%;opacity:1}.lh .in{grid-column:1;grid-row:1;padding:40px 5vw;text-align:center}.lh h1{font-size:clamp(48px,5vw,84px)}}
-@media(max-width:700px){.story .tri,.partners .pl{grid-template-columns:1fr}.story .tri img{aspect-ratio:4/5}}
-</style>
 </head>
 <body class="no-js">
 
@@ -537,11 +508,14 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
   <span class="ar">كتالوج لوفينا بعينات المئة لون — هدية مع أول طلب. </span><span class="en">The Luvina Catalogue, one hundred real swatches — a gift with your first order. </span><a href="#catalog-form" data-lvf="1"><span class="ar">اطلبه ›</span><span class="en">Request it ›</span></a>
 </div>
 
-<section class="lh"><img src="tulle-3.webp" alt="LUVINA Swiss tulle" fetchpriority="high">
-  <div class="in"><div class="k">LUVINA · Swiss Tulle</div>
-  <h1><span class="ar">حيث يبدأ الفستان.</span><span class="en">Where the gown begins.</span></h1>
-  <p><span class="ar">تل سويسري فاخر بمئة لون، لأرقى الأتيليهات ودور الأزياء.</span><span class="en">Luxury Swiss tulle in one hundred colours, for the finest ateliers and fashion houses.</span></p>
-  <div class="b"><a class="f" href="#story"><span class="ar">اكتشف لوفينا</span><span class="en">Discover LUVINA</span></a><a href="#partners"><span class="ar">كن شريكاً</span><span class="en">Become a partner</span></a></div></div></section>
+<section class="mod">
+  <div class="copy rv">
+    <h1 class="mast">LUVINA<span class="vh"> — <span class="ar">التل السويسري</span><span class="en">Swiss Tulle</span></span></h1>
+    <p class="sub"><span class="ar">مئة لون. متانة صُنعت لتبقى.</span><span class="en">One hundred colours. Made to last.</span></p>
+    <p class="sub" style="font-size:15px;margin-top:10px;opacity:.75"><span class="ar">للأتيليهات ومصممي الأزياء ومصانع الفساتين — بالتوب الكامل. للشراء بالمتر: موزعونا المعتمدون.</span><span class="en">For ateliers, designers and dress factories — by the full roll. By the metre: our authorised stockists.</span></p>
+  </div>
+  <div class="hero-media"><img class="hero-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3KmFxrLZUZ0I6hjxRA8LqYLse8P/hf_20261117_165518_d4424a27-d22f-48ab-9525-ded641519e13.png" alt="LUVINA Swiss tulle roll" width="1344" height="752" fetchpriority="high" decoding="async"></div>
+</section>
 
 <section class="sec alt" id="tulle">
   <div class="wrap">
@@ -618,8 +592,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
   </div>
 </section>
 
-<section class="story" id="story"><h2><span class="ar">الخامة قبل الفستان.</span><span class="en">The fabric comes first.</span></h2><p><span class="ar">في لوفينا نؤمن أن الفستان الاستثنائي يبدأ من خامة استثنائية. تل سويسري ثابت تحت المكواة، لا ينكمش، ويحمل أدق التطريز، بمئة لون مدروسة. نحن اليد الأولى بعد المصنع، فلا تصل هذه الخامة إلى السوق إلا من خلال لوفينا.</span><span class="en">At LUVINA we believe an exceptional gown begins with an exceptional fabric. Swiss tulle that is heat-stable, shrink-free and fine enough to hold the most delicate embroidery, in one hundred considered colours. We are the first hand after the mill, so this fabric reaches the market only through LUVINA.</span></p>
-<div class="tri"><img src="craft-2.webp" alt="" loading="lazy"><img src="tulle-1.webp" alt="" loading="lazy"><img src="craft-3.webp" alt="" loading="lazy"></div></section>
 <section class="sec alt" id="maison">
   <div class="wrap">
     <div class="sec-head rv">
@@ -636,9 +608,6 @@ html[lang=ar] .k-head h3{font-family:var(--f-ar-d);font-weight:500}
   </div>
 </section>
 
-<section class="partners" id="partners"><div class="k">LUVINA Partners</div><h2><span class="ar">كن جزءاً من لوفينا.</span><span class="en">Be part of LUVINA.</span></h2><p><span class="ar">لوفينا ليست مجرد مورّد. نعمل مع نخبة من التجار والأتيليهات ودور الأزياء كشركاء حقيقيين، بخامة حصرية وأولوية في التوريد وشروط خاصة لا تُعلن للجميع.</span><span class="en">LUVINA is more than a supplier. We work with a select circle of traders, ateliers and fashion houses as true partners, with an exclusive fabric, supply priority and terms not offered to everyone.</span></p>
-<div class="pl"><div><b><span class="ar">خامة حصرية</span><span class="en">Exclusive fabric</span></b><span><span class="ar">اليد الأولى بعد المصنع، بضمان لوفينا.</span><span class="en">First hand after the mill, with the LUVINA guarantee.</span></span></div><div><b><span class="ar">أولوية التوريد</span><span class="en">Supply priority</span></b><span><span class="ar">بضاعة جاهزة وشحن لكل المحافظات وخارج مصر.</span><span class="en">Ready stock and shipping across Egypt and abroad.</span></span></div><div><b><span class="ar">شروط الشركاء</span><span class="en">Partner terms</span></b><span><span class="ar">تُناقش معك مباشرة، بما يناسب حجم عملك.</span><span class="en">Discussed with you directly, to suit the scale of your business.</span></span></div></div>
-<a class="cta" target="_blank" rel="noopener" href="https://wa.me/201270455444?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7%20%F0%9F%91%8B%0A%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%A8%D9%82%D9%89%20%D8%B4%D8%B1%D9%8A%D9%83%20%D9%84%D9%88%D9%81%D9%8A%D9%86%D8%A7.%0A%D8%A7%D9%84%D8%A7%D8%B3%D9%85%3A%0A%D8%A7%D9%84%D9%86%D8%B4%D8%A7%D8%B7%3A%0A%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9%3A"><span class="ar">قدّم كشريك</span><span class="en">Apply as a partner</span></a></section>
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="sec-head rv">
