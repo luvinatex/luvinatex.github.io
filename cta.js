@@ -127,7 +127,7 @@
 
   var WA = '201270455444';
   var msgBook = 'أهلاً لوفينا 👋\nعايز أطلب كتالوج لوفينا (هدية مع طلبي).\nالاسم:\nالمحافظة:';
-  var msgAsk = 'أهلاً لوفينا 👋\nعايز أطلب تل سويسري.';
+  var msgAsk = 'أهلاً لوفينا 👋\nعايز أعرف سعر توب التل السويسري وخصم الكميات.';
   var u = function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); };
 
   var css = '' +
@@ -155,10 +155,10 @@
   bar.setAttribute('role', 'complementary');
   bar.innerHTML =
     '<a class="b" href="' + u(msgAsk) + '" target="_blank" rel="noopener">' + ico +
-      '<span class="ar">اطلب على واتساب</span><span class="en">Order on WhatsApp</span>' +
+      '<span class="ar">اسأل عن سعر التوب</span><span class="en">Ask for roll prices</span>' +
     '</a>' +
     '<a class="c" href="#catalog-form" data-lvf="1">' +
-      '<span class="ar">كتالوج الألوان</span><span class="en">Colour catalogue</span>' +
+      '<span class="ar">كتالوج العينات</span><span class="en">Swatch book</span>' +
     '</a>';
 
   function mount() {
