@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>فواتير لوفينا</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23a07e62'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='serif'%3EL%3C/text%3E%3C/svg%3E">
+<style>
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet"><style>
+:root{
+  --bg:#f8f5f1; --card:#ffffff; --ink:#2a2420; --muted:#8b8079; --line:#ebe4dc;
+  --accent:#a07e62; --accent-d:#7f6149; --soft:#f3ece4; --ok:#4f7a5a; --ok-soft:#e9f2ea;
+  --warn:#b5623f; --warn-soft:#fbeee7; --r:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;font-size:15px;line-height:1.6}
+button,input,select,textarea{font:inherit;color:inherit}
+.serif{font-family:'Amiri',serif}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:10px 20px;flex-wrap:wrap}
+.brand{font-family:'Amiri',serif;font-weight:700;font-size:26px;letter-spacing:4px;color:var(--accent-d);line-height:1}
+.brand small{display:block;font-family:'IBM Plex Sans Arabic';font-size:11px;letter-spacing:0;color:var(--muted);font-weight:400;margin-top:4px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{border:0;background:none;padding:8px 14px;border-radius:999px;cursor:pointer;color:var(--muted)}
+nav button.on{background:var(--soft);color:var(--accent-d);font-weight:700}
+nav button:hover{color:var(--ink)}
+.spacer{flex:1}
+.pill{font-size:12px;padding:5px 12px;border-radius:999px;background:var(--soft);color:var(--muted);cursor:pointer;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.bad{background:var(--warn-soft);color:var(--warn)}
+main{max-width:1180px;margin:0 auto;padding:24px 20px 80px}
+h1{font-family:'Amiri',serif;font-weight:700;font-size:34px;margin:0 0 4px}
+h2{font-family:'Amiri',serif;font-weight:700;font-size:22px;margin:0 0 12px}
+.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.stat .k{color:var(--muted);font-size:13px}
+.stat .v{font-size:26px;font-weight:700;margin-top:2px}
+.stat .v small{font-size:14px;font-weight:400;color:var(--muted)}
+.btn{border:1px solid var(--line);background:#fff;padding:9px 18px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.btn.p:hover{background:var(--accent-d)}
+.btn.sm{padding:5px 12px;font-size:13px}
+.btn.danger{color:var(--warn)}
+.btn.ghost{border-color:transparent;background:none}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+label.f{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+input.i,select.i,textarea.i{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;outline:none}
+input.i:focus,select.i:focus,textarea.i:focus{border-color:var(--accent)}
+.seg{display:inline-flex;background:var(--soft);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:none;padding:8px 18px;border-radius:9px;cursor:pointer;color:var(--muted)}
+.seg button.on{background:#fff;color:var(--accent-d);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+table.t{width:100%;border-collapse:collapse}
+table.t th{font-size:12px;color:var(--muted);font-weight:400;text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t td{padding:10px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.t tr.click{cursor:pointer}
+table.t tr.click:hover td{background:#fcfaf7}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--accent-d)}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tag.bad{background:var(--warn-soft);color:var(--warn)}
+.muted{color:var(--muted)}
+.right{margin-inline-start:auto}
+.items td input,.items td select{padding:7px 9px}
+.totals{max-width:360px;margin-inline-start:auto}
+.totals .l{display:flex;justify-content:space-between;padding:6px 0}
+.totals .l.big{font-size:20px;font-weight:700;border-top:1px solid var(--line);margin-top:6px;padding-top:10px}
+.empty{text-align:center;color:var(--muted);padding:40px}
+.list-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.modal-bg{position:fixed;inset:0;background:rgba(40,30,25,.35);display:flex;align-items:flex-start;justify-content:center;padding:60px 16px;z-index:50;overflow:auto}
+.modal{background:#fff;border-radius:18px;width:100%;max-width:520px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:999px;z-index:60;font-size:14px}
+.ln-title{display:flex;align-items:center;gap:10px;margin:18px 0 8px}
+.ln-title h3{margin:0;font-size:17px}
+.bal{font-weight:700}
+.credit{color:var(--ok)}
+#print{display:none}
+@media print{
+  body{background:#fff}
+  header.top,main,.modal-bg,.toast{display:none!important}
+  #print{display:block}
+  @page{size:A4;margin:14mm}
+}
+/* ---- print document ---- */
+.doc{font-family:'IBM Plex Sans Arabic',sans-serif;color:#222;font-size:13px}
+.doc .dh{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #a07e62;padding-bottom:12px;margin-bottom:16px}
+.doc .db{font-family:'Amiri',serif;font-size:34px;font-weight:700;letter-spacing:6px;color:#7f6149;line-height:1}
+.doc .db small{display:block;font-family:'IBM Plex Sans Arabic';font-size:11px;letter-spacing:1px;color:#8b8079;font-weight:400;margin-top:6px}
+.doc .dinfo{text-align:left;font-size:12px;color:#555;line-height:1.7}
+.doc .meta{display:flex;justify-content:space-between;gap:20px;margin-bottom:14px;line-height:1.8}
+.doc table{width:100%;border-collapse:collapse;margin-bottom:12px}
+.doc th{background:#f6f1eb;font-weight:700;text-align:right;padding:7px 8px;font-size:12px}
+.doc td{padding:7px 8px;border-bottom:1px solid #eee}
+.doc .tot{width:280px;margin-inline-start:auto}
+.doc .tot div{display:flex;justify-content:space-between;padding:4px 0}
+.doc .tot .g{font-weight:700;font-size:16px;border-top:1px solid #ccc;padding-top:8px;margin-top:4px}
+.doc h4{font-size:14px;margin:18px 0 6px;color:#7f6149}
+.doc .foot{margin-top:28px;text-align:center;color:#999;font-size:11px}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">LUVINA<small>برنامج الفواتير</small></div>
+  <nav id="nav"></nav>
+  <div class="spacer"></div>
+  <span class="pill" id="syncPill" title="المزامنة">—</span>
+</div></header>
+<main id="view"></main>
+<div id="print"></div>
+<script>
+const SEED = {"invoices": {}, "customers": {}, "settings": {}};
+/* ================= storage ================= */
+const LS_DATA='luvina_inv_db_web_v1', LS_DEV='luvina_inv_device', LS_SYNC='luvina_inv_sync';
+const COLLS=['invoices','customers','settings'];
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){toast('مشكلة في الحفظ على الجهاز!');return false}}
+let DB=lsGet(LS_DATA);
+if(!DB||!DB.invoices){DB=clone(SEED);lsSet(LS_DATA,DB)}
+COLLS.forEach(c=>{DB[c]=DB[c]||{}});
+let DEV=lsGet(LS_DEV);
+function persist(){lsSet(LS_DATA,DB);scheduleSync()}
+function put(coll,obj){obj.u=Date.now();DB[coll][obj.id]=obj;persist()}
+
+const DEF={company:'LUVINA',phone:'01270455444',address:'4 ش ابن عبد الظاهر - أمام مستشفى منشية البكري - هليوبوليس - مصر الجديدة',
+  site:'luvinatex.com',price160:2750,price3m:5500,stretchPrice:4000,rollLen:25,
+  tiers:[{min:10,pct:10},{min:20,pct:15},{min:50,pct:20},{min:100,pct:25},{min:200,pct:30}],
+  stretchTiers:[{min:10,pct:10},{min:20,pct:15},{min:50,pct:20}],
+  colors:'',reps:['ملك','منى','دعاء','محمود']};
+function S(){const m=DB.settings.main||{};return Object.assign({},DEF,m,{reps:(m.reps&&m.reps.length)?m.reps:DEF.reps,site:m.site||DEF.site})}
+function saveSettings(patch){const m=Object.assign({id:'main'},DB.settings.main||{},patch);put('settings',m)}
+
+/* ================= helpers ================= */
+const METHODS=['كاش','إنستاباي','محفظة إلكترونية'];
+const LINES={tulle:'التل',stretch:'التل الاسترتش',lace:'الفرنش ليس',other:'منتجات تانية'};
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function n(v){v=Number(v);return isFinite(v)?v:0}
+function money(v){return Math.round(n(v)).toLocaleString('en-US')+' ج'}
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function month(){return today().slice(0,7)}
+function arDate(s){if(!s)return'';const[y,m,d]=s.split('-');return `${+d}/${+m}/${y}`}
+function colorMap(){const m={};(S().colors||'').split('\n').forEach(l=>{const[k,...r]=l.split('=');if(k&&r.length)m[k.trim()]=r.join('=').trim()});return m}
+function tierPct(tiers,q){let p=0;(tiers||[]).forEach(t=>{if(q>=n(t.min))p=Math.max(p,n(t.pct))});return p}
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+function active(){return Object.values(DB.invoices).filter(i=>!i.deleted)}
+function paidOf(i){return (i.payments||[]).reduce((a,p)=>a+n(p.amount),0)}
+function remOf(i){return n(i.total)-paidOf(i)}
+function itemWidth(it){return it.width||((it.name||'').includes('3 متر')?'3m':'160')}
+function itemColor(it){if(it.color!=null)return it.color;const m=(it.name||'').match(/لون\s*(\d+)/);return m?m[1]:''}
+function tulleName(w,c){const nm=colorMap()[c];return `تل كورساج عرض ${w==='3m'?'3 متر':'160 سم'}`+(c?` — لون ${c}${nm?` (${nm})`:''}`:'')}
+function lineOf(i){if(i.line)return i.line;const k=new Set((i.items||[]).map(x=>x.kind));if(k.size===1){const v=[...k][0];if(LINES[v])return v}if(k.has('tulle'))return'tulle';return'other'}
+function custOfInv(i){
+  if(i.custId&&DB.customers[i.custId])return DB.customers[i.custId];
+  const cs=Object.values(DB.customers).filter(c=>!c.deleted);
+  return (i.phone&&cs.find(c=>c.phone&&c.phone===i.phone))||cs.find(c=>c.name===i.customer)||null}
+function invsOf(c){return active().filter(i=>{const x=custOfInv(i);return x&&x.id===c.id}).sort(byDate)}
+function byDate(a,b){return (a.date||'').localeCompare(b.date||'')||(a.createdAt||'').localeCompare(b.createdAt||'')}
+function nextNo(){const L=(DEV&&DEV.letter)||'A';let mx=0;Object.values(DB.invoices).forEach(i=>{const m=(i.no||'').match(new RegExp('^LV-'+L+'-(\\d+)$'));if(m)mx=Math.max(mx,+m[1])});return `LV-${L}-${String(mx+1).padStart(4,'0')}`}
+
+/* discount math: only tulle + stretch are discountable */
+function calc(inv,cust){
+  const s=S();let tq=0,ts=0,sq=0,ss=0,os=0;
+  (inv.items||[]).forEach(it=>{it.total=Math.round(n(it.qty)*n(it.price));
+    if(it.kind==='tulle'){tq+=n(it.qty);ts+=it.total}else if(it.kind==='stretch'){sq+=n(it.qty);ss+=it.total}else os+=it.total});
+  const sub=(inv.opening&&!(inv.items||[]).length)?n(inv.sub):ts+ss+os;
+  let d=0,label='';const t=inv.discType||'auto';
+  if(t==='auto'){
+    const c=n(cust&&cust.type==='trader'?cust.contractDisc:0);
+    const pt=Math.max(c,tierPct(s.tiers,tq)),ps=Math.max(c,tierPct(s.stretchTiers,sq));
+    d=ts*pt/100+ss*ps/100;
+    const ls=[];if(ts&&pt)ls.push(pt+'%');if(ss&&ps&&ps!==pt)ls.push(ps+'% استرتش');label=ls.join(' + ');
+  }else if(t==='pct'){d=(ts+ss)*n(inv.discValue)/100;label=n(inv.discValue)+'%'}
+  else if(t==='amt'){d=n(inv.discValue)}
+  d=Math.round(d);
+  inv.sub=sub;inv.discount=d;inv.discLabel=label;inv.total=sub-d;inv.paid=paidOf(inv);
+  return inv}
+
+/* ================= router / nav ================= */
+let VIEW='home',ARG=null;
+const NAV=[['home','الرئيسية'],['new','فاتورة جديدة'],['list','الفواتير'],['customers','العملاء'],['more','المزيد']];
+function go(v,a){if(v==='new'&&a!=='keep'){F=null;a='keep'}VIEW=v;ARG=a??null;render();window.scrollTo(0,0)}
+function render(){
+  document.getElementById('nav').innerHTML=NAV.map(([k,t])=>`<button class="${(VIEW===k||(k==='list'&&VIEW==='inv')||(k==='customers'&&VIEW==='cust'))?'on':''}" onclick="go('${k}')">${t}</button>`).join('');
+  const el=document.getElementById('view');
+  ({home:vHome,new:vNew,list:vList,inv:vInv,customers:vCustomers,cust:vCust,more:vMore,trash:vTrash})[VIEW](el);
+  if(!DEV)setupDevice();
+  paintSync()}
+
+/* ================= home ================= */
+function vHome(el){
+  const m=month(),A=active(),M=A.filter(i=>(i.date||'').startsWith(m));
+  const sales=M.reduce((a,i)=>a+n(i.total),0),col=M.reduce((a,i)=>a+paidOf(i),0);
+  const allRem=A.reduce((a,i)=>a+remOf(i),0);
+  const reps={};A.forEach(i=>{const r=i.rep||'';if(!r)return;const o=reps[r]=reps[r]||{mc:0,ac:0,mt:0,mp:0,at:0,ap:0};
+    o.ac++;o.at+=n(i.total);o.ap+=paidOf(i);if((i.date||'').startsWith(m)){o.mc++;o.mt+=n(i.total);o.mp+=paidOf(i)}});
+  const debt=Object.values(DB.customers).map(c=>{const iv=invsOf(c);return{c,r:iv.reduce((a,i)=>a+remOf(i),0)}}).filter(x=>x.r>0).sort((a,b)=>b.r-a.r).slice(0,8);
+  const mName=new Date().toLocaleDateString('ar-EG',{month:'long',year:'numeric'});
+  el.innerHTML=`<h1>أهلاً${DEV?' يا '+esc(DEV.name):''}</h1><p class="sub">${mName}</p>
+  <div class="grid g4">
+    <div class="card stat"><div class="k">مبيعات الشهر</div><div class="v num">${money(sales)}</div></div>
+    <div class="card stat"><div class="k">اتحصّل الشهر</div><div class="v num">${money(col)}</div></div>
+    <div class="card stat"><div class="k">فواتير الشهر</div><div class="v num">${M.length}</div></div>
+    <div class="card stat"><div class="k">كل الفلوس اللي برّه</div><div class="v num" style="color:var(--warn)">${money(allRem)}</div></div>
+  </div>
+  <div class="grid g2">
+   <div class="card"><h2>مبيعات كل سيلز</h2>${Object.keys(reps).length?`<table class="t"><tr><th>السيلز</th><th>الشهر ده</th><th>الإجمالي</th><th>محصّل</th></tr>
+    ${Object.entries(reps).sort((a,b)=>b[1].at-a[1].at).map(([r,o])=>`<tr><td><b>${esc(r)}</b></td><td class="num">${money(o.mt)} <span class="muted">· ${o.mc} فاتورة</span></td><td class="num">${money(o.at)} <span class="muted">· ${o.ac}</span></td><td class="num">${money(o.ap)}</td></tr>`).join('')}</table>`:'<div class="empty">لسه مفيش فواتير عليها اسم سيلز</div>'}</div>
+   <div class="card"><h2>عليهم فلوس</h2>${debt.length?`<table class="t">${debt.map(x=>`<tr class="click" onclick="go('cust','${x.c.id}')"><td>${esc(x.c.name)} ${x.c.type==='trader'?'<span class="tag">تاجر</span>':''}</td><td class="num bal" style="color:var(--warn)">${money(x.r)}</td></tr>`).join('')}</table>`:'<div class="empty">كله مدفوع 👌</div>'}</div>
+  </div>
+  <div class="card"><div class="row"><h2 style="margin:0">آخر الفواتير</h2><button class="btn sm right" onclick="go('list')">كل الفواتير</button></div>
+  ${invTable(A.sort(byDate).reverse().slice(0,8))}</div>`}
+
+function invTable(rows){
+  if(!rows.length)return'<div class="empty">مفيش فواتير</div>';
+  return `<table class="t"><tr><th>رقم</th><th>التاريخ</th><th>العميل</th><th>الإجمالي</th><th>الحالة</th><th>السيلز</th><th>جهاز</th></tr>
+  ${rows.map(i=>{const r=remOf(i);return `<tr class="click" onclick="go('inv','${i.id}')"><td class="num muted">${esc(i.no)}</td><td class="num">${arDate(i.date)}</td>
+  <td>${esc(i.customer)} ${i.ctype==='trader'?'<span class="tag">تاجر · '+LINES[lineOf(i)]+'</span>':''}</td><td class="num">${money(i.total)}</td>
+  <td>${r<=0?'<span class="tag ok">مدفوعة</span>':`<span class="tag bad">باقي ${money(r)}</span>`}</td><td>${esc(i.rep||'')}</td><td class="muted">${esc(i.device||'')}</td></tr>`}).join('')}</table>`}
+
+/* ================= invoice form ================= */
+let F=null;
+function blankForm(o){return Object.assign({id:null,ctype:'retail',line:'tulle',custId:null,customer:'',phone:'',address:'',date:today(),
+  items:[],discType:'auto',discValue:0,rep:'',notes:'',payNow:null,payMethod:'كاش',payTouched:false},o||{})}
+function newInvoice(pre){F=blankForm(pre);if(!F.items.length&&!(pre&&pre.noItem))F.items.push(newItem(F.ctype==='trader'&&F.line!=='tulle'?F.line:'tulle'));go('new','keep')}
+function newItem(kind){const s=S();
+  if(kind==='stretch')return{kind:'stretch',qty:1,price:s.stretchPrice,unit:'توب'};
+  if(kind==='lace')return{kind:'lace',name:'فرنش ليس',qty:1,price:0,unit:'كوب'};
+  if(kind==='other')return{kind:'other',name:'',qty:1,price:0,unit:'قطعة'};
+  return{kind:'tulle',width:'160',color:'',qty:1,price:s.price160,unit:'توب'}}
+function editInvoice(id){const i=DB.invoices[id];const c=custOfInv(i);
+  F=blankForm({id,ctype:i.ctype||'retail',line:lineOf(i),custId:c?c.id:null,customer:i.customer,phone:i.phone,address:i.address,date:i.date,
+   items:clone(i.items||[]).map(it=>it.kind==='tulle'?Object.assign(it,{width:itemWidth(it),color:itemColor(it)}):it),
+   discType:i.discType==='none'?'none':(i.discType||'auto'),discValue:i.discType==='pct'?parseFloat(i.discLabel)||n(i.discValue):(i.discType==='amt'?n(i.discount):n(i.discValue)),
+   rep:i.rep||'',notes:i.notes||''});go('new','keep')}
+function formCust(){if(F.custId&&DB.customers[F.custId])return DB.customers[F.custId];return{type:F.ctype}}
+function formInv(){const inv={items:F.items.map(it=>{const x=Object.assign({},it);if(x.kind==='tulle')x.name=tulleName(x.width,x.color);if(x.kind==='stretch')x.name=x.name||'تل استرتش';return x}),discType:F.discType,discValue:F.discValue,payments:[]};
+  const c=formCust();return calc(inv,F.custId?c:{type:F.ctype})}
+
+function vNew(el){
+  if(!F)F=blankForm({items:[newItem('tulle')]});
+  const s=S(),reps=s.reps,cm=colorMap();
+  const custList=Object.values(DB.customers).filter(c=>!c.deleted).sort((a,b)=>a.name.localeCompare(b.name,'ar'));
+  el.innerHTML=`<h1>${F.id?'تعديل فاتورة '+esc(DB.invoices[F.id].no):'فاتورة جديدة'}</h1><p class="sub">${F.id?'':'اختار نوع العميل وابدأ'}</p>
+  <div class="card">
+    <div class="row" style="margin-bottom:16px"><div class="seg">
+      <button class="${F.ctype==='retail'?'on':''}" onclick="F.ctype='retail';vNew(view)">عميل / أتيليه</button>
+      <button class="${F.ctype==='trader'?'on':''}" onclick="F.ctype='trader';vNew(view)">تاجر</button></div>
+      ${F.ctype==='trader'?`<div class="seg">${['tulle','stretch','lace'].map(l=>`<button class="${F.line===l?'on':''}" onclick="F.line='${l}';vNew(view)">حساب ${LINES[l]}</button>`).join('')}</div>`:''}
+    </div>
+    <div class="grid g4">
+      <div><label class="f">اسم العميل</label><input class="i" id="fName" list="custDL" value="${esc(F.customer)}" oninput="onCustName(this.value)" autocomplete="off">
+        <datalist id="custDL">${custList.map(c=>`<option value="${esc(c.name)}">${esc(c.phone||'')}</option>`).join('')}</datalist></div>
+      <div><label class="f">الموبايل</label><input class="i num" value="${esc(F.phone)}" oninput="F.phone=this.value" dir="ltr" style="text-align:right"></div>
+      <div><label class="f">العنوان</label><input class="i" value="${esc(F.address)}" oninput="F.address=this.value"></div>
+      <div><label class="f">التاريخ</label><input class="i" type="date" value="${F.date}" onchange="F.date=this.value"></div>
+    </div>
+    ${F.custId?`<div class="muted" style="margin-top:8px;font-size:13px">عميل مسجّل ✓ ${DB.customers[F.custId].type==='trader'&&DB.customers[F.custId].contractDisc?'· خصم التعاقد '+DB.customers[F.custId].contractDisc+'%':''}</div>`:''}
+  </div>
+  <div class="card"><h2>الأصناف</h2>
+    <table class="t items"><tr><th style="width:150px">الصنف</th><th>التفاصيل</th><th style="width:90px">العدد</th><th style="width:120px">السعر</th><th style="width:120px">الإجمالي</th><th style="width:40px"></th></tr>
+    ${F.items.map((it,ix)=>`<tr>
+      <td><select class="i" onchange="setKind(${ix},this.value)">${[['tulle','تل كورساج'],['stretch','تل استرتش'],['lace','فرنش ليس'],['other','منتج تاني']].map(([k,t])=>`<option value="${k}" ${it.kind===k?'selected':''}>${t}</option>`).join('')}</select></td>
+      <td>${it.kind==='tulle'?`<div class="row" style="flex-wrap:nowrap"><select class="i" style="width:110px" onchange="setW(${ix},this.value)"><option value="160" ${it.width==='160'?'selected':''}>160 سم</option><option value="3m" ${it.width==='3m'?'selected':''}>3 متر</option></select>
+          <input class="i num" placeholder="لون" value="${esc(it.color)}" style="width:80px" oninput="F.items[${ix}].color=this.value.trim();document.getElementById('cn${ix}').textContent=colorMap()[this.value.trim()]||''"><span class="muted" id="cn${ix}" style="font-size:13px">${esc(cm[it.color]||'')}</span></div>`
+        :it.kind==='stretch'?`<input class="i" placeholder="لون / ملاحظة" value="${esc(it.name&&it.name!=='تل استرتش'?it.name.replace('تل استرتش — ',''):'')}" oninput="F.items[${ix}].name=this.value?'تل استرتش — '+this.value:'تل استرتش'">`
+        :`<input class="i" placeholder="${it.kind==='lace'?'التصميم (مطرز / كوردونيه ...)':'اسم المنتج'}" value="${esc(it.name)}" oninput="F.items[${ix}].name=this.value">`}</td>
+      <td><input class="i num" type="number" min="0" step="any" value="${it.qty}" oninput="F.items[${ix}].qty=this.value;refreshTotals()"></td>
+      <td><input class="i num" type="number" min="0" step="any" value="${it.price}" oninput="F.items[${ix}].price=this.value;refreshTotals()"></td>
+      <td class="num" id="it${ix}">${money(n(it.qty)*n(it.price))}</td>
+      <td><button class="btn ghost sm" onclick="F.items.splice(${ix},1);vNew(view)" title="شيل">✕</button></td></tr>`).join('')}
+    </table>
+    <div class="row" style="margin-top:12px"><button class="btn sm" onclick="F.items.push(newItem(F.ctype==='trader'?F.line:'tulle'));vNew(view)">+ صنف</button>
+     ${F.ctype==='trader'?'<span class="muted" style="font-size:13px">للتاجر: سيب الأصناف فاضية لو هي دفعة بس</span>':''}</div>
+  </div>
+  <div class="grid g2">
+   <div class="card">
+    <h2>الخصم والدفع</h2>
+    <label class="f">الخصم</label>
+    <div class="row" style="margin-bottom:12px"><select class="i" style="width:200px" onchange="F.discType=this.value;vNew(view)">
+      ${[['auto','حسب الشرايح (تلقائي)'],['pct','نسبة %'],['amt','مبلغ'],['none','من غير خصم']].map(([k,t])=>`<option value="${k}" ${F.discType===k?'selected':''}>${t}</option>`).join('')}</select>
+      ${F.discType==='pct'||F.discType==='amt'?`<input class="i num" type="number" style="width:120px" value="${F.discValue}" oninput="F.discValue=this.value;refreshTotals()">`:''}</div>
+    <p class="muted" style="font-size:12px;margin:-4px 0 14px">الخصم على التل والاسترتش بس. الفرنش ليس والمنتجات التانية برّه الخصم.</p>
+    ${F.id?'<p class="muted">الدفعات بتتعدل من صفحة الفاتورة.</p>':`<div class="grid g2"><div><label class="f">المدفوع دلوقتي</label><input class="i num" type="number" id="payNow" oninput="F.payNow=this.value;F.payTouched=true"></div>
+     <div><label class="f">طريقة الدفع</label><select class="i" onchange="F.payMethod=this.value">${METHODS.map(m=>`<option ${F.payMethod===m?'selected':''}>${m}</option>`).join('')}</select></div></div>`}
+    <div class="grid g2" style="margin-top:12px"><div><label class="f">السيلز المسئول (للكوميشن)</label><select class="i" onchange="F.rep=this.value"><option value="">—</option>${reps.map(r=>`<option ${F.rep===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>
+     <div><label class="f">ملاحظات</label><input class="i" value="${esc(F.notes)}" oninput="F.notes=this.value"></div></div>
+   </div>
+   <div class="card"><div class="totals" id="totals"></div>
+    <div class="row" style="margin-top:18px;justify-content:flex-end"><button class="btn" onclick="${F.id?`go('inv','${F.id}')`:`go('home')`}">إلغاء</button><button class="btn p" onclick="saveForm(false)">حفظ</button><button class="btn p" onclick="saveForm(true)">حفظ وطباعة</button></div>
+   </div>
+  </div>`;
+  refreshTotals()}
+function onCustName(v){F.customer=v;const c=Object.values(DB.customers).find(c=>!c.deleted&&c.name===v);
+  if(c){F.custId=c.id;F.phone=c.phone||'';F.address=c.address||'';F.ctype=c.type||F.ctype;vNew(view);const e=document.getElementById('fName');e.focus();e.setSelectionRange(v.length,v.length)}
+  else if(F.custId){F.custId=null}}
+function setKind(ix,k){F.items[ix]=newItem(k);vNew(view)}
+function setW(ix,w){const it=F.items[ix];it.width=w;it.price=w==='3m'?S().price3m:S().price160;vNew(view)}
+function refreshTotals(){const inv=formInv();F.items.forEach((it,ix)=>{const e=document.getElementById('it'+ix);if(e)e.textContent=money(n(it.qty)*n(it.price))});
+  const pn=document.getElementById('payNow');
+  if(pn&&!F.payTouched){F.payNow=F.ctype==='trader'?0:inv.total;pn.value=F.payNow}
+  document.getElementById('totals').innerHTML=`<div class="l"><span>المجموع</span><span class="num">${money(inv.sub)}</span></div>
+   <div class="l"><span>الخصم ${inv.discLabel?'('+inv.discLabel+')':''}</span><span class="num">- ${money(inv.discount)}</span></div>
+   <div class="l big"><span>الإجمالي</span><span class="num">${money(inv.total)}</span></div>`}
+function saveForm(print){
+  if(!F.customer.trim())return toast('اكتب اسم العميل');
+  const items=F.items.filter(it=>n(it.qty)>0);
+  const isPayOnly=!items.length;
+  if(isPayOnly&&F.ctype!=='trader')return toast('ضيف صنف واحد على الأقل');
+  if(isPayOnly&&F.id==null&&!(n(F.payNow)>0))return toast('مفيش أصناف ولا دفعة');
+  // customer upsert
+  let c=F.custId?DB.customers[F.custId]:Object.values(DB.customers).find(x=>!x.deleted&&((F.phone&&x.phone===F.phone)||x.name===F.customer.trim()));
+  if(!c){c={id:uid(),name:F.customer.trim(),phone:F.phone.trim(),address:F.address.trim(),type:F.ctype}}
+  else{c=Object.assign({},c,{name:F.customer.trim(),phone:F.phone.trim()||c.phone,address:F.address.trim()||c.address,type:F.ctype==='trader'?'trader':c.type})}
+  put('customers',c);
+  const old=F.id?DB.invoices[F.id]:null;
+  const inv=Object.assign(old?clone(old):{id:uid(),no:nextNo(),createdAt:new Date().toISOString(),payments:[],deleted:false,
+     seller:DEV?DEV.name:'',device:DEV?DEV.letter:''},
+    {date:F.date,customer:c.name,phone:c.phone,address:c.address,custId:c.id,ctype:F.ctype,line:F.ctype==='trader'?F.line:undefined,
+     rep:F.rep,notes:F.notes,discType:F.discType,discValue:n(F.discValue),
+     items:items.map(it=>{const x=Object.assign({},it);if(x.kind==='tulle')x.name=tulleName(x.width,x.color);if(x.kind==='stretch')x.name=x.name||'تل استرتش';x.qty=n(x.qty);x.price=n(x.price);return x})});
+  if(old&&old.opening&&!items.length){inv.opening=true}else delete inv.opening;
+  if(!old&&n(F.payNow)>0)inv.payments=[{id:uid(),date:F.date,amount:n(F.payNow),method:F.payMethod,by:DEV?DEV.name:''}];
+  inv.method=(inv.payments[0]&&inv.payments[0].method)||F.payMethod;
+  if(isPayOnly&&!inv.opening){inv.note=inv.note||'دفعة'}
+  calc(inv,c);put('invoices',inv);F=null;toast('اتحفظت ✓');go('inv',inv.id);if(print)printInvoice(inv.id)}
+
+/* ================= invoices list ================= */
+let LQ='',LM='',LT='';
+function vList(el){
+  const months=[...new Set(active().map(i=>(i.date||'').slice(0,7)))].sort().reverse();
+  el.innerHTML=`<h1>الفواتير</h1><p class="sub">${active().length} فاتورة</p>
+  <div class="list-actions"><input class="i" style="max-width:300px" placeholder="دوّر باسم أو موبايل أو رقم" value="${esc(LQ)}" oninput="LQ=this.value;listBody()">
+   <select class="i" style="width:160px" onchange="LM=this.value;listBody()"><option value="">كل الشهور</option>${months.map(m=>`<option ${LM===m?'selected':''}>${m}</option>`).join('')}</select>
+   <select class="i" style="width:160px" onchange="LT=this.value;listBody()"><option value="">الكل</option><option value="retail" ${LT==='retail'?'selected':''}>عملاء</option><option value="trader" ${LT==='trader'?'selected':''}>تجار</option><option value="due" ${LT==='due'?'selected':''}>عليها فلوس</option></select>
+   <button class="btn p right" onclick="newInvoice()">+ فاتورة جديدة</button></div>
+  <div class="card" id="lb"></div>`;listBody()}
+function listBody(){const q=LQ.trim();
+  const rows=active().filter(i=>(!q||[i.customer,i.phone,i.no].some(x=>(x||'').includes(q)))&&(!LM||(i.date||'').startsWith(LM))&&(!LT||(LT==='due'?remOf(i)>0:(i.ctype||'retail')===LT))).sort(byDate).reverse();
+  document.getElementById('lb').innerHTML=invTable(rows)}
+
+/* ================= single invoice ================= */
+function itemsSummary(i){if(!(i.items||[]).length)return i.opening?(i.note||'رصيد سابق'):(i.note||'دفعة');
+  return i.items.map(it=>`${it.name||LINES[it.kind]} × ${it.qty}`).join('، ')}
+function vInv(el){const i=DB.invoices[ARG];if(!i){go('list');return}
+  const c=custOfInv(i),r=remOf(i);
+  el.innerHTML=`<div class="row"><div><h1>${esc(i.customer)}</h1><p class="sub">${esc(i.no)} · ${arDate(i.date)} · ${i.ctype==='trader'?'تاجر — حساب '+LINES[lineOf(i)]:'عميل'} ${i.deleted?'· <b style="color:var(--warn)">في سلة المحذوفات</b>':''}</p></div>
+   <div class="row right">${c?`<button class="btn" onclick="go('cust','${c.id}')">صفحة العميل</button>`:''}<button class="btn" onclick="editInvoice('${i.id}')">تعديل</button><button class="btn p" onclick="printInvoice('${i.id}')">طباعة / PDF</button></div></div>
+  <div class="grid g2"><div class="card">
+   ${(i.items||[]).length?`<table class="t"><tr><th>الصنف</th><th>العدد</th><th>السعر</th><th>الإجمالي</th></tr>${i.items.map(it=>`<tr><td>${esc(it.name||LINES[it.kind])}</td><td class="num">${it.qty} ${esc(it.unit||'')}</td><td class="num">${money(it.price)}</td><td class="num">${money(it.total)}</td></tr>`).join('')}</table>`:`<p>${esc(itemsSummary(i))}</p>`}
+   <div class="totals" style="margin-top:12px"><div class="l"><span>المجموع</span><span class="num">${money(i.sub)}</span></div>
+    ${n(i.discount)?`<div class="l"><span>الخصم ${i.discLabel?'('+esc(i.discLabel)+')':''}</span><span class="num">- ${money(i.discount)}</span></div>`:''}
+    <div class="l big"><span>الإجمالي</span><span class="num">${money(i.total)}</span></div>
+    <div class="l"><span>المدفوع</span><span class="num credit">${money(paidOf(i))}</span></div>
+    <div class="l"><span>الباقي</span><span class="num bal" style="color:${r>0?'var(--warn)':'var(--ok)'}">${money(r)}</span></div></div>
+  </div>
+  <div class="card"><div class="row"><h2 style="margin:0">الدفعات</h2><button class="btn sm p right" onclick="payModal('${i.id}')">+ دفعة</button></div>
+   ${(i.payments||[]).length?`<table class="t">${i.payments.map(p=>`<tr><td class="num">${arDate(p.date)}</td><td class="num credit">${money(p.amount)}</td><td>${esc(p.method)}</td><td class="muted">${esc(p.by||'')}</td>
+     <td style="text-align:left"><button class="btn sm ghost" onclick="payModal('${i.id}','${p.id}')">تعديل</button></td></tr>`).join('')}</table>`:'<div class="empty">مفيش دفعات</div>'}
+   <div class="muted" style="font-size:13px;margin-top:14px;line-height:2">
+    السيلز: ${esc(i.rep||'—')} · سجّلها: ${esc(i.seller||'—')} · الجهاز: ${esc(i.device||'—')}${i.notes?'<br>ملاحظات: '+esc(i.notes):''}</div>
+   <div class="row" style="margin-top:14px">${i.deleted?`<button class="btn" onclick="restoreInv('${i.id}')">رجّعها من السلة</button>`:`<button class="btn sm danger" onclick="delInv('${i.id}')">حذف الفاتورة</button>`}</div>
+  </div></div>`}
+function delInv(id){if(!confirm('تحذف الفاتورة؟ هتروح سلة المحذوفات وتقدر ترجّعها.'))return;const i=clone(DB.invoices[id]);i.deleted=true;put('invoices',i);toast('اتنقلت للسلة');go('list')}
+function restoreInv(id){const i=clone(DB.invoices[id]);i.deleted=false;put('invoices',i);toast('رجعت ✓');go('inv',id)}
+
+function openModal(html){closeModal();const b=document.createElement('div');b.className='modal-bg';b.id='mbg';b.innerHTML=`<div class="modal">${html}</div>`;
+  b.addEventListener('mousedown',e=>{if(e.target===b)closeModal()});document.body.appendChild(b)}
+function closeModal(){const b=document.getElementById('mbg');if(b)b.remove()}
+function payModal(invId,payId){const i=DB.invoices[invId],p=payId?(i.payments||[]).find(x=>x.id===payId):null;
+  openModal(`<h2>${p?'تعديل دفعة':'دفعة جديدة'}</h2><p class="muted" style="margin-top:-6px">${esc(i.customer)} · الباقي ${money(remOf(i))}</p>
+  <div class="grid g2"><div><label class="f">المبلغ</label><input class="i num" type="number" id="pA" value="${p?p.amount:Math.max(0,remOf(i))}"></div>
+  <div><label class="f">التاريخ</label><input class="i" type="date" id="pD" value="${p?p.date:today()}"></div></div>
+  <div style="margin-top:12px"><label class="f">الطريقة</label><select class="i" id="pM">${METHODS.map(m=>`<option ${(p?p.method:'كاش')===m?'selected':''}>${m}</option>`).join('')}</select></div>
+  <div class="row" style="margin-top:20px">${p?`<button class="btn danger" onclick="delPay('${invId}','${payId}')">حذف الدفعة</button>`:''}<span class="right"></span><button class="btn" onclick="closeModal()">إلغاء</button><button class="btn p" onclick="savePay('${invId}','${payId||''}')">حفظ</button></div>`)}
+function savePay(invId,payId){const a=n(document.getElementById('pA').value);if(a<=0)return toast('اكتب المبلغ');
+  const i=clone(DB.invoices[invId]);i.payments=i.payments||[];
+  const d={date:document.getElementById('pD').value||today(),amount:a,method:document.getElementById('pM').value};
+  if(payId){const p=i.payments.find(x=>x.id===payId);Object.assign(p,d)}else i.payments.push(Object.assign({id:uid(),by:DEV?DEV.name:''},d));
+  i.paid=paidOf(i);put('invoices',i);closeModal();toast('اتحفظت ✓');render()}
+function delPay(invId,payId){if(!confirm('تحذف الدفعة دي؟'))return;const i=clone(DB.invoices[invId]);i.payments=i.payments.filter(p=>p.id!==payId);i.paid=paidOf(i);put('invoices',i);closeModal();render()}
+
+/* ================= customers ================= */
+let CQ='',CT='';
+function custBal(c){return invsOf(c).reduce((a,i)=>a+remOf(i),0)}
+function vCustomers(el){
+  el.innerHTML=`<h1>العملاء</h1><p class="sub">كل عميل وفواتيره وكشف حسابه</p>
+  <div class="list-actions"><input class="i" style="max-width:300px" placeholder="دوّر باسم أو موبايل" value="${esc(CQ)}" oninput="CQ=this.value;custBody()">
+  <div class="seg">${[['','الكل'],['retail','عملاء'],['trader','تجار']].map(([k,t])=>`<button class="${CT===k?'on':''}" onclick="CT='${k}';vCustomers(view)">${t}</button>`).join('')}</div>
+  <button class="btn right" onclick="custModal()">+ عميل</button></div><div class="card" id="cb"></div>`;custBody()}
+function custBody(){const q=CQ.trim();
+  const cs=Object.values(DB.customers).filter(c=>!c.deleted&&(!CT||(c.type||'retail')===CT)&&(!q||[c.name,c.phone].some(x=>(x||'').includes(q))))
+   .map(c=>({c,iv:invsOf(c)})).sort((a,b)=>((b.iv.at(-1)||{}).date||'').localeCompare((a.iv.at(-1)||{}).date||''));
+  document.getElementById('cb').innerHTML=cs.length?`<table class="t"><tr><th>العميل</th><th>الموبايل</th><th>الفواتير</th><th>إجمالي</th><th>عليه</th></tr>
+  ${cs.map(({c,iv})=>{const r=iv.reduce((a,i)=>a+remOf(i),0);return `<tr class="click" onclick="go('cust','${c.id}')"><td><b>${esc(c.name)}</b> ${c.type==='trader'?'<span class="tag">تاجر</span>':''}</td><td class="num">${esc(c.phone||'')}</td>
+   <td class="num">${iv.length}</td><td class="num">${money(iv.reduce((a,i)=>a+n(i.total),0))}</td><td class="num">${r>0?`<span style="color:var(--warn)" class="bal">${money(r)}</span>`:'—'}</td></tr>`}).join('')}</table>`:'<div class="empty">مفيش عملاء</div>'}
+
+function stmtLines(c){ // returns [{line, rows, debit, credit}]
+  const iv=invsOf(c),groups={};
+  iv.forEach(i=>{const l=c.type==='trader'?lineOf(i):'all';(groups[l]=groups[l]||[]).push(i)});
+  const order=c.type==='trader'?['tulle','stretch','lace','other']:['all'];
+  return order.filter(l=>groups[l]).map(l=>{const rows=[];
+    groups[l].forEach(i=>{if(n(i.total)>0||i.opening)rows.push({date:i.date,ca:i.createdAt||'',k:0,desc:itemsSummary(i)+(n(i.discount)?` (خصم ${i.discLabel||money(i.discount)})`:''),qty:(i.items||[]).reduce((a,x)=>a+n(x.qty),0),debit:n(i.total),inv:i.id});
+      (i.payments||[]).forEach(p=>rows.push({date:p.date,ca:i.createdAt||'',k:1,desc:'دفعة — '+(p.method||''),credit:n(p.amount),inv:i.id}))});
+    rows.sort((a,b)=>(a.date||'').localeCompare(b.date||'')||a.k-b.k||a.ca.localeCompare(b.ca));
+    let bal=0;rows.forEach(r=>{bal+=n(r.debit)-n(r.credit);r.bal=bal});
+    return{line:l,rows,debit:rows.reduce((a,r)=>a+n(r.debit),0),credit:rows.reduce((a,r)=>a+n(r.credit),0)}})}
+function contractInfo(c){if(c.type!=='trader'||!n(c.contractRolls))return null;
+  const took=invsOf(c).filter(i=>lineOf(i)==='tulle').reduce((a,i)=>a+(i.items||[]).filter(x=>x.kind==='tulle').reduce((s,x)=>s+n(x.qty),0),0);
+  return{rolls:n(c.contractRolls),disc:n(c.contractDisc),took,left:n(c.contractRolls)-took}}
+function vCust(el){const c=DB.customers[ARG];if(!c){go('customers');return}
+  const L=stmtLines(c),tot=L.reduce((a,x)=>a+x.debit-x.credit,0),ci=contractInfo(c);
+  el.innerHTML=`<div class="row"><div><h1>${esc(c.name)}</h1><p class="sub">${c.type==='trader'?'تاجر':'عميل'} · <span class="num">${esc(c.phone||'')}</span> · ${esc(c.address||'')}</p></div>
+   <div class="row right"><button class="btn" onclick="custModal('${c.id}')">تعديل البيانات</button><button class="btn p" onclick="printStatement('${c.id}')">طباعة كشف الحساب</button></div></div>
+  <div class="grid g3">
+   <div class="card stat"><div class="k">إجمالي اللي خده</div><div class="v num">${money(L.reduce((a,x)=>a+x.debit,0))}</div></div>
+   <div class="card stat"><div class="k">إجمالي اللي دفعه</div><div class="v num credit">${money(L.reduce((a,x)=>a+x.credit,0))}</div></div>
+   <div class="card stat"><div class="k">الباقي عليه</div><div class="v num" style="color:${tot>0?'var(--warn)':'var(--ok)'}">${money(tot)}</div></div></div>
+  ${ci?`<div class="card"><b>التعاقد:</b> ${ci.rolls} توب بخصم ${ci.disc}% · اتسحب <b>${ci.took}</b> توب · باقي <b>${ci.left}</b> توب</div>`:''}
+  <div class="card"><div class="row"><h2 style="margin:0">كشف الحساب</h2><span class="right"></span>
+    ${c.type==='trader'?`<button class="btn sm p" onclick="newInvoice({ctype:'trader',custId:'${c.id}',customer:${esc(JSON.stringify(c.name))},phone:${esc(JSON.stringify(c.phone||''))},address:${esc(JSON.stringify(c.address||''))}})">+ سحب بضاعة</button>
+      <button class="btn sm" onclick="traderPay('${c.id}')">+ دفعة</button>`
+     :`<button class="btn sm p" onclick="newInvoice({ctype:'retail',custId:'${c.id}',customer:${esc(JSON.stringify(c.name))},phone:${esc(JSON.stringify(c.phone||''))},address:${esc(JSON.stringify(c.address||''))}})">+ فاتورة</button>`}</div>
+   ${L.length?L.map(x=>`${c.type==='trader'?`<div class="ln-title"><h3>حساب ${LINES[x.line]}</h3><span class="tag ${x.debit-x.credit>0?'bad':'ok'}">باقي ${money(x.debit-x.credit)}</span></div>`:''}
+    <table class="t"><tr><th>التاريخ</th><th>البيان</th><th>عليه</th><th>دفع</th><th>الرصيد</th></tr>
+    ${x.rows.map(r=>`<tr class="click" onclick="go('inv','${r.inv}')"><td class="num">${arDate(r.date)}</td><td>${esc(r.desc)}</td><td class="num">${r.debit?money(r.debit):''}</td><td class="num credit">${r.credit?money(r.credit):''}</td><td class="num bal">${money(r.bal)}</td></tr>`).join('')}</table>`).join('')
+    :'<div class="empty">مفيش حركات</div>'}
+  </div>`}
+function traderPay(cid){const c=DB.customers[cid];
+  openModal(`<h2>دفعة من ${esc(c.name)}</h2>
+  <label class="f">على حساب</label><div class="seg" id="tpL" style="margin-bottom:12px">${['tulle','stretch','lace'].map((l,ix)=>`<button class="${ix===0?'on':''}" data-l="${l}" onclick="[...this.parentNode.children].forEach(b=>b.classList.remove('on'));this.classList.add('on')">${LINES[l]}</button>`).join('')}</div>
+  <div class="grid g2"><div><label class="f">المبلغ</label><input class="i num" type="number" id="tpA"></div><div><label class="f">التاريخ</label><input class="i" type="date" id="tpD" value="${today()}"></div></div>
+  <div style="margin-top:12px"><label class="f">الطريقة</label><select class="i" id="tpM">${METHODS.map(m=>`<option>${m}</option>`).join('')}</select></div>
+  <div class="row" style="margin-top:20px;justify-content:flex-end"><button class="btn" onclick="closeModal()">إلغاء</button><button class="btn p" onclick="saveTraderPay('${cid}')">حفظ</button></div>`)}
+function saveTraderPay(cid){const c=DB.customers[cid],a=n(document.getElementById('tpA').value);if(a<=0)return toast('اكتب المبلغ');
+  const line=document.querySelector('#tpL .on').dataset.l,d=document.getElementById('tpD').value||today(),m=document.getElementById('tpM').value;
+  const inv={id:uid(),no:nextNo(),date:d,customer:c.name,phone:c.phone,address:c.address,custId:c.id,ctype:'trader',line,rep:'',items:[],
+    discType:'none',discValue:0,payments:[{id:uid(),date:d,amount:a,method:m,by:DEV?DEV.name:''}],method:m,notes:'',note:'دفعة',
+    seller:DEV?DEV.name:'',device:DEV?DEV.letter:'',createdAt:new Date().toISOString(),deleted:false};
+  calc(inv,c);put('invoices',inv);closeModal();toast('اتسجلت الدفعة ✓');render()}
+function custModal(id){const c=id?DB.customers[id]:{type:'retail'};
+  openModal(`<h2>${id?'تعديل عميل':'عميل جديد'}</h2>
+  <div class="grid g2"><div><label class="f">الاسم</label><input class="i" id="cN" value="${esc(c.name||'')}"></div><div><label class="f">الموبايل</label><input class="i num" id="cP" value="${esc(c.phone||'')}"></div></div>
+  <div style="margin-top:12px"><label class="f">العنوان</label><input class="i" id="cA" value="${esc(c.address||'')}"></div>
+  <div style="margin-top:12px"><label class="f">النوع</label><select class="i" id="cT" onchange="document.getElementById('cK').style.display=this.value==='trader'?'':'none'"><option value="retail" ${c.type!=='trader'?'selected':''}>عميل / أتيليه</option><option value="trader" ${c.type==='trader'?'selected':''}>تاجر</option></select></div>
+  <div class="grid g2" id="cK" style="margin-top:12px;${c.type==='trader'?'':'display:none'}"><div><label class="f">متعاقد على كام توب</label><input class="i num" type="number" id="cR" value="${esc(c.contractRolls||'')}"></div><div><label class="f">خصم التعاقد %</label><input class="i num" type="number" id="cD" value="${esc(c.contractDisc||'')}"></div></div>
+  <div class="row" style="margin-top:20px;justify-content:flex-end"><button class="btn" onclick="closeModal()">إلغاء</button><button class="btn p" onclick="saveCust('${id||''}')">حفظ</button></div>`)}
+function saveCust(id){const name=document.getElementById('cN').value.trim();if(!name)return toast('اكتب الاسم');
+  const old=id?DB.customers[id]:null;const c=Object.assign(old?clone(old):{id:uid()},{name,phone:document.getElementById('cP').value.trim(),address:document.getElementById('cA').value.trim(),
+   type:document.getElementById('cT').value,contractRolls:n(document.getElementById('cR').value),contractDisc:n(document.getElementById('cD').value)});
+  // keep old invoices linked if name/phone changed
+  if(old)active().forEach(i=>{const x=custOfInv(i);if(x&&x.id===old.id&&!i.custId){const j=clone(i);j.custId=old.id;put('invoices',j)}});
+  put('customers',c);closeModal();toast('اتحفظ ✓');id?render():go('cust',c.id)}
+
+/* ================= more / settings ================= */
+function vMore(el){const s=S(),cfg=lsGet(LS_SYNC)||{};
+  const trashN=Object.values(DB.invoices).filter(i=>i.deleted).length;
+  el.innerHTML=`<h1>المزيد</h1><p class="sub">الجهاز ده: ${DEV?esc(DEV.name)+' ('+esc(DEV.letter)+')':'—'} · <a href="#" onclick="setupDevice(true);return false">تغيير</a></p>
+  <div class="grid g2">
+  <div class="card"><h2>الأسعار</h2>
+   <div class="grid g3"><div><label class="f">توب 160 سم</label><input class="i num" type="number" id="sP1" value="${s.price160}"></div>
+   <div><label class="f">توب 3 متر</label><input class="i num" type="number" id="sP3" value="${s.price3m}"></div>
+   <div><label class="f">توب استرتش</label><input class="i num" type="number" id="sPs" value="${s.stretchPrice}"></div></div>
+   <label class="f" style="margin-top:12px">شرايح خصم التل (من كام توب = كام %)، كل شريحة في سطر</label>
+   <textarea class="i num" id="sT" rows="5" dir="ltr">${s.tiers.map(t=>t.min+'='+t.pct).join('\n')}</textarea>
+   <label class="f" style="margin-top:12px">شرايح خصم الاسترتش</label>
+   <textarea class="i num" id="sTs" rows="3" dir="ltr">${s.stretchTiers.map(t=>t.min+'='+t.pct).join('\n')}</textarea>
+   <label class="f" style="margin-top:12px">أسماء السيلز (كل اسم في سطر)</label>
+   <textarea class="i" id="sR" rows="4">${s.reps.join('\n')}</textarea>
+   <label class="f" style="margin-top:12px">أسماء الألوان (رقم=اسم)</label>
+   <textarea class="i" id="sC" rows="6">${esc(s.colors)}</textarea>
+   <div class="row" style="margin-top:14px"><button class="btn p" onclick="saveSet()">حفظ الإعدادات</button></div></div>
+  <div>
+   <div class="card"><h2>المزامنة بين اللابتوبات</h2>
+    <p class="muted" style="font-size:13px">كل لابتوب بيحفظ فواتيره عنده وبيشتغل من غير نت. أول ما النت يكون موجود، اللابتوبات بتتزامن مع بعض لوحدها.</p>
+    <label class="f">مكان البيانات</label><input class="i" id="yR" dir="ltr" placeholder="luvinatex/luvina-invoices-data" value="${esc(cfg.repo||'')}">
+    <label class="f" style="margin-top:10px">كود المزامنة</label><input class="i" id="yT" dir="ltr" type="password" placeholder="github_pat_..." value="${esc(cfg.token||'')}">
+    <div class="row" style="margin-top:12px"><button class="btn p" onclick="saveSync()">حفظ وتزامن دلوقتي</button><span class="muted" style="font-size:13px">${cfg.last?'آخر مزامنة: '+new Date(cfg.last).toLocaleString('ar-EG'):''}</span></div></div>
+   <div class="card"><h2>نسخة احتياطية</h2><p class="muted" style="font-size:13px">نزّل نسخة من وقت للتاني واحتفظ بيها في مكان تاني. الاستيراد بيدمج النسخة مع اللي موجود من غير ما يمسح حاجة.</p>
+    <div class="row"><button class="btn" onclick="exportBackup()">تنزيل نسخة</button><label class="btn">استيراد نسخة<input type="file" accept=".json" style="display:none" onchange="importBackup(this.files[0])"></label></div></div>
+   <div class="card"><div class="row"><h2 style="margin:0">سلة المحذوفات</h2><span class="tag">${trashN}</span><button class="btn sm right" onclick="go('trash')">افتح</button></div></div>
+  </div></div>`}
+function parseTiers(t){return t.split('\n').map(l=>l.split(/[=:\s]+/).map(Number)).filter(a=>a.length>=2&&a[0]>0).map(([min,pct])=>({min,pct})).sort((a,b)=>a.min-b.min)}
+function saveSet(){saveSettings({price160:n(sP1.value),price3m:n(sP3.value),stretchPrice:n(sPs.value),tiers:parseTiers(sT.value),stretchTiers:parseTiers(sTs.value),
+  reps:sR.value.split('\n').map(x=>x.trim()).filter(Boolean),colors:sC.value.trim()});toast('اتحفظت الإعدادات ✓')}
+function vTrash(el){const t=Object.values(DB.invoices).filter(i=>i.deleted).sort(byDate).reverse();
+  el.innerHTML=`<div class="row"><h1>سلة المحذوفات</h1><button class="btn right" onclick="go('more')">رجوع</button></div><p class="sub">افتح أي فاتورة وتقدر ترجّعها</p><div class="card">${invTable(t)}</div>`}
+function exportBackup(){const blob=new Blob([JSON.stringify({db:DB},null,0)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='luvina-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function importBackup(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const j=JSON.parse(r.result);const d=j.db||j;if(!d.invoices)throw 0;
+  DB=merge(DB,{invoices:d.invoices,customers:d.customers||{},settings:d.settings||{}});persist();toast('اتدمجت النسخة ✓');render()}catch(e){toast('الملف ده مش نسخة صحيحة')}};r.readAsText(f)}
+
+/* ================= device setup ================= */
+function setupDevice(force){if(document.getElementById('mbg')&&!force)return;
+  const used={};Object.values(DB.invoices).forEach(i=>{if(i.device)used[i.device]=(used[i.device]||0)+1});
+  openModal(`<h2>اللابتوب ده بتاع مين؟</h2><p class="muted" style="margin-top:-6px">بنسأل مرة واحدة بس، عشان نعرف كل فاتورة اتعملت منين.</p>
+  <label class="f">الاسم</label><input class="i" id="dN" value="${esc(DEV?DEV.name:'')}" placeholder="محمود / منى / دعاء">
+  <label class="f" style="margin-top:12px">حرف الجهاز (كل لابتوب حرف مختلف)</label>
+  <div class="seg" id="dL">${['A','B','C','D'].map(L=>`<button class="${(DEV?DEV.letter:'A')===L?'on':''}" data-l="${L}" onclick="[...this.parentNode.children].forEach(b=>b.classList.remove('on'));this.classList.add('on')">${L}${used[L]?` <small class="muted">(${used[L]})</small>`:''}</button>`).join('')}</div>
+  <p class="muted" style="font-size:12px">اقتراح: محمود A · منى B · دعاء C</p>
+  <div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn p" onclick="saveDevice()">تمام</button></div>`)}
+function saveDevice(){const name=document.getElementById('dN').value.trim();if(!name)return toast('اكتب الاسم');
+  DEV={name,letter:document.querySelector('#dL .on').dataset.l};lsSet(LS_DEV,DEV);closeModal();render()}
+
+/* ================= print ================= */
+function docHead(){const s=S();return `<div class="dh"><div class="db">LUVINA<small>SWISS TULLE · ${esc(s.site)}</small></div>
+  <div class="dinfo">${esc(s.address)}<br><span dir="ltr">${esc(s.phone)}</span> · ${esc(s.site)}</div></div>`}
+function doPrint(html){document.getElementById('print').innerHTML=`<div class="doc">${html}<div class="foot">شكراً لثقتكم في لوفينا · LUVINA</div></div>`;setTimeout(()=>window.print(),80)}
+function printInvoice(id){const i=DB.invoices[id],r=remOf(i);
+  doPrint(`${docHead()}<div class="meta"><div><b>العميل:</b> ${esc(i.customer)}<br>${i.phone?'<b>موبايل:</b> <span dir="ltr">'+esc(i.phone)+'</span><br>':''}${i.address?'<b>العنوان:</b> '+esc(i.address):''}</div>
+   <div style="text-align:left"><b>التاريخ:</b> ${arDate(i.date)}${i.rep?'<br><b>المسئول:</b> '+esc(i.rep):''}</div></div>
+   ${(i.items||[]).length?`<table><tr><th>الصنف</th><th>العدد</th><th>السعر</th><th>الإجمالي</th></tr>${i.items.map(it=>`<tr><td>${esc(it.name||LINES[it.kind])}</td><td>${it.qty} ${esc(it.unit||'')}</td><td>${money(it.price)}</td><td>${money(it.total)}</td></tr>`).join('')}</table>`:`<p>${esc(itemsSummary(i))}</p>`}
+   <div class="tot"><div><span>المجموع</span><span>${money(i.sub)}</span></div>${n(i.discount)?`<div><span>الخصم ${i.discLabel?'('+esc(i.discLabel)+')':''}</span><span>- ${money(i.discount)}</span></div>`:''}
+   <div class="g"><span>الإجمالي</span><span>${money(i.total)}</span></div><div><span>المدفوع</span><span>${money(paidOf(i))}</span></div><div><span>الباقي</span><span>${money(r)}</span></div></div>
+   ${(i.payments||[]).length>1?`<h4>المدفوعات</h4><table><tr><th>التاريخ</th><th>المبلغ</th><th>الطريقة</th></tr>${i.payments.map(p=>`<tr><td>${arDate(p.date)}</td><td>${money(p.amount)}</td><td>${esc(p.method)}</td></tr>`).join('')}</table>`:''}`)}
+function printStatement(cid){const c=DB.customers[cid],L=stmtLines(c),ci=contractInfo(c);
+  const tot=L.reduce((a,x)=>a+x.debit-x.credit,0);
+  doPrint(`${docHead()}<div class="meta"><div><b>كشف حساب:</b> ${esc(c.name)}<br>${c.phone?'<b>موبايل:</b> <span dir="ltr">'+esc(c.phone)+'</span>':''}</div><div style="text-align:left"><b>حتى تاريخ:</b> ${arDate(today())}</div></div>
+   ${ci?`<p><b>التعاقد:</b> ${ci.rolls} توب بخصم ${ci.disc}% · اتسحب ${ci.took} توب · باقي ${ci.left} توب</p>`:''}
+   ${L.map(x=>`${c.type==='trader'?`<h4>حساب ${LINES[x.line]}</h4>`:''}<table><tr><th>التاريخ</th><th>البيان</th><th>عليه</th><th>دفع</th><th>الرصيد</th></tr>
+    ${x.rows.map(r=>`<tr><td>${arDate(r.date)}</td><td>${esc(r.desc)}</td><td>${r.debit?money(r.debit):''}</td><td>${r.credit?money(r.credit):''}</td><td>${money(r.bal)}</td></tr>`).join('')}
+    <tr><td></td><td><b>الإجمالي</b></td><td><b>${money(x.debit)}</b></td><td><b>${money(x.credit)}</b></td><td><b>${money(x.debit-x.credit)}</b></td></tr></table>`).join('')}
+   <div class="tot"><div class="g"><span>إجمالي الباقي</span><span>${money(tot)}</span></div></div>`)}
+
+/* ================= sync (GitHub private repo, offline-first) ================= */
+let syncing=false,syncTimer=null,syncState={s:'idle',msg:''};
+function scheduleSync(){clearTimeout(syncTimer);syncTimer=setTimeout(syncNow,2500)}
+function merge(a,b){const out={};COLLS.forEach(c=>{const A=(a&&a[c])||{},B=(b&&b[c])||{};out[c]={};
+  new Set([...Object.keys(A),...Object.keys(B)]).forEach(k=>{const x=A[k],y=B[k];out[c][k]=!x?y:!y?x:(n(y.u)>n(x.u)?y:x)})});return out}
+function b64e(str){const b=new TextEncoder().encode(str);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s)}
+function b64d(s){const bin=atob(s.replace(/\s/g,''));const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new TextDecoder().decode(u)}
+async function gh(cfg,path,opt){const r=await fetch('https://api.github.com/repos/'+cfg.repo+path,Object.assign({cache:'no-store'},opt,{headers:Object.assign({'Authorization':'Bearer '+cfg.token,'Accept':'application/vnd.github+json'},(opt||{}).headers||{})}));return r}
+async function syncNow(){const cfg=lsGet(LS_SYNC);
+  if(!cfg||!cfg.repo||!cfg.token){syncState={s:'off',msg:'محفوظ على الجهاز بس'};paintSync();return}
+  if(!navigator.onLine){syncState={s:'wait',msg:'من غير نت — محفوظ على الجهاز'};paintSync();return}
+  if(syncing){scheduleSync();return}syncing=true;syncState={s:'busy',msg:'بيتزامن...'};paintSync();
+  try{for(let t=0;t<4;t++){
+      const g=await gh(cfg,'/contents/data.json');let sha=null,remote=null;
+      if(g.status===200){const j=await g.json();sha=j.sha;let txt;
+        if(j.content&&j.encoding==='base64')txt=b64d(j.content);else{const bl=await gh(cfg,'/git/blobs/'+j.sha);txt=b64d((await bl.json()).content)}
+        remote=JSON.parse(txt)}
+      else if(g.status!==404)throw new Error(g.status===401?'كود المزامنة غلط':'خطأ '+g.status);
+      const merged=merge(DB,remote);const before=JSON.stringify(DB);DB=merged;if(JSON.stringify(DB)!==before){lsSet(LS_DATA,DB);if(!document.getElementById('mbg'))render()}
+      if(remote&&JSON.stringify(merge(remote,{}))===JSON.stringify(merge(DB,{}))){break}
+      const p=await gh(cfg,'/contents/data.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'sync '+(DEV?DEV.name:''),content:b64e(JSON.stringify(DB)),sha:sha||undefined})});
+      if(p.ok)break;if(p.status===409||p.status===422)continue;throw new Error('خطأ '+p.status)}
+    cfg.last=Date.now();lsSet(LS_SYNC,cfg);syncState={s:'ok',msg:'متزامن ✓'}}
+  catch(e){syncState={s:'bad',msg:'المزامنة وقفت — محفوظ على الجهاز'};console.warn(e)}
+  syncing=false;paintSync()}
+function paintSync(){const p=document.getElementById('syncPill');if(!p)return;p.textContent=syncState.msg||'محفوظ على الجهاز';
+  p.className='pill '+(syncState.s==='ok'?'ok':syncState.s==='bad'?'bad':'');p.onclick=()=>{syncNow()}}
+async function saveSync(){const repo=yR.value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,''),token=yT.value.trim();
+  lsSet(LS_SYNC,Object.assign(lsGet(LS_SYNC)||{},{repo,token}));await syncNow();toast(syncState.msg);vMore(view)}
+window.addEventListener('online',syncNow);setInterval(syncNow,60000);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+const view=document.getElementById('view');
+render();syncNow();
+</script>
+</body>
+</html>
